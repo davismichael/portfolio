@@ -33,6 +33,18 @@ export default function OnePlatformPage() {
           ],
         },
         {
+          title: "",
+          type: "image",
+          content: "",
+          images: [
+            {
+              src: "/images/one-platform/01-platform-overview.png",
+              alt: "One Platform overview",
+              caption: "Unified platform bringing together Ranger, Checkpoint, and Sentry",
+            },
+          ],
+        },
+        {
           title: "Product Landscape",
           type: "list",
           content: [
@@ -49,6 +61,18 @@ export default function OnePlatformPage() {
           content: [
             "I started by mapping every user journey across all three core products. The goal was to find the natural intersection points — where an analyst in Ranger would need Checkpoint data, or where a Sentry screening would benefit from Ranger's risk signals.",
             "Working closely with engineering and product, I developed a unified information architecture that preserved each product's depth while creating shared patterns for search, entity profiles, and risk visualization. The key insight was that users think in terms of entities (people and organizations), not products.",
+          ],
+        },
+        {
+          title: "",
+          type: "image",
+          content: "",
+          images: [
+            {
+              src: "/images/one-platform/04-product-landscape.png",
+              alt: "Product landscape and consolidation strategy",
+              caption: "Mapping the product landscape across all Strider intelligence tools",
+            },
           ],
         },
         {
@@ -72,11 +96,40 @@ export default function OnePlatformPage() {
           ],
         },
         {
+          title: "",
+          type: "image",
+          content: "",
+          images: [
+            {
+              src: "/images/one-platform/05-spark-search.png",
+              alt: "Spark AI-powered search experience",
+              caption: "Spark: AI-powered search across all Strider data catalogs",
+            },
+          ],
+        },
+        {
           title: "The Iteration Process",
           type: "text",
           content: [
             "We followed a \"make it, break it, improve it\" methodology. Early designs were reviewed internally, tested with analysts, and refined through multiple rounds. Product naming was a significant effort — transitioning users from familiar brand names (Ranger, Checkpoint, Sentry) to a unified experience required careful communication design.",
             "I worked across the full product organization — coordinating with teams responsible for Shield, Intelligence Center, RFI enhancements, and government-specific requirements to ensure the unified platform served every user segment.",
+          ],
+        },
+        {
+          title: "",
+          type: "image",
+          content: "",
+          images: [
+            {
+              src: "/images/one-platform/02-dashboard.png",
+              alt: "Unified platform dashboard",
+              caption: "Cross-product dashboard with unified risk overview",
+            },
+            {
+              src: "/images/one-platform/03-iteration.png",
+              alt: "Iteration and design process",
+              caption: "Iterating on the unified experience through the make-it-break-it-improve-it cycle",
+            },
           ],
         },
         {
@@ -91,6 +144,23 @@ export default function OnePlatformPage() {
             "Automated RFI research and disambiguation processes",
             "Network visualizations for entity relationships",
             "Open-source software screening for state-sponsored risk",
+          ],
+        },
+        {
+          title: "",
+          type: "image",
+          content: "",
+          images: [
+            {
+              src: "/images/one-platform/07-entity-profile.png",
+              alt: "Entity profile view",
+              caption: "Unified entity profiles aggregating risk signals across all products",
+            },
+            {
+              src: "/images/one-platform/08-risk-analysis.png",
+              alt: "Risk analysis workflow",
+              caption: "Risk analysis and network visualization for entity relationships",
+            },
           ],
         },
         {
