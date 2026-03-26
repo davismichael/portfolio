@@ -1,26 +1,116 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: #ffffff;
+  --color-foreground: #171717;
+  --color-navy: #001e36;
+  --color-lime: #ebffb1;
+  --color-lime-hover: #d4f07a;
+  --color-orange-accent: #ff983b;
+  --color-orange-light: #ffb86c;
+  --color-orange-hover: #e8872f;
+  --color-blue-accent: #95b9ff;
+  --color-light-grey: #f0f0f0;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: #000000;
+  font-family: var(--font-sans);
+}
+
+/* Animated gradient background for hero and CTA */
+.animated-gradient-bg {
+  background: linear-gradient(
+    180deg,
+    #c8d6e5 0%,
+    #d5cfc8 20%,
+    #e0d0be 40%,
+    #eacbaa 60%,
+    #f0c5a0 80%,
+    #f5c49c 100%
+  );
+  background-size: 100% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* CTA gradient - mirrors hero */
+.cta-gradient-bg {
+  background: linear-gradient(
+    180deg,
+    #bcc8d8 0%,
+    #c8ccca 15%,
+    #d5cfc8 30%,
+    #e0d0be 50%,
+    #eacbaa 70%,
+    #f0c5a0 85%,
+    #f5c49c 100%
+  );
+  background-size: 100% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* Orange decorative strip */
+.orange-strip {
+  background: linear-gradient(
+    90deg,
+    #f5c49c 0%,
+    #ff983b 30%,
+    #ffb86c 50%,
+    #ff983b 70%,
+    #f5c49c 100%
+  );
+}
+
+/* Purple-blue gradient for build card */
+.build-card-gradient {
+  background: linear-gradient(
+    135deg,
+    #f0c5a0 0%,
+    #d4a5d0 20%,
+    #a78bfa 40%,
+    #95b9ff 70%,
+    #7dd3fc 100%
+  );
+}
+
+/* Orange gradient for subscription card */
+.subscription-card-gradient {
+  background: linear-gradient(
+    135deg,
+    #ff983b 0%,
+    #ff8533 30%,
+    #ff7a29 50%,
+    #ff6f1f 70%,
+    #e8651a 100%
+  );
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+}
+
+@keyframes typing-cursor {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.typing-cursor::after {
+  content: "|";
+  animation: typing-cursor 1s infinite;
+  color: #9ca3af;
 }
