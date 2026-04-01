@@ -1,74 +1,52 @@
+const Pill = ({ children }: { children: React.ReactNode }) => (
+  <div className="bg-white border border-gray-200 rounded-3xl px-6 py-4 shadow-sm text-base font-medium text-gray-700 text-center leading-snug">
+    {children}
+  </div>
+);
+
 export default function AboutSection() {
   return (
-    <section id="resume" className="bg-white py-20 md:py-28 px-6 md:px-12">
-      <div className="max-w-[900px] mx-auto">
-        {/* Taglines */}
-        <h2
-          className="text-lg md:text-xl font-bold uppercase tracking-[0.15em] leading-relaxed mb-2"
-          style={{ color: "#363636" }}
-        >
-          AI-driven design leader.
-        </h2>
-        <h2
-          className="text-lg md:text-xl font-bold uppercase tracking-[0.15em] leading-relaxed mb-10"
-          style={{ color: "#363636" }}
-        >
-          Builder of products that ship.
-        </h2>
+    <section className="relative bg-white overflow-hidden flex items-center justify-center" style={{ minHeight: "480px", padding: "100px 0" }}>
 
-        {/* Bio */}
-        <p className="text-center text-base md:text-lg leading-relaxed text-[#363636] mb-16 max-w-[700px] mx-auto">
-          I&apos;m a Sr. Director of Product Design and AI product builder. I
-          create digital experiences that exist at the intersection of design
-          strategy, AI, and engineering.
-        </p>
-
-        {/* Divider */}
-        <hr className="border-t border-gray-300 mb-16 max-w-[700px] mx-auto" />
-
-        {/* Skills grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
-          {/* Design & Strategy */}
-          <div className="text-center md:text-left">
-            <h3 className="text-xs font-bold uppercase tracking-[0.2em] mb-6 text-[#363636]">
-              Design &amp; Strategy
-            </h3>
-            <ul className="space-y-2">
-              <li className="text-base font-light text-[#363636]">UI/UX Design</li>
-              <li className="text-base font-light text-[#363636]">Mobile App Design</li>
-              <li className="text-base font-light text-[#363636]">UX Strategy</li>
-              <li className="text-base font-light text-[#363636]">User Flows &amp; Journey Maps</li>
-              <li className="text-base font-light text-[#363636]">Design Systems</li>
-              <li className="text-base font-light text-[#363636]">Motion Design</li>
-            </ul>
-          </div>
-
-          {/* AI & Technical */}
-          <div className="text-center md:text-left">
-            <h3 className="text-xs font-bold uppercase tracking-[0.2em] mb-6 text-[#363636]">
-              AI &amp; Technical
-            </h3>
-            <ul className="space-y-2">
-              <li className="text-base font-light text-[#363636]">AI Product Design</li>
-              <li className="text-base font-light text-[#363636]">Prompt Engineering</li>
-              <li className="text-base font-light text-[#363636]">React Native / Expo</li>
-              <li className="text-base font-light text-[#363636]">Python Automation</li>
-            </ul>
-          </div>
-
-          {/* Research */}
-          <div className="text-center md:text-left">
-            <h3 className="text-xs font-bold uppercase tracking-[0.2em] mb-6 text-[#363636]">
-              Research
-            </h3>
-            <ul className="space-y-2">
-              <li className="text-base font-light text-[#363636]">User Interviews</li>
-              <li className="text-base font-light text-[#363636]">Usability Testing</li>
-              <li className="text-base font-light text-[#363636]">A/B Testing</li>
-            </ul>
-          </div>
-        </div>
+      {/* Left floating pills — hidden on mobile */}
+      <div className="hidden md:block absolute" style={{ left: "16%", top: "18%" }}>
+        <Pill>Research</Pill>
       </div>
+      <div className="hidden md:block absolute" style={{ left: "13%", top: "48%" }}>
+        <Pill>Design<br />Systems</Pill>
+      </div>
+      <div className="hidden md:block absolute" style={{ left: "17%", top: "74%" }}>
+        <Pill>UI/UX</Pill>
+      </div>
+
+      {/* Right floating pills — hidden on mobile */}
+      <div className="hidden md:block absolute" style={{ right: "16%", top: "18%" }}>
+        <Pill>Prototyping</Pill>
+      </div>
+      <div className="hidden md:block absolute" style={{ right: "13%", top: "48%" }}>
+        <Pill>React<br />Native</Pill>
+      </div>
+      <div className="hidden md:block absolute" style={{ right: "17%", top: "74%" }}>
+        <Pill>AI/LLM</Pill>
+      </div>
+
+      {/* Center text */}
+      <div className="relative z-10 max-w-sm mx-auto text-center px-6">
+        <p className="leading-relaxed" style={{ fontSize: "clamp(17px, 1.8vw, 22px)" }}>
+          <span className="text-gray-400">I&apos;m a </span>
+          <span className="font-bold text-gray-900">Sr. Director of Product Design</span>
+          <span className="text-gray-400"> skilled in </span>
+          <span className="font-bold text-gray-900">UI/UX</span>
+          <span className="text-gray-400">, </span>
+          <span className="font-bold text-gray-900">Design Systems</span>
+          <span className="text-gray-400">, </span>
+          <span className="font-bold text-gray-900">Prototyping</span>
+          <span className="text-gray-400">, and </span>
+          <span className="font-bold text-gray-900">AI-powered product building</span>
+          <span className="text-gray-400">.</span>
+        </p>
+      </div>
+
     </section>
   );
 }
