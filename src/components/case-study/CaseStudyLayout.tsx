@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Navigation from "@/components/Navigation";
 
 interface ImageItem {
   src: string;
@@ -40,8 +41,9 @@ export default function CaseStudyLayout({
     <main className="min-h-screen bg-white">
       {/* Hero */}
       <section className={`bg-gradient-to-br ${color} relative overflow-hidden`}>
+        <Navigation />
         <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent" />
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-8 pt-12 pb-20 md:pt-16 md:pb-28">
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-8 pt-28 pb-20 md:pt-32 md:pb-28">
           {/* Back link */}
           <motion.div
             initial={{ opacity: 0, x: -10 }}
@@ -104,7 +106,7 @@ export default function CaseStudyLayout({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight"
+            className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight uppercase tracking-[0.05em]"
           >
             {title}
           </motion.h1>
@@ -149,9 +151,11 @@ export default function CaseStudyLayout({
             transition={{ duration: 0.5, delay: i * 0.05 }}
             className="mb-14"
           >
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              {section.title}
-            </h2>
+            {section.title && (
+              <h2 className="text-xl font-bold text-gray-900 mb-4 uppercase tracking-[0.08em]">
+                {section.title}
+              </h2>
+            )}
 
             {section.type === "quote" ? (
               <blockquote className="border-l-4 border-[#ff983b] pl-5 py-2">
