@@ -1,15 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "Michael | AI Product Builder",
-  description: "I build AI-powered products from zero to launch. Founder of BreakOff & StudioSelf. Let's build something together.",
+  title: "Michael A. Davis | Sr. Director of Product Design",
+  description: "Sr. Director of Product Design and AI product builder. I create digital experiences at the intersection of design strategy, AI, and engineering.",
 };
 
 export default function RootLayout({
@@ -19,9 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} antialiased`}>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

@@ -1,17 +1,15 @@
 import HeroSection from "@/components/sections/HeroSection";
+import AboutSection from "@/components/sections/AboutSection";
 import CaseStudiesSection from "@/components/sections/CaseStudiesSection";
-import ProjectsSection from "@/components/sections/ProjectsSection";
-import SkillsSection from "@/components/sections/SkillsSection";
-import CTAFooter from "@/components/sections/CTAFooter";
+import ContactSection from "@/components/sections/ContactSection";
 
 export default function Home() {
   return (
     <main>
       <HeroSection />
+      <AboutSection />
       <CaseStudiesSection />
-      <ProjectsSection />
-      <SkillsSection />
-      <CTAFooter />
+      <ContactSection />
     </main>
   );
 }
