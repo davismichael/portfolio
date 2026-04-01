@@ -130,7 +130,7 @@ export default function ContactSection() {
             {/* Submit */}
             <button
               type="submit"
-              className="inline-block border-2 border-[#3be8b0] text-[#3be8b0] text-xs font-bold uppercase tracking-[0.2em] px-10 py-4 hover:bg-[#3be8b0] hover:text-black transition-all duration-300 cursor-pointer"
+              className="inline-block border-2 border-gray-400 text-gray-400 text-xs font-bold uppercase tracking-[0.2em] px-10 py-4 hover:bg-gray-400 hover:text-black transition-all duration-300 cursor-pointer"
             >
               Email Me
             </button>
