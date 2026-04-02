@@ -25,15 +25,6 @@ export default function HeroSection() {
         >
           <span className="block">
             I design &amp; build
-            <img
-              src="/images/hero.jpg"
-              alt="Michael Davis"
-              className="inline-block rounded-full object-cover object-top align-middle mx-3 md:mx-4"
-              style={{
-                width: "clamp(56px, 7vw, 96px)",
-                height: "clamp(56px, 7vw, 96px)",
-              }}
-            />
           </span>
           <span className="block">AI-powered products.</span>
         </h1>
