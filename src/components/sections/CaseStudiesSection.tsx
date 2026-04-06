@@ -2,6 +2,15 @@ import Link from "next/link";
 
 const CASE_STUDIES = [
   {
+    title: "BreakOff",
+    subtitle: "FOUNDER & DEVELOPER",
+    description:
+      "A digital wellness app I built to help people take intentional breaks from their devices.",
+    image: "/images/case-studies/breakoff.png",
+    href: "https://breakoff.io",
+    external: true,
+  },
+  {
     title: "One Platform",
     description:
       "As Lead Product Designer, I led the UX consolidation of multiple intelligence products into a single unified platform, redesigning search, entity disambiguation, and risk analysis workflows.",
@@ -50,6 +59,13 @@ export default function CaseStudiesSection() {
 
           {/* Content */}
           <div className="relative z-10">
+            {/* Subtitle / Role */}
+            {study.subtitle && (
+              <p className="text-white/50 text-xs uppercase tracking-[0.25em] mb-4 font-normal">
+                {study.subtitle}
+              </p>
+            )}
+
             {/* Title */}
             <h2
               className="text-white font-bold uppercase tracking-[0.05em] mb-6"
@@ -64,11 +80,22 @@ export default function CaseStudiesSection() {
             </p>
 
             {/* CTA Button */}
-            <Link href={study.href}>
-              <span className="inline-block border border-white text-white text-xs font-normal uppercase tracking-[0.2em] px-10 py-4 hover:bg-white hover:text-black transition-all duration-300 cursor-pointer">
-                Read Case Study
-              </span>
-            </Link>
+            {study.external ? (
+              <a
+                href={study.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block border border-white text-white text-xs font-normal uppercase tracking-[0.2em] px-10 py-4 hover:bg-white hover:text-black transition-all duration-300 cursor-pointer"
+              >
+                Visit BreakOff
+              </a>
+            ) : (
+              <Link href={study.href}>
+                <span className="inline-block border border-white text-white text-xs font-normal uppercase tracking-[0.2em] px-10 py-4 hover:bg-white hover:text-black transition-all duration-300 cursor-pointer">
+                  Read Case Study
+                </span>
+              </Link>
+            )}
           </div>
         </div>
       ))}
