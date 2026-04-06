@@ -8,7 +8,7 @@
   --color-mint-hover: #2bc898;
   --color-body-text: #363636;
   --color-light-grey: #f0f0f0;
-  --font-sans: "Futura", "Century Gothic", "Trebuchet MS", system-ui, sans-serif;
+  --font-sans: var(--font-inter), "Inter", system-ui, sans-serif;
 }
 
 html {
@@ -19,10 +19,9 @@ body {
   background: #ffffff;
   color: #363636;
   font-family: var(--font-sans);
-  font-weight: 300;
-  font-size: 20px;
-  letter-spacing: 0.06em;
-  line-height: 1.65em;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.7em;
   font-style: normal;
 }
 
