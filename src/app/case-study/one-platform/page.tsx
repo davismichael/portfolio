@@ -121,9 +121,9 @@ export default function OnePlatformPage() {
           content: "",
           images: [
             {
-              src: "/images/one-platform/02-dashboard.png",
+              src: "/images/case-studies/one-platform/everything-fine.gif",
               alt: "Unified platform dashboard",
-              caption: "Cross-product dashboard with unified risk overview",
+              caption: "EVERYTHING IS FINE",
             },
             {
               src: "/images/one-platform/03-iteration.png",

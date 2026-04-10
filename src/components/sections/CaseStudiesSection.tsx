@@ -42,12 +42,16 @@ const CASE_STUDIES = [
 
 export default function CaseStudiesSection() {
   return (
-    <section id="casestudies">
-      {CASE_STUDIES.map((study) => (
+    <section id="casestudies" className="bg-black">
+      {CASE_STUDIES.map((study, index) => (
         <div
           key={study.title}
           className="relative flex flex-col items-center justify-center text-center px-6 md:px-12 overflow-hidden"
-          style={{ minHeight: "60vh", padding: "80px 24px" }}
+          style={{
+            minHeight: "60vh",
+            padding: "80px 24px",
+            marginTop: index === 0 ? 0 : "40px",
+          }}
         >
           {/* Background image */}
           <div
