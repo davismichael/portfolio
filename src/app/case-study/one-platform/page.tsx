@@ -38,7 +38,7 @@ export default function OnePlatformPage() {
           content: "",
           images: [
             {
-              src: "/images/one-platform/01-platform-overview.png",
+              src: "/images/case-studies/one-platform/unified-platform.gif",
               alt: "One Platform overview",
               caption: "Unified platform bringing together Ranger, Checkpoint, and Sentry",
             },
