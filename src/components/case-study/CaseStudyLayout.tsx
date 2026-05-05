@@ -1,7 +1,10 @@
 "use client";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Navigation from "@/components/Navigation";
+import PresentationMode from "@/components/case-study/PresentationMode";
+import type { Slide } from "@/components/case-study/types";
 
 interface ImageItem {
   src: string;
@@ -12,7 +15,7 @@ interface ImageItem {
 interface Section {
   title: string;
   content: string | string[];
-  type?: "text" | "list" | "quote" | "highlight" | "image";
+  type?: "text" | "list" | "quote" | "highlight" | "image" | "grid";
   images?: ImageItem[];
 }
 
@@ -25,6 +28,8 @@ interface CaseStudyLayoutProps {
   summary: string;
   sections: Section[];
   skills: string[];
+  /** Optional presentation deck. When present, a Play button appears in the hero. */
+  slides?: Slide[];
 }
 
 export default function CaseStudyLayout({
@@ -36,7 +41,10 @@ export default function CaseStudyLayout({
   summary,
   sections,
   skills,
+  slides,
 }: CaseStudyLayoutProps) {
+  const [presentationOpen, setPresentationOpen] = useState(false);
+  const hasSlides = Array.isArray(slides) && slides.length > 0;
   return (
     <main className="min-h-screen" style={{ background: "#0f0f0f" }}>
       {/* Hero */}
@@ -137,6 +145,33 @@ export default function CaseStudyLayout({
               </span>
             ))}
           </motion.div>
+
+          {/* Play presentation */}
+          {hasSlides && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="mt-10"
+            >
+              <button
+                type="button"
+                onClick={() => setPresentationOpen(true)}
+                className="group inline-flex items-center gap-3 rounded-full bg-white text-black pl-2 pr-6 py-2 font-semibold text-sm uppercase tracking-[0.15em] transition-all hover:bg-white/90 focus-visible:outline-2 focus-visible:outline-white"
+                aria-label={`Play ${title} presentation`}
+              >
+                <span className="grid place-items-center size-9 rounded-full bg-black text-white transition-transform group-hover:scale-105">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
+                    <path d="M3.5 2L11 7L3.5 12V2Z" fill="currentColor" />
+                  </svg>
+                </span>
+                <span>Play presentation</span>
+                <span className="text-black/40 text-xs font-medium normal-case tracking-normal">
+                  {slides!.length} slides
+                </span>
+              </button>
+            </motion.div>
+          )}
         </div>
       </section>
 
@@ -197,6 +232,31 @@ export default function CaseStudyLayout({
                   >
                     {text}
                   </p>
+                ))}
+              </div>
+            ) : section.type === "grid" ? (
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {section.images?.map((img, j) => (
+                  <figure
+                    key={j}
+                    className="rounded-xl overflow-hidden border border-white/10 flex flex-col"
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      className="w-full h-auto"
+                      loading="lazy"
+                    />
+                    {img.caption && (
+                      <figcaption
+                        className="px-3 py-3 text-[10px] text-white/50 text-center uppercase tracking-[0.1em] leading-relaxed flex-1"
+                        style={{ background: "#1a1a1a" }}
+                      >
+                        {img.caption}
+                      </figcaption>
+                    )}
+                  </figure>
                 ))}
               </div>
             ) : section.type === "image" ? (
@@ -269,6 +329,15 @@ export default function CaseStudyLayout({
           </Link>
         </motion.div>
       </section>
+
+      {hasSlides && presentationOpen && (
+        <PresentationMode
+          onClose={() => setPresentationOpen(false)}
+          title={title}
+          color={color}
+          slides={slides!}
+        />
+      )}
     </main>
   );
 }
