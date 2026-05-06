@@ -88,7 +88,6 @@ export default async function OnePlatformPage({
     const params = await searchParams;
     return (
       <UnlockScreen
-        color={ONE_PLATFORM_COLOR}
         caseStudyName="One Platform"
         returnTo={ONE_PLATFORM_RETURN_TO}
         error={params.unlock_error === "1"}

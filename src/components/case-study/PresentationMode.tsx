@@ -8,8 +8,6 @@ import type { Slide } from "./types";
 interface PresentationModeProps {
   onClose: () => void;
   title: string;
-  /** The case study's accent gradient — e.g. "from-[#0c0a1f] to-[#1e1b3b]". Cover uses this. */
-  color: string;
   slides: Slide[];
 }
 
@@ -18,7 +16,6 @@ const SWIPE_THRESHOLD = 60;
 export default function PresentationMode({
   onClose,
   title,
-  color,
   slides,
 }: PresentationModeProps) {
   const [index, setIndex] = useState(0);
@@ -95,7 +92,7 @@ export default function PresentationMode({
     }
   };
 
-  // Slide enter/exit motion variants — disabled if user prefers reduced motion
+  // Slide enter/exit motion variants. Disabled if user prefers reduced motion
   const variants = useMemo(
     () => ({
       enter: (dir: 1 | -1) => ({
@@ -123,7 +120,7 @@ export default function PresentationMode({
       ref={containerRef}
       role="dialog"
       aria-modal="true"
-      aria-label={`${title} — presentation`}
+      aria-label={`${title}. Presentation`}
       className="fixed inset-0 z-[200]"
       style={{ background: "#0a0a0a" }}
     >
@@ -172,12 +169,12 @@ export default function PresentationMode({
             onDragEnd={handleDragEnd}
             className="w-full h-full px-4 sm:px-10 cursor-grab active:cursor-grabbing"
           >
-            <SlideView slide={current} color={color} isCover={isCover} />
+            <SlideView slide={current} isCover={isCover} />
           </motion.div>
         </AnimatePresence>
       </div>
 
-      {/* Side controls — desktop only, below header */}
+      {/* Side controls. Desktop only, below header */}
       <button
         type="button"
         onClick={prev}
@@ -255,16 +252,13 @@ export default function PresentationMode({
 
 interface SlideViewProps {
   slide: Slide;
-  color: string;
   isCover: boolean;
 }
 
-function SlideView({ slide, color, isCover }: SlideViewProps) {
+function SlideView({ slide, isCover }: SlideViewProps) {
   if (isCover) {
     return (
-      <div
-        className={`relative w-full h-full rounded-2xl overflow-hidden bg-gradient-to-br ${color} flex flex-col justify-end`}
-      >
+      <div className="relative w-full h-full rounded-2xl overflow-hidden bg-black flex flex-col justify-end">
         {slide.image && (
           <div
             className="absolute inset-0 bg-cover bg-center opacity-30"
@@ -272,7 +266,6 @@ function SlideView({ slide, color, isCover }: SlideViewProps) {
             aria-hidden
           />
         )}
-        <div className="absolute inset-0 bg-black/30" aria-hidden />
         <div className="relative z-10 max-w-3xl px-8 sm:px-14 pb-14 sm:pb-20">
           <div className="h-px w-12 bg-white/70 mb-8" aria-hidden />
           <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white leading-tight tracking-tight mb-6">
@@ -288,23 +281,23 @@ function SlideView({ slide, color, isCover }: SlideViewProps) {
     );
   }
 
-  // Non-cover slides: clean light editorial layout, like the LinkedIn carousel reference
+  // Non-cover slides: pure white with black type and accents
   return (
-    <div className="relative w-full h-full rounded-2xl overflow-hidden bg-[#f4f3ee] flex">
+    <div className="relative w-full h-full rounded-2xl overflow-hidden bg-white flex">
       <div className="w-full max-w-6xl mx-auto px-6 sm:px-12 md:px-16 py-10 md:py-16 flex flex-col">
         <div className="flex items-start justify-between mb-6 md:mb-10">
-          <div className="h-1 w-10 bg-blue-600" aria-hidden />
-          <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] text-blue-700">
+          <div className="h-1 w-10 bg-black" aria-hidden />
+          <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] text-neutral-700">
             {labelForKind(slide.kind)}
           </span>
         </div>
 
-        <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-neutral-900 leading-[1.1] tracking-tight mb-5 md:mb-8 max-w-4xl">
+        <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-black leading-[1.1] tracking-tight mb-5 md:mb-8 max-w-4xl">
           {slide.title}
         </h2>
 
         {slide.subtext && (
-          <p className="text-neutral-700 text-base sm:text-lg md:text-xl leading-relaxed font-light max-w-3xl mb-8">
+          <p className="text-neutral-800 text-base sm:text-lg md:text-xl leading-relaxed font-light max-w-3xl mb-8">
             {slide.subtext}
           </p>
         )}
@@ -333,18 +326,33 @@ function SlideView({ slide, color, isCover }: SlideViewProps) {
 
 function labelForKind(kind: Slide["kind"]): string {
   switch (kind) {
-    case "context":
-      return "Context";
     case "problem":
       return "Problem";
+    case "research":
+      return "Research";
+    case "insight":
+      return "Insight";
+    case "constraints":
+      return "Constraints";
+    case "exploration":
+      return "Exploration";
+    case "design":
+      return "Design";
+    case "testing":
+      return "Testing";
+    case "iteration":
+      return "Iteration";
+    case "outcome":
+    case "result":
+      return "Outcome";
+    case "reflection":
+      return "Reflection";
+    case "context":
+      return "Context";
     case "decision":
       return "Decision";
     case "solution":
       return "Solution";
-    case "result":
-      return "Result";
-    case "reflection":
-      return "Reflection";
     default:
       return "";
   }

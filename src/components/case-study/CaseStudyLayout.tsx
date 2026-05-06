@@ -48,19 +48,24 @@ export default function CaseStudyLayout({
   return (
     <main className="min-h-screen" style={{ background: "#0f0f0f" }}>
       {/* Hero */}
-      <section className={`bg-gradient-to-br ${color} relative overflow-hidden`}>
+      <section className="relative overflow-hidden" style={{ background: "#f4f3ee" }}>
         <Navigation />
-        <div className="absolute inset-0 bg-black/30" />
+        {/* Accent stripe at the very top, using the case study's color */}
+        <div
+          aria-hidden
+          className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${color}`}
+        />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-8 pt-28 pb-20 md:pt-32 md:pb-28">
-          {/* Back link */}
+          {/* Top bar: back link + play presentation */}
           <motion.div
-            initial={{ opacity: 0, x: -10 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: -6 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
+            className="flex items-center justify-between gap-3 mb-12"
           >
             <Link
-              href="/#case-studies"
-              className="inline-flex items-center gap-2 text-white/60 hover:text-white text-xs font-medium uppercase tracking-[0.15em] transition-colors mb-12 group"
+              href="/#my-work"
+              className="inline-flex items-center gap-2 text-neutral-500 hover:text-neutral-900 text-xs font-medium uppercase tracking-[0.15em] transition-colors group"
             >
               <svg
                 width="16"
@@ -77,32 +82,59 @@ export default function CaseStudyLayout({
                   strokeLinejoin="round"
                 />
               </svg>
-              Back to all work
+              <span className="hidden sm:inline">Back to all work</span>
+              <span className="sm:hidden">Back</span>
             </Link>
+
+            {hasSlides && (
+              <button
+                type="button"
+                onClick={() => setPresentationOpen(true)}
+                className="group inline-flex items-center gap-2 rounded-full bg-neutral-900 text-white pl-1.5 pr-4 sm:pr-5 py-1.5 font-semibold text-xs uppercase tracking-[0.15em] transition-all hover:bg-neutral-800 focus-visible:outline-2 focus-visible:outline-neutral-900"
+                aria-label={`Play ${title} presentation`}
+              >
+                <span className="grid place-items-center size-7 rounded-full bg-white text-neutral-900 transition-transform group-hover:scale-105">
+                  <svg width="10" height="10" viewBox="0 0 14 14" fill="none" aria-hidden>
+                    <path d="M3.5 2L11 7L3.5 12V2Z" fill="currentColor" />
+                  </svg>
+                </span>
+                <span className="hidden sm:inline">Play presentation</span>
+                <span className="sm:hidden">Play</span>
+              </button>
+            )}
           </motion.div>
+
+          {/* Accent line, picks up the case study color */}
+          <motion.div
+            initial={{ opacity: 0, scaleX: 0 }}
+            animate={{ opacity: 1, scaleX: 1 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className={`h-1 w-12 bg-gradient-to-r ${color} mb-8 origin-left`}
+            aria-hidden
+          />
 
           {/* Meta */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
             className="flex flex-wrap items-center gap-3 mb-6"
           >
-            <span className="text-xs font-semibold text-white/60 uppercase tracking-[0.2em]">
+            <span className="text-xs font-semibold text-neutral-700 uppercase tracking-[0.2em]">
               {role}
             </span>
             {company && (
               <>
-                <span className="text-white/30">—</span>
-                <span className="text-xs font-semibold text-white/60 uppercase tracking-[0.2em]">
+                <span className="text-neutral-400">·</span>
+                <span className="text-xs font-semibold text-neutral-700 uppercase tracking-[0.2em]">
                   {company}
                 </span>
               </>
             )}
             {timeline && (
               <>
-                <span className="text-white/30">—</span>
-                <span className="text-xs font-medium text-white/40 uppercase tracking-[0.2em]">
+                <span className="text-neutral-400">·</span>
+                <span className="text-xs font-medium text-neutral-500 uppercase tracking-[0.2em]">
                   {timeline}
                 </span>
               </>
@@ -114,7 +146,7 @@ export default function CaseStudyLayout({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight uppercase tracking-[0.05em]"
+            className="text-4xl sm:text-5xl md:text-6xl font-bold text-neutral-900 mb-6 leading-tight tracking-tight"
           >
             {title}
           </motion.h1>
@@ -124,7 +156,7 @@ export default function CaseStudyLayout({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-lg sm:text-xl text-white/70 leading-relaxed max-w-3xl font-light"
+            className="text-lg sm:text-xl text-neutral-700 leading-relaxed max-w-3xl font-light"
           >
             {summary}
           </motion.p>
@@ -139,39 +171,12 @@ export default function CaseStudyLayout({
             {skills.map((skill) => (
               <span
                 key={skill}
-                className="text-xs font-medium bg-black/25 text-white/80 rounded-full px-3 py-1.5 backdrop-blur-sm uppercase tracking-[0.1em]"
+                className="text-xs font-medium bg-white border border-neutral-200 text-neutral-700 rounded-full px-3 py-1.5 uppercase tracking-[0.1em]"
               >
                 {skill}
               </span>
             ))}
           </motion.div>
-
-          {/* Play presentation */}
-          {hasSlides && (
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-              className="mt-10"
-            >
-              <button
-                type="button"
-                onClick={() => setPresentationOpen(true)}
-                className="group inline-flex items-center gap-3 rounded-full bg-white text-black pl-2 pr-6 py-2 font-semibold text-sm uppercase tracking-[0.15em] transition-all hover:bg-white/90 focus-visible:outline-2 focus-visible:outline-white"
-                aria-label={`Play ${title} presentation`}
-              >
-                <span className="grid place-items-center size-9 rounded-full bg-black text-white transition-transform group-hover:scale-105">
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
-                    <path d="M3.5 2L11 7L3.5 12V2Z" fill="currentColor" />
-                  </svg>
-                </span>
-                <span>Play presentation</span>
-                <span className="text-black/40 text-xs font-medium normal-case tracking-normal">
-                  {slides!.length} slides
-                </span>
-              </button>
-            </motion.div>
-          )}
         </div>
       </section>
 
@@ -308,7 +313,7 @@ export default function CaseStudyLayout({
           className="border-t border-white/10 pt-12 mt-16"
         >
           <Link
-            href="/#case-studies"
+            href="/#my-work"
             className="inline-flex items-center gap-2 bg-white text-black rounded-full px-8 py-3.5 font-semibold text-sm uppercase tracking-[0.15em] transition-all duration-200 hover:bg-white/90"
           >
             <svg
@@ -334,7 +339,6 @@ export default function CaseStudyLayout({
         <PresentationMode
           onClose={() => setPresentationOpen(false)}
           title={title}
-          color={color}
           slides={slides!}
         />
       )}

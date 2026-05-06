@@ -38,7 +38,7 @@ export default function HeroSection() {
             Let&apos;s work together
           </a>
           <a
-            href="#casestudies"
+            href="#my-work"
             className="border border-white/40 text-white text-xs font-bold uppercase tracking-[0.2em] px-8 py-3.5 rounded-full hover:border-white/80 hover:bg-white/5 transition-all duration-200"
           >
             Explore my work ↓

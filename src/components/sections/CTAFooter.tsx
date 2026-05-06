@@ -20,7 +20,7 @@ export default function CTAFooter() {
         <FadeInOnScroll delay={0.15}>
           <p className="text-lg sm:text-xl text-black/50 mb-10 max-w-xl">
             Whether you need an AI product built, a technical co-founder,
-            or someone who ships — I&apos;m open to new projects.
+            or someone who ships. I&apos;m open to new projects.
           </p>
         </FadeInOnScroll>
 

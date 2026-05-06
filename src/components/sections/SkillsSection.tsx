@@ -6,7 +6,7 @@ const SKILL_AREAS = [
   {
     title: "AI Orchestration",
     description:
-      "I design multi-model pipelines — Gemini for reasoning, Grok for generation, custom agents for automation. Not just API calls, but full architectures that deliver production-quality results.",
+      "I design multi-model pipelines. Gemini for reasoning, Grok for generation, custom agents for automation. Not just API calls, but full architectures that deliver production-quality results.",
     items: ["Gemini API", "Grok API", "LLM Pipelines", "Prompt Engineering", "ComfyUI"],
   },
   {
@@ -18,7 +18,7 @@ const SKILL_AREAS = [
   {
     title: "Product & Growth",
     description:
-      "I think in user journeys and conversion funnels, not just features. SEO, content strategy, and retention loops are part of how I build — not afterthoughts.",
+      "I think in user journeys and conversion funnels, not just features. SEO, content strategy, and retention loops are part of how I build. Not afterthoughts.",
     items: ["Product Strategy", "SEO / GEO", "Content Systems", "Conversion Optimization"],
   },
 ];

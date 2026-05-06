@@ -8,7 +8,7 @@ export default function AboutSection() {
   return (
     <section className="relative bg-white overflow-hidden flex items-center justify-center" style={{ minHeight: "480px", padding: "100px 0" }}>
 
-      {/* Left floating pills — hidden on mobile */}
+      {/* Left floating pills. Hidden on mobile */}
       <div className="hidden md:block absolute" style={{ left: "16%", top: "18%" }}>
         <Pill>Research</Pill>
       </div>
@@ -19,7 +19,7 @@ export default function AboutSection() {
         <Pill>UI/UX</Pill>
       </div>
 
-      {/* Right floating pills — hidden on mobile */}
+      {/* Right floating pills. Hidden on mobile */}
       <div className="hidden md:block absolute" style={{ right: "16%", top: "18%" }}>
         <Pill>Prototyping</Pill>
       </div>

@@ -1,15 +1,28 @@
 // Slide shape used by <PresentationMode>. Authored per case study and passed
 // through CaseStudyLayout. Keep this in sync with skills/case-study-builder/
 // references/slide-template.md.
+//
+// The slide kinds follow the canonical live-walkthrough story arc for a
+// senior product designer interview. See live_presentation_research.md.
 
 export type SlideKind =
+  // Live-walkthrough vocabulary (preferred for new decks)
   | "cover"
-  | "context"
   | "problem"
+  | "research"
+  | "insight"
+  | "constraints"
+  | "exploration"
+  | "design"
+  | "testing"
+  | "iteration"
+  | "outcome"
+  | "reflection"
+  // Legacy kinds. Kept compiling existing decks until they're rewritten
+  | "context"
   | "decision"
   | "solution"
-  | "result"
-  | "reflection";
+  | "result";
 
 export interface Slide {
   /** ≤60 chars, can wrap to two lines on screen */
@@ -20,6 +33,6 @@ export interface Slide {
   image?: string | null;
   /** Optional caption shown below the image on content slides */
   caption?: string;
-  /** Drives slide chrome (cover gets the gradient, content slides go light) */
+  /** Drives the small label and the slide's role in the story arc */
   kind: SlideKind;
 }

@@ -98,7 +98,6 @@ export default async function NewProductPage({
     const params = await searchParams;
     return (
       <UnlockScreen
-        color={COLOR}
         caseStudyName="New Product"
         returnTo={RETURN_TO}
         error={params.unlock_error === "1"}
