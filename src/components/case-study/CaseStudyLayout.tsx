@@ -28,6 +28,8 @@ interface CaseStudyLayoutProps {
   summary: string;
   sections: Section[];
   skills: string[];
+  /** Optional status badge rendered prominently near the title (e.g. "In Progress"). */
+  status?: string;
   /** Optional presentation deck. When present, a Play button appears in the hero. */
   slides?: Slide[];
 }
@@ -41,6 +43,7 @@ export default function CaseStudyLayout({
   summary,
   sections,
   skills,
+  status,
   slides,
 }: CaseStudyLayoutProps) {
   const [presentationOpen, setPresentationOpen] = useState(false);
@@ -140,6 +143,21 @@ export default function CaseStudyLayout({
               </>
             )}
           </motion.div>
+
+          {/* Status badge (e.g. "In Progress") */}
+          {status && (
+            <motion.div
+              initial={{ opacity: 0, y: -6 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.18 }}
+              className="inline-flex items-center gap-2 rounded-full bg-amber-100 border border-amber-300 px-3.5 py-1.5 mb-4"
+            >
+              <span className="size-1.5 rounded-full bg-amber-500 animate-pulse" aria-hidden />
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-amber-900">
+                {status}
+              </span>
+            </motion.div>
+          )}
 
           {/* Title */}
           <motion.h1

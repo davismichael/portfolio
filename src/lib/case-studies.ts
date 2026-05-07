@@ -4,9 +4,10 @@ import type { CaseStudy } from "@/components/sections/CaseStudyGrid";
 // most-recent → least-recent.
 export const MY_WORK: CaseStudy[] = [
   {
-    title: "New Product",
+    title: "AI Product",
+    inProgress: true,
     description:
-      "A confidential rebuild of a mature product as an AI operating system. Sole Designer + PM, with a custom stack of AI agents standing in for the team I didn't have.",
+      "A confidential AI-native rebuild of a mature intelligence product. Solo Designer + PM, twelve weeks. The new product turns search into synthesis, runs agents to keep client profiles current, and lets users author markdown skills that shape what the system prioritizes. Prototyped in Claude with real data through MCP, shipped React via Subframe.",
     image: "/images/case-studies/iris.png",
     href: "/case-study/new-product",
     locked: true,

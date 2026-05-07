@@ -21,6 +21,8 @@ export interface CaseStudy {
   locked?: boolean;
   /** When true, render as a "coming soon" tease (placeholder copy, dimmer card, click goes nowhere). */
   comingSoon?: boolean;
+  /** When true, render an "In Progress" badge above the title. */
+  inProgress?: boolean;
 }
 
 interface CaseStudyGridProps {
@@ -145,7 +147,16 @@ export default async function CaseStudyGrid({
 
             {/* Content */}
             <div className="relative z-10">
-              {study.subtitle && (
+              {study.inProgress && (
+                <div className="inline-flex items-center gap-2 rounded-full bg-amber-400/15 border border-amber-400/40 px-4 py-2 mb-5">
+                  <span className="size-1.5 rounded-full bg-amber-400 animate-pulse" aria-hidden />
+                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-amber-300">
+                    In Progress
+                  </span>
+                </div>
+              )}
+
+              {study.subtitle && !study.inProgress && (
                 <p className="text-white/50 text-xs uppercase tracking-[0.25em] mb-4 font-normal">
                   {study.subtitle}
                 </p>
