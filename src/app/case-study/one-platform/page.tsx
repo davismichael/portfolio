@@ -17,57 +17,79 @@ const SLIDES: Slide[] = [
     kind: "cover",
     title: "One Platform",
     subtext:
-      "Consolidating Strider's intelligence suite into one risk language.",
-    image: null,
-  },
-  {
-    kind: "result",
-    title: "Faster ramp. Fewer support tickets. One risk language.",
-    subtext:
-      "Three products with three different risk vocabularies became one. The same signal meant the same thing across the entire suite.",
-    image: null,
-  },
-  {
-    kind: "context",
-    title: "Staff-shape work for around 100 high-privilege analysts.",
-    subtext:
-      "Sr. Product Designer with PM scope. Shaped strategy through POCs, handed execution to another designer, PM'd the engineering build.",
+      "Consolidating Strider's intelligence suite into one risk language. Sr. Product Designer with PM scope, 2024 to 2025.",
     image: null,
   },
   {
     kind: "problem",
-    title: "Three products, three different risk languages.",
+    title: "Four products, four different risk languages.",
     subtext:
-      "The same entity could look critical in one product and clean in another. Analysts had to know which product to trust for which question.",
+      "Ranger, Checkpoint, Shield, and Sentry each had their own UI, vocabulary, and risk model. The same entity could look critical in one product and clean in another.",
+    image: "/images/case-studies/one-platform/deck/problem.jpg",
+    caption: "The four products before consolidation",
+  },
+  {
+    kind: "research",
+    title: "Talked to internal teams and external clients.",
+    subtext:
+      "Surveyed both sides. Internal teams trended neutral to positive. External clients clustered on neutral. The wins were inconsistent across product surfaces.",
+    image: "/images/case-studies/one-platform/deck/research.jpg",
+    caption: "Internal vs external perception of the existing products",
+  },
+  {
+    kind: "insight",
+    title: "Analysts think in topics, not products.",
+    subtext:
+      "Asked how they worked, analysts described it by entity (people, organizations, documents) not by product. That single behavior reframed the entire IA from product-first to entity-first.",
+    image: "/images/case-studies/one-platform/deck/insight.jpg",
+    caption: "The reframe to a unified, topic-based approach",
+  },
+  {
+    kind: "constraints",
+    title: "Keep, rebrand, or sunset every product name.",
+    subtext:
+      "Hard call on each existing brand. Internal teams attached to the names. Clients had purchase orders tied to them. We had to decide which to keep, which to rebrand, which to fold in.",
+    image: "/images/case-studies/one-platform/deck/constraints.jpg",
+    caption: "The keep-or-rebrand decision matrix",
+  },
+  {
+    kind: "exploration",
+    title: "Three strategic directions, mapped on the wall.",
+    subtext:
+      "Stuck up three options end to end. Wrapper-shell, meta-search, entity-first. Every product surface mapped onto each. Walked the team through them and pressure-tested live.",
+    image: "/images/case-studies/one-platform/deck/exploration.jpg",
+    caption: "Three options compared side by side",
+  },
+  {
+    kind: "design",
+    title: "Cross-product entity profile, with Spark embedded.",
+    subtext:
+      "One profile pulls signals from every product. Risk graph, talent flows, cluster groups. Spark AI insights summarize the entity in plain language right inside the panel.",
+    image: "/images/case-studies/one-platform/deck/design.jpg",
+    caption: "The shipped People view, cross-product",
+  },
+  {
+    kind: "testing",
+    title: "Tested with high-privilege analysts on real data.",
+    subtext:
+      "Watched analysts work the new IA against entities they already knew. They found things the old product had missed. Confirmed the entity-first mental model held under real load.",
     image: null,
   },
   {
-    kind: "decision",
-    title: "Rejected a wrapper. Chose entity-first IA.",
+    kind: "iteration",
+    title: "Organizations got the same treatment.",
     subtext:
-      "A meta-shell with shared chrome would have shipped the consolidation problem to the next team. Rebuilding around entities took longer. It actually solved it.",
-    image: null,
+      "Once entity profiles worked for People, we extended the same shape to Organizations. Top risk signals in network, recent searches, geographic distribution. Same language, different lens.",
+    image: "/images/case-studies/one-platform/deck/iteration.jpg",
+    caption: "Organizations view, same IA",
   },
   {
-    kind: "solution",
-    title: "One risk language across the suite.",
+    kind: "outcome",
+    title: "Faster ramp. Fewer support tickets. One language.",
     subtext:
-      "Consolidated signals, scoring, and definitions into a shared vocabulary. Plain names, not marketing names. Risk meant the same thing everywhere.",
-    image: null,
-  },
-  {
-    kind: "solution",
-    title: "Push and pull, one continuous flow.",
-    subtext:
-      "Strider pushes profiles to companies. Companies pull when someone comes up internally. Same data, both directions, one surface. Found in research with both sides.",
-    image: null,
-  },
-  {
-    kind: "result",
-    title: "Every new surface inherits the language.",
-    subtext:
-      "The bigger win was that the consolidated risk vocabulary became the foundation for new product surfaces, instead of each one reinventing its own.",
-    image: null,
+      "The consolidated dashboard is what analysts open first now. The risk vocabulary became the foundation for every new surface, instead of each one reinventing its own.",
+    image: "/images/case-studies/one-platform/deck/outcome.jpg",
+    caption: "Real client deployment, post-consolidation",
   },
   {
     kind: "reflection",

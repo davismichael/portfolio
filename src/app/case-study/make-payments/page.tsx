@@ -12,50 +12,77 @@ const SLIDES: Slide[] = [
     kind: "cover",
     title: "Make Payments",
     subtext:
-      "Athletic Directors paying officials on the field. Lead UX, ArbiterSports.",
-    image: null,
-  },
-  {
-    kind: "result",
-    title: "Paper checks dropped to zero in the pilot district.",
-    subtext:
-      "Athletic Directors pay officials before they leave the field. The 'No ArbiterPay' tag insight seeded the next product feature: in-app sign-up invitations.",
-    image: null,
-  },
-  {
-    kind: "context",
-    title: "Lead UX. Six ADs interviewed at the start.",
-    subtext:
-      "ArbiterSports, March 2022. Mobile-first design replacing a desktop-only payment flow. Goals were consistent across the six interviews: save time on game day and pay accurately on site.",
+      "Athletic Directors paying officials on the field. Lead UX, ArbiterSports, March 2022.",
     image: null,
   },
   {
     kind: "problem",
     title: "Schools kept issuing paper checks.",
     subtext:
-      "Desktop had the tools. The mobile web view didn't match. ADs working game day defaulted to paper, then chased reconciliation after the game ended.",
+      "Desktop had digital payment tools. The mobile web didn't match. ADs working game day defaulted to paper, then chased reconciliation after the game.",
     image: null,
   },
   {
-    kind: "decision",
-    title: "Met ADs where they already were.",
+    kind: "research",
+    title: "Six Athletic Directors interviewed.",
     subtext:
-      "Nine of ten participants went to the Schedule tab first when looking to pay. So payment lived there too, not only in the dedicated Payments tab.",
+      "Goals were consistent across the six: save time on game day, pay accurately on site, handle multiple field tasks at once. We watched them work.",
     image: null,
   },
   {
-    kind: "solution",
-    title: "A 'No ArbiterPay' tag and a single Make Payment button.",
+    kind: "insight",
+    title: "Nine of ten went to Schedule first, not Payments.",
     subtext:
-      "100% recognition on the missing-account tag in testing. A batch-payment CTA replaced desktop-style checkboxes, which tested poorly on mobile.",
+      "Asked to pay an official, ADs opened the Schedule tab where they already were. The dedicated Payments tab got skipped. That single behavior reframed the entry-point question.",
     image: null,
   },
   {
-    kind: "result",
-    title: "The dead-end became the next product.",
+    kind: "constraints",
+    title: "Mobile-first inside a desktop-shaped platform.",
     subtext:
-      "The 'No ArbiterPay' tag created a UX dead end. That insight directly became the next feature: in-app invitations to officials missing accounts.",
+      "Company policy separated payments from scheduling on desktop. Mobile web didn't match desktop functionality. No checkboxes for batch selection on touch. We designed inside those rules.",
     image: null,
+  },
+  {
+    kind: "exploration",
+    title: "Two entry points. Sketched both.",
+    subtext:
+      "Wireframed payment from Schedule and from the Payments tab. Tested the assumption that ADs would split their attention. Research said no. Schedule won.",
+    image:
+      "https://uploads-ssl.webflow.com/5f5d4f87ce11c9f26cedf0a8/62532dfc81a540558b2ec22e_Schedule.png",
+    caption: "Schedule entry sketch",
+  },
+  {
+    kind: "design",
+    title: "A 'No ArbiterPay' tag and one Make Payment button.",
+    subtext:
+      "Tag flags officials missing a pay account. Single batch CTA replaces desktop-style checkboxes that tested poorly on touch. Same surface in Schedule and Payments tab.",
+    image:
+      "https://uploads-ssl.webflow.com/5f5d4f87ce11c9f26cedf0a8/62532eca91163e0955bb3e6d_schedule%20UI.png",
+    caption: "Schedule view with the missing-account tag",
+  },
+  {
+    kind: "testing",
+    title: "100% recognition on the missing-account tag.",
+    subtext:
+      "Every test participant immediately understood 'No ArbiterPay'. Nine of ten still defaulted to Schedule first. Confirmed both entry points were necessary.",
+    image: null,
+  },
+  {
+    kind: "iteration",
+    title: "We kept the dead-end on purpose.",
+    subtext:
+      "Officials with no account couldn't be paid in v1. The tag flagged the dead-end without solving it. We used the testing insight to scope the next feature instead of cramming it into this one.",
+    image: null,
+  },
+  {
+    kind: "outcome",
+    title: "Paper checks dropped to zero in the pilot district.",
+    subtext:
+      "Athletic Directors pay officials before they leave the field. The 'No ArbiterPay' insight seeded the next product feature: in-app sign-up invitations.",
+    image:
+      "https://uploads-ssl.webflow.com/5f5d4f87ce11c9f26cedf0a8/6254f2e24150d1a70aa2f233_payments.png",
+    caption: "Final Payments tab",
   },
   {
     kind: "reflection",
