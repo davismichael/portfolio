@@ -1,8 +1,13 @@
 import type { CaseStudy } from "@/components/sections/CaseStudyGrid";
 
+// Toggle for in-progress case studies. Set SHOW_IN_PROGRESS=true in .env.local
+// to keep them visible while developing. On Vercel the env var is unset so
+// in-progress cards are hidden from the live site.
+const SHOW_IN_PROGRESS = process.env.SHOW_IN_PROGRESS === "true";
+
 // Professional work for companies. Senior-PD case studies, ordered roughly
 // most-recent → least-recent.
-export const MY_WORK: CaseStudy[] = [
+const ALL_WORK: CaseStudy[] = [
   {
     title: "AI Product",
     inProgress: true,
@@ -42,6 +47,10 @@ export const MY_WORK: CaseStudy[] = [
     href: "/case-study/shop-on-live-video",
   },
 ];
+
+export const MY_WORK: CaseStudy[] = ALL_WORK.filter(
+  (study) => !study.inProgress || SHOW_IN_PROGRESS,
+);
 
 // Products Michael built and shipped on his own. Lives on /projects.
 export const PROJECTS: CaseStudy[] = [
