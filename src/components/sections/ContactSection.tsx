@@ -142,9 +142,10 @@ export default function ContactSection() {
               Hey, thanks for checking out my work.
             </p>
             <p className="text-base font-light leading-relaxed text-white/90 mb-6">
-              I&apos;ve been building at the intersection of AI and product
-              design for over a decade. I&apos;m particularly passionate about
-              digital products that use AI to make life easier for people.
+              I&apos;ve been building digital products for over a decade, and
+              more recently I&apos;ve been focused on the intersection of AI and
+              product design. I&apos;m particularly passionate about digital
+              products that use AI to make life easier for people.
             </p>
             <p className="text-base font-light leading-relaxed text-white/90 mb-6">
               What are you working on?
