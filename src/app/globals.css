@@ -13,6 +13,7 @@
 
 html {
   scroll-behavior: smooth;
+  background: #000000;
 }
 
 body {
@@ -23,6 +24,7 @@ body {
   font-size: 18px;
   line-height: 1.7em;
   font-style: normal;
+  overscroll-behavior-y: none;
 }
 
 /* Hero gradient background */
