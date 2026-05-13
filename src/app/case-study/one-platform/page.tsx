@@ -135,13 +135,38 @@ export default async function OnePlatformPage({
       ]}
       slides={SLIDES}
       sections={[
-        // 1. The Change (outcome-first opening)
+        // 1. The Client
         {
-          title: "The Change",
+          title: "The Client",
           type: "text",
           content: [
-            "The product suite used to teach analysts three different vocabularies. Ranger had its own risk signals, Checkpoint had others, Sentry had a third set. The same entity could look high-risk in one product and clean in another. After consolidation, one risk language carried across the entire platform.",
-            "Two outcomes mattered most. New analysts ramped onto the product faster. Support tickets dropped. The vision was bigger than what shipped, and parts got cut on the way (more on that in the reflection), but the core consolidation held.",
+            "Strider Technologies is a risk intelligence platform serving security teams, compliance officers, and government-cleared personnel. The suite had grown product by product over five years. Ranger covered nation-state and personnel risk. Checkpoint handled third-party due diligence. Sentry was for personnel screening. Shield surfaced compliance signals. Spark was the AI search and reasoning layer that ran across all of them.",
+            "By 2024 the suite had grown large enough that the roughly one hundred high-privilege analysts using it were spending half their day moving between products instead of doing the analysis. Leadership wanted to know what one product, instead of five, would look like.",
+          ],
+        },
+
+        // 2. The Challenge
+        {
+          title: "The Challenge",
+          type: "quote",
+          content: [
+            "Our analysts are juggling four mental models. They have to know which product to trust for which question. That is not the product we want to be.",
+          ],
+        },
+        {
+          title: "",
+          type: "text",
+          content: [
+            "The mandate was to consolidate the suite without sunsetting the depth each product already gave clients. We had a year to redirect the IA, the navigation, the risk model, and the data pipelines without breaking any existing contracts. My role was staff-shape: I owned the strategy and direction through POCs, handed visual and interaction execution to another designer, and PM'd a lot of the engineering build to keep the scope tractable for one design seat.",
+          ],
+        },
+
+        // 3. Research & Planning
+        {
+          title: "Research & Planning",
+          type: "text",
+          content: [
+            "The starting point was figuring out what was actually broken. I ran interviews with internal account teams who used the suite for client-facing work, and we surveyed external clients who used the product day to day. Two questions drove everything: how do you describe your work, and which product do you reach for first?",
           ],
         },
         {
@@ -150,52 +175,17 @@ export default async function OnePlatformPage({
           content: "",
           images: [
             {
-              src: "/images/case-studies/one-platform/unified-platform.gif",
-              alt: "One Platform overview",
-              caption: "Unified platform: one navigation, one risk language, multiple lenses",
+              src: "/images/case-studies/one-platform/deck/research.jpg",
+              alt: "Internal vs external user research results",
+              caption: "Internal teams trended neutral to positive. External clients clustered on neutral. Wins were inconsistent across product surfaces.",
             },
           ],
         },
-
-        // 2. The Setup (role + scale + stakes)
         {
-          title: "The Setup",
+          title: "",
           type: "text",
           content: [
-            "Strider's intelligence products had grown organically. Ranger covered nation-state and personnel risk. Checkpoint covered third-party due diligence. Sentry handled personnel screening. Spark added AI-powered search across all of it. Each product had its own navigation, its own data model, and its own definition of risk.",
-            "The user is roughly a hundred specially-privileged analysts: security teams, compliance officers, gov-cleared personnel. Small audience, high stakes. A bad signal out of this product can cost a contract or a clearance.",
-            "My role was staff-shape. I shaped strategy and direction through POCs, then handed visual and interaction execution to another designer. I PM'd a lot of the build with engineering, which is what made the scope tractable for one design seat.",
-          ],
-        },
-
-        // 3. The Problem (show, don't describe)
-        {
-          title: "The Problem",
-          type: "text",
-          content: [
-            "Two real costs. First: cognitive load. An analyst tracking a single threat had to switch between Ranger, Checkpoint, and Sentry, each with its own UI conventions, search affordances, and risk vocabulary. Onboarding to the suite took weeks longer than it should have.",
-            "Second: contradicting signals. Because each product had built its risk model independently, the same entity might surface as critical in one product and unremarkable in another. Analysts had to know which product to trust for which question. That is not a UI problem. It is a data and language problem.",
-          ],
-        },
-
-        // 4. The Trade-off (the senior signal)
-        {
-          title: "The Trade-off",
-          type: "text",
-          content: [
-            "Two directions to consolidate. The first was a meta-shell: wrap the three products in shared chrome, share search and notifications, and call it one platform. Fast to ship, low engineering risk, did not actually solve the problem.",
-            "The second was rebuilding the IA around entities (people, organizations, documents) and treating the products as different lenses on the same data, with a single consolidated risk signal layer underneath. Year-long project, more engineering risk, solved the language problem at the root.",
-            "I argued for the second. The shell would have shipped the consolidation problem to the next team. Leadership backed the longer path.",
-          ],
-        },
-
-        // 5. One Risk Language (central design decision)
-        {
-          title: "One Risk Language",
-          type: "text",
-          content: [
-            "This was the core design move. Different products had built up different signal sets, different scoring, and different names for the same concept. We didn't invent marketing names. We called things what they actually were, and made them consistent. Risk meant the same thing in every product surface.",
-            "This is what made consolidation real. Shared chrome would have looked like one platform. Shared meaning is one platform.",
+            "The strongest insight didn't come from the surveys. It came from watching analysts work. Asked to investigate a high-risk entity, they didn't describe their process by product. They described it by what they were looking at: a person, an organization, a document, a relationship. The product names mattered to product teams. The analysts thought in topics.",
           ],
         },
         {
@@ -204,20 +194,27 @@ export default async function OnePlatformPage({
           content: "",
           images: [
             {
-              src: "/images/one-platform/07-entity-profile.png",
-              alt: "Unified entity profile aggregating risk signals across products",
-              caption: "One entity profile, signals from every product, one risk vocabulary",
+              src: "/images/case-studies/one-platform/deck/insight.jpg",
+              alt: "Unified topic-based approach diagram",
+              caption: "The reframe: stop organizing the product by what we built, start organizing it by what the analyst is investigating.",
             },
           ],
         },
-
-        // 6. Push and Pull (the marquee research finding)
         {
-          title: "Push and Pull Data",
+          title: "Analyst Archetypes",
+          type: "list",
+          content: [
+            "The Security Lead: lives in Ranger, escalates to Checkpoint for organizational context. Time-pressured, signal-driven, accepts more noise to catch the right thing.",
+            "The Compliance Officer: lives in Checkpoint, runs background screens on personnel changes. Methodical, audit-conscious, needs every signal sourced.",
+            "The Government Researcher: cross-references everything. Needs all four products open in tabs. Closest to the platform's full surface area.",
+          ],
+        },
+        {
+          title: "",
           type: "text",
           content: [
-            "The other big move came out of research with both internal and external users. Strider's data flow has two directions. Push: Strider proactively surfaces individual risk profiles to a company, and they merge into a section of that company's workspace. Pull: when someone comes up internally and the company needs to search them, they pull from the same dataset.",
-            "Two directions, one continuous flow. Designing both in the same surface, instead of as two separate tools, was a research-driven win that wouldn't have shown up from looking at either user group alone.",
+            "Designing for the Security Lead's mental model meant designing for all three. If the most signal-driven user could move through the platform fluidly, the methodical Compliance Officer and the cross-referencing Researcher could too.",
+            "Beyond the architectural questions, every product brand carried baggage. Internal teams were attached to names they had built. Clients had purchase orders tied to them. We sorted each brand into keep, rebrand into the unified taxonomy, or fold in entirely. The matrix made the trade-offs visible to leadership.",
           ],
         },
         {
@@ -226,19 +223,39 @@ export default async function OnePlatformPage({
           content: "",
           images: [
             {
-              src: "/images/one-platform/08-risk-analysis.png",
-              alt: "Risk analysis and network visualization for entity relationships",
-              caption: "Network view of relationships across the consolidated risk graph",
+              src: "/images/case-studies/one-platform/deck/constraints.jpg",
+              alt: "Keep or rebrand decision matrix",
+              caption: "Keep, rebrand, or sunset every existing product name. The matrix forced a decision on each.",
             },
           ],
         },
 
-        // 7. How It Shipped
+        // 4. Designing the Solution
         {
-          title: "How It Shipped",
+          title: "Designing the Solution",
           type: "text",
           content: [
-            "Strategy, direction, and POCs from me. Visual and interaction execution from another designer. Engineering build coordinated by me, not a separate PM. This is what staff-shape work looked like in practice: leveraging a small team to ship more than one designer ever could on their own.",
+            "Based on the research, I hypothesized that an entity-first IA would solve more problems than a product-shell would. The shell pattern (wrap the products in shared chrome, share search and notifications) is faster to ship and lower risk. It also doesn't solve the language problem; it hides it behind a coat of paint.",
+            "I argued for entity-first. Leadership backed the longer path.",
+          ],
+        },
+        {
+          title: "Strategic Direction",
+          type: "image",
+          content: "",
+          images: [
+            {
+              src: "/images/case-studies/one-platform/deck/exploration.jpg",
+              alt: "Three strategic directions on the wall",
+              caption: "Three options mapped end to end on the wall: wrapper-shell, meta-search, and entity-first. Walked the team through them and pressure-tested each live.",
+            },
+          ],
+        },
+        {
+          title: "High-Fidelity Designs",
+          type: "text",
+          content: [
+            "The shipped People view pulls signals from every product into one profile. Risk graph at the top, talent flows and cluster groups below, with Spark AI insights summarizing the entity in plain language in a side panel. Analysts open this first now, not Ranger.",
           ],
         },
         {
@@ -247,19 +264,66 @@ export default async function OnePlatformPage({
           content: "",
           images: [
             {
-              src: "/images/one-platform/05-spark-search.png",
-              alt: "Spark AI-powered search experience",
-              caption: "Search Anything: one input across the consolidated data catalogs",
+              src: "/images/case-studies/one-platform/deck/design.jpg",
+              alt: "The shipped cross-product People view",
+              caption: "The shipped People view: one profile, signals from every product, Spark AI insights in the side panel.",
+            },
+          ],
+        },
+        {
+          title: "",
+          type: "text",
+          content: [
+            "Once the entity-first IA proved out for People, the same shape extended to Organizations. Top risk signals in the org's network, recent searches, geographic distribution. Same language, different lens.",
+          ],
+        },
+        {
+          title: "",
+          type: "image",
+          content: "",
+          images: [
+            {
+              src: "/images/case-studies/one-platform/deck/iteration.jpg",
+              alt: "Organizations view, same IA as People",
+              caption: "Organizations got the same treatment. Same IA, different entity type. The risk language stayed consistent.",
+            },
+          ],
+        },
+        {
+          title: "In Production",
+          type: "image",
+          content: "",
+          images: [
+            {
+              src: "/images/case-studies/one-platform/deck/outcome.jpg",
+              alt: "Real client deployment with cross-product risk signals",
+              caption: "A real client deployment. Risk signals across all four products, in one view, with the consolidated vocabulary.",
             },
           ],
         },
 
-        // 8. Reflection
+        // 5. Conclusion
         {
-          title: "What I'd Do Differently",
+          title: "Conclusion",
           type: "text",
           content: [
-            "Push harder for the vision to be built right. Engineering quality slipped on a few critical surfaces, and the original vision was too ambitious for the delivery cadence, so parts got cut on the way out. If I started this tomorrow, I'd ship less in the first version and protect the quality bar on what does ship. Smaller scope, higher quality, faster trust from the field.",
+            "If I started this project again, there are a few things I would do differently:",
+          ],
+        },
+        {
+          title: "",
+          type: "list",
+          content: [
+            "Cut the original scope in half. The vision was too ambitious for the delivery cadence, and we shipped parts before they were ready. Smaller scope, higher quality, faster trust from the field.",
+            "Build the risk signal vocabulary before any UI work. The language problem turned out to be the actual problem. Solving it first would have aligned every product team faster.",
+            "Spend less time defending the keep-or-rebrand matrix and more time using it. The taxonomy decisions kept reopening every time a new stakeholder joined the conversation.",
+          ],
+        },
+        {
+          title: "",
+          type: "text",
+          content: [
+            "The platform did ship, and analysts ramp on the consolidated dashboard noticeably faster than the old fragmented version. Support tickets dropped. The risk language we standardized became the foundation for every new surface the team builds, instead of each one reinventing its own. That is the part I am most proud of.",
           ],
         },
       ]}
