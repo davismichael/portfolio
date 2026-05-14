@@ -1,7 +1,8 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import Navigation from "@/components/Navigation";
 import PresentationMode from "@/components/case-study/PresentationMode";
 import type { Slide } from "@/components/case-study/types";
@@ -62,7 +63,25 @@ export default function CaseStudyLayout({
   slides,
 }: CaseStudyLayoutProps) {
   const [presentationOpen, setPresentationOpen] = useState(false);
+  const [canGoBack, setCanGoBack] = useState(false);
+  const router = useRouter();
   const hasSlides = Array.isArray(slides) && slides.length > 0;
+
+  useEffect(() => {
+    // Same-origin history exists if there's a prior entry from this site.
+    // document.referrer is empty for direct loads, new tabs, and cross-origin entries.
+    setCanGoBack(
+      typeof window !== "undefined" &&
+        window.history.length > 1 &&
+        document.referrer.startsWith(window.location.origin),
+    );
+  }, []);
+
+  const handleBack = (e: React.MouseEvent) => {
+    if (!canGoBack) return;
+    e.preventDefault();
+    router.back();
+  };
   return (
     <main className="min-h-screen" style={{ background: "#0f0f0f" }}>
       {/* Hero */}
@@ -83,6 +102,7 @@ export default function CaseStudyLayout({
           >
             <Link
               href="/#my-work"
+              onClick={handleBack}
               className="inline-flex items-center gap-2 text-neutral-500 hover:text-neutral-900 text-xs font-medium uppercase tracking-[0.15em] transition-colors group"
             >
               <svg
@@ -381,6 +401,7 @@ export default function CaseStudyLayout({
         >
           <Link
             href="/#my-work"
+            onClick={handleBack}
             className="inline-flex items-center gap-2 bg-white text-black rounded-full px-8 py-3.5 font-semibold text-sm uppercase tracking-[0.15em] transition-all duration-200 hover:bg-white/90"
           >
             <svg
