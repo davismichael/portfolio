@@ -46,6 +46,30 @@ export default function DeviceComposite({
   );
 }
 
+// Single centered laptop variant. Use as a card background when one screenshot
+// is the hero (e.g. a flagship app view) and a phone/laptop trio would feel busy.
+interface SingleLaptopCompositeProps {
+  src: string;
+  altBase?: string;
+}
+
+export function SingleLaptopComposite({
+  src,
+  altBase = "Product screenshot",
+}: SingleLaptopCompositeProps) {
+  return (
+    <div className="absolute inset-0 flex items-center justify-center px-4 sm:px-8">
+      <Laptop
+        src={src}
+        alt={`${altBase} (laptop)`}
+        // Wider than the trio's individual laptops since it's the sole device,
+        // but capped so the title/description below still breathe.
+        className="w-[88%] sm:w-[72%] md:w-[62%] max-w-[820px] flex-shrink-0 drop-shadow-2xl"
+      />
+    </div>
+  );
+}
+
 // ---- Devices ---------------------------------------------------------------
 
 interface DeviceProps {
@@ -54,7 +78,7 @@ interface DeviceProps {
   className?: string;
 }
 
-function Laptop({ src, alt, className = "" }: DeviceProps) {
+export function Laptop({ src, alt, className = "" }: DeviceProps) {
   return (
     <div className={className}>
       {/* Screen */}

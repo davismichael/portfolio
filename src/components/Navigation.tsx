@@ -16,6 +16,26 @@ export default function Navigation() {
     }
   }, [open]);
 
+  // Strip the hash from the URL after the browser scrolls to the target.
+  // Without this, refreshing on /#contactme or /#my-work re-jumps to the
+  // section instead of letting scroll-restoration land you where you were.
+  useEffect(() => {
+    function cleanHash() {
+      if (!window.location.hash) return;
+      // Give the browser/Next.js time to complete its scroll-to-anchor first.
+      setTimeout(() => {
+        history.replaceState(
+          null,
+          "",
+          window.location.pathname + window.location.search,
+        );
+      }, 600);
+    }
+    cleanHash();
+    window.addEventListener("hashchange", cleanHash);
+    return () => window.removeEventListener("hashchange", cleanHash);
+  }, []);
+
   const close = () => setOpen(false);
 
   return (

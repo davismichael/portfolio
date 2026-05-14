@@ -1,7 +1,10 @@
 import Link from "next/link";
 import { isUnlocked } from "@/lib/case-study-auth";
 import MoreCardsToggle from "@/components/sections/MoreCardsToggle";
-import DeviceComposite from "@/components/sections/DeviceComposite";
+import DeviceComposite, {
+  Laptop,
+  SingleLaptopComposite,
+} from "@/components/sections/DeviceComposite";
 
 export interface CaseStudy {
   title: string;
@@ -15,6 +18,14 @@ export interface CaseStudy {
     phone: string;
     rightLaptop: string;
   };
+  /** Render a single centered laptop mockup. Mutually exclusive with `devices` and `image`. */
+  singleLaptop?: string;
+  /**
+   * Pin the laptop to one side on desktop with text on the opposite side.
+   * Only meaningful when `singleLaptop` is set. Below the `md` breakpoint the
+   * card falls back to the centered-laptop-as-background look.
+   */
+  laptopSide?: "left" | "right";
   href: string;
   external?: boolean;
   /** When true, this case study sits behind the password gate. */
@@ -58,6 +69,9 @@ export default async function CaseStudyGrid({
       {(() => {
         const allCards = studies.map((study, index) => {
         const showLockBadge = !!study.locked && !unlocked;
+        // Split-layout cards put the laptop on one side and text on the other
+        // at `md+`; below that they keep the centered-with-vignette look.
+        const isSplit = !!(study.singleLaptop && study.laptopSide);
         const cta = study.comingSoon
           ? "Coming Soon"
           : study.external
@@ -68,7 +82,7 @@ export default async function CaseStudyGrid({
 
         const cardInner = (
           <>
-            {/* Background. Devices, image, or gradient fallback */}
+            {/* Background. Devices, single laptop, image, or gradient fallback */}
             {study.devices ? (
               <>
                 {/* Subtle dark base behind the devices so they have something to sit on */}
@@ -80,6 +94,34 @@ export default async function CaseStudyGrid({
                   }}
                 />
                 <DeviceComposite {...study.devices} altBase={study.title} />
+              </>
+            ) : study.singleLaptop ? (
+              <>
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, #0a0a0a 0%, #141414 50%, #0a0a0a 100%)",
+                  }}
+                />
+                {/* Mobile: laptop is the absolute-positioned card background. */}
+                <div className={isSplit ? "md:hidden" : undefined}>
+                  <SingleLaptopComposite
+                    src={study.singleLaptop}
+                    altBase={study.title}
+                  />
+                </div>
+                {/* Desktop split: laptop becomes an in-flow flex child on one side.
+                    Width is capped so the 16:10 screen height stays within the
+                    card's 60vh minHeight + 80px vertical padding. */}
+                {isSplit && (
+                  <div className="hidden md:block md:w-[42%] md:max-w-[520px] md:flex-shrink-0 drop-shadow-2xl">
+                    <Laptop
+                      src={study.singleLaptop}
+                      alt={`${study.title} (laptop)`}
+                    />
+                  </div>
+                )}
               </>
             ) : study.image ? (
               <div
@@ -95,10 +137,11 @@ export default async function CaseStudyGrid({
                 }}
               />
             )}
-            {/* Scrim. Devices get a softer center vignette so they stay visible at the edges */}
-            {study.devices ? (
+            {/* Scrim. Device mockups get a softer center vignette so they stay visible at the edges.
+                Split-layout cards drop the scrim above `md` since text and laptop no longer overlap. */}
+            {study.devices || study.singleLaptop ? (
               <div
-                className="absolute inset-0"
+                className={`absolute inset-0${isSplit ? " md:hidden" : ""}`}
                 style={{
                   background:
                     "radial-gradient(ellipse at center, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.85) 35%, rgba(0,0,0,0.55) 70%, rgba(0,0,0,0.45) 100%)",
@@ -146,7 +189,7 @@ export default async function CaseStudyGrid({
             )}
 
             {/* Content */}
-            <div className="relative z-10">
+            <div className={`relative z-10${isSplit ? " md:w-[48%]" : ""}`}>
               {study.inProgress && (
                 <div className="inline-flex items-center gap-2 rounded-full bg-amber-400/15 border border-amber-400/40 px-4 py-2 mb-5">
                   <span className="size-1.5 rounded-full bg-amber-400 animate-pulse" aria-hidden />
@@ -169,7 +212,11 @@ export default async function CaseStudyGrid({
                 {study.title}
               </h2>
 
-              <p className="text-white/70 text-base md:text-lg leading-relaxed max-w-[650px] mb-10 font-light mx-auto">
+              <p
+                className={`text-white/70 text-base md:text-lg leading-relaxed max-w-[650px] mb-10 font-light mx-auto${
+                  isSplit ? " md:mx-0" : ""
+                }`}
+              >
                 {study.description}
               </p>
 
@@ -186,8 +233,12 @@ export default async function CaseStudyGrid({
           </>
         );
 
-        const cardClassName =
-          "relative flex flex-col items-center justify-center text-center px-6 md:px-12 overflow-hidden";
+        const splitClasses = isSplit
+          ? study.laptopSide === "right"
+            ? " md:flex-row-reverse md:justify-between md:gap-10 lg:gap-16 md:text-right md:px-10 lg:px-16"
+            : " md:flex-row md:justify-between md:gap-10 lg:gap-16 md:text-left md:px-10 lg:px-16"
+          : "";
+        const cardClassName = `relative flex flex-col items-center justify-center text-center px-6 md:px-12 overflow-hidden${splitClasses}`;
         const cardStyle = {
           minHeight: "60vh",
           padding: "80px 24px",
