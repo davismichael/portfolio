@@ -33,6 +33,12 @@ interface Section {
   type?: "text" | "list" | "quote" | "highlight" | "image" | "grid" | "video";
   images?: ImageItem[];
   videos?: VideoItem[];
+  /**
+   * When true on an image section, the figure breaks out of the text column
+   * (`max-w-3xl`) and renders up to ~1280px wide. Use for hero or product
+   * shots that benefit from the extra real estate.
+   */
+  fullBleed?: boolean;
 }
 
 interface CaseStudyLayoutProps {
@@ -234,7 +240,7 @@ export default function CaseStudyLayout({
       </section>
 
       {/* Content */}
-      <section className="max-w-3xl mx-auto px-4 sm:px-8 py-16 md:py-24">
+      <section className="max-w-3xl mx-auto px-4 sm:px-8 py-16 md:py-24 overflow-x-clip">
         {sections.map((section, i) => (
           <motion.div
             key={section.title}
@@ -325,20 +331,33 @@ export default function CaseStudyLayout({
                   </p>
                 )}
                 {section.images?.map((img, j) => (
-                  <figure key={j} className="rounded-xl overflow-hidden border border-white/10">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={img.src}
-                      alt={img.alt}
-                      className="w-full h-auto"
-                      loading="lazy"
-                    />
-                    {img.caption && (
-                      <figcaption className="px-4 py-3 text-xs text-white/40 text-center uppercase tracking-[0.1em]" style={{ background: "#1a1a1a" }}>
-                        {img.caption}
-                      </figcaption>
-                    )}
-                  </figure>
+                  <div
+                    key={j}
+                    className={
+                      // Break out of the parent text column to fill the page,
+                      // capped at ~1280px and re-centered. `overflow-x-clip`
+                      // on the surrounding section prevents a horizontal
+                      // scrollbar when the viewport is narrower than 1280px.
+                      section.fullBleed
+                        ? "relative left-1/2 -translate-x-1/2 w-[min(100vw,1280px)] px-4 sm:px-8"
+                        : undefined
+                    }
+                  >
+                    <figure className="rounded-xl overflow-hidden border border-white/10">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={img.src}
+                        alt={img.alt}
+                        className="w-full h-auto"
+                        loading="lazy"
+                      />
+                      {img.caption && (
+                        <figcaption className="px-4 py-3 text-xs text-white/40 text-center uppercase tracking-[0.1em]" style={{ background: "#1a1a1a" }}>
+                          {img.caption}
+                        </figcaption>
+                      )}
+                    </figure>
+                  </div>
                 ))}
               </div>
             ) : section.type === "video" ? (

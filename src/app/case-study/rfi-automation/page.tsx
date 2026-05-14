@@ -152,6 +152,7 @@ export default async function RfiAutomationPage({
           title: "",
           type: "image",
           content: "",
+          fullBleed: true,
           images: [
             {
               src: "/images/case-studies/rfi-automation/nobg/hero.png",
