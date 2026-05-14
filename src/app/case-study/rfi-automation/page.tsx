@@ -1,0 +1,503 @@
+import CaseStudyLayout from "@/components/case-study/CaseStudyLayout";
+import UnlockScreen from "@/components/case-study/UnlockScreen";
+import { isUnlocked } from "@/lib/case-study-auth";
+import type { Slide } from "@/components/case-study/types";
+
+export const metadata = {
+  title: "AI Automation · Strider Technologies | Michael Davis",
+  description:
+    "Strider's first AI-assisted Request for Information system. Cut analyst turnaround from two weeks to under twenty-four hours. Directed product strategy and design; Ashley Franco led IC design.",
+};
+
+const COLOR = "from-[#0f172a] to-[#1e293b]";
+const RETURN_TO = "/case-study/rfi-automation";
+
+const SLIDES: Slide[] = [
+  {
+    kind: "cover",
+    title: "AI Automation",
+    subtext:
+      "Strider's first AI-assisted Request for Information system. Director of Product Design, partnered with Ashley Franco as IC lead.",
+    image: null,
+  },
+  {
+    kind: "problem",
+    title: "Analysts spent two weeks on every RFI.",
+    subtext:
+      "Clients emailed the customer success team. CS relayed to analysts. Analysts did the research by hand. Reports came back two weeks later. The whole loop happened outside the product.",
+    image: null,
+  },
+  {
+    kind: "research",
+    title: "Eight clients, four analysts, real workflows.",
+    subtext:
+      "Ashley interviewed eight enterprise clients and four internal intelligence analysts. We watched how RFIs actually got created, what information clients usually added, and where the workflow broke.",
+    image: null,
+  },
+  {
+    kind: "insight",
+    title: "Clients wanted AI speed and human control.",
+    subtext:
+      "They were interested in AI assistance but wanted to review every AI-generated request and add their own intelligence before submission. Human-in-the-loop, not human-out-of-the-loop.",
+    image:
+      "/images/case-studies/rfi-automation/workflow-original.png",
+    caption: "The pre-RFI workflow: emails, relays, manual research.",
+  },
+  {
+    kind: "constraints",
+    title: "Forty-five percent of clients were AI-hesitant.",
+    subtext:
+      "Roughly 45% of clients were skeptical of AI in investigative workflows. The system had to ship with AI optional, fully transparent, and always editable.",
+    image: null,
+  },
+  {
+    kind: "exploration",
+    title: "Two submission paths, one form.",
+    subtext:
+      "Spark-generated RFI for the speed path. Analyst-assisted RFI for the trust path. Same form, same dashboard, same profile pages. The client picks the path per request.",
+    image:
+      "/images/case-studies/rfi-automation/workflow-new.png",
+    caption: "The new RFI workflow with both Spark and analyst paths.",
+  },
+  {
+    kind: "design",
+    title: "Manager dashboard, profile pages, structured fields.",
+    subtext:
+      "RFI Manager gives clients visibility for the first time. Each request gets its own profile page with submission, status, and the generated report. Form added structured identifier fields (EIN, USCC, KPP).",
+    image:
+      "/images/case-studies/rfi-automation/rfi-manager.png",
+    caption: "RFI Manager: every request, status, and owner in one place.",
+  },
+  {
+    kind: "iteration",
+    title: "Credit visibility and depletion states.",
+    subtext:
+      "Spark-generated RFIs consume Spark credits. We designed the states for credit visibility, depletion, and graceful fallback to the analyst path so the workflow never dead-ended.",
+    image:
+      "/images/case-studies/rfi-automation/credit-states.png",
+    caption: "Credit-based system states: visibility, depletion, fallback.",
+  },
+  {
+    kind: "outcome",
+    title: "Two weeks to under twenty-four hours.",
+    subtext:
+      "Turnaround dropped from ~14 days to <24 hours. Time spent creating RFIs dropped 45%. Client AI hesitancy dropped from 60% to 45%. Credit purchases became a new revenue line.",
+    image:
+      "/images/case-studies/rfi-automation/rfi-profile.png",
+    caption: "An RFI profile page: submission, generated report, status, linked profile updates.",
+  },
+  {
+    kind: "reflection",
+    title: "What I'd do differently as the director.",
+    subtext:
+      "Lock the credit-based pricing model before the IC design started. We restructured the depletion states twice because the credit logic kept changing. Constraint first, then design.",
+    image: null,
+  },
+];
+
+export default async function RfiAutomationPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ unlock_error?: string }>;
+}) {
+  const unlocked = await isUnlocked();
+  if (!unlocked) {
+    const params = await searchParams;
+    return (
+      <UnlockScreen
+        caseStudyName="AI Automation"
+        returnTo={RETURN_TO}
+        error={params.unlock_error === "1"}
+      />
+    );
+  }
+
+  return (
+    <CaseStudyLayout
+      title="Accelerating Intelligence Requests Through AI Automation"
+      role="Director of Product Design"
+      company="Strider Technologies"
+      timeline="2025"
+      color={COLOR}
+      summary="I led the end-to-end design of a new Request for Information (RFI) system that introduced AI-assisted intelligence requests using Strider's AI agent, Spark. Previously, clients submitted RFIs through our customer success team, which analysts then processed manually. I designed a new in-platform workflow including an RFI submission form supporting both Spark-generated and analyst-assisted requests, an RFI manager dashboard to track all requests, and individual RFI profile pages displaying submissions, reports, and related profile updates. I collaborated closely with a product manager, front- and backend engineers, and intelligence operations analysts to ensure the system aligned with real investigative workflows."
+      skills={[
+        "AI Product Design",
+        "Workflow Automation",
+        "Design Direction",
+        "Cross-functional Leadership",
+        "Information Architecture",
+        "Enterprise UX",
+      ]}
+      slides={SLIDES}
+      sections={[
+        // The Goal
+        {
+          title: "The Goal",
+          type: "text",
+          content: [
+            "Create an in-platform RFI system that would:",
+          ],
+        },
+        {
+          title: "",
+          type: "list",
+          content: [
+            "Allow clients to submit RFIs directly in the platform",
+            "Reduce manual effort in creating requests",
+            "Deliver intelligence significantly faster",
+            "Introduce Spark (AI) as an optional accelerated workflow",
+          ],
+        },
+        {
+          title: "",
+          type: "image",
+          content: "",
+          images: [
+            {
+              src: "/images/case-studies/rfi-automation/nobg/hero.png",
+              alt: "Create RFI form with Spark-generated and Analyst-assisted options",
+              caption: "The new in-platform RFI submission form.",
+            },
+          ],
+        },
+
+        // Context & Problem
+        {
+          title: "Context & Problem",
+          type: "text",
+          content: [
+            "Strider's platform helps organizations investigate individuals and companies to identify geopolitical and corporate risks.",
+            "When a profile lacked sufficient intelligence, clients would request deeper research from Strider analysts. However, the process happened outside the product.",
+          ],
+        },
+        {
+          title: "Original Workflow",
+          type: "list",
+          content: [
+            "Clients emailed or messaged the customer success team",
+            "Customer success relayed the request to intelligence analysts",
+            "Analysts conducted research manually",
+            "Reports were returned to the client",
+          ],
+        },
+        {
+          title: "",
+          type: "text",
+          content: [
+            "Turnaround time could take up to two weeks, and clients had no in-platform way to submit or track RFIs.",
+          ],
+        },
+        {
+          title: "",
+          type: "image",
+          content: "",
+          images: [
+            {
+              src: "/images/case-studies/rfi-automation/workflow-original.png",
+              alt: "Original RFI workflow before redesign",
+              caption: "The original workflow before redesign.",
+            },
+          ],
+        },
+
+        // Discovery
+        {
+          title: "Discovery: Understanding How Clients Submit RFIs",
+          type: "text",
+          content: [
+            "Before designing the solution, I interviewed 8 enterprise clients and 4 internal intelligence analysts.",
+          ],
+        },
+        {
+          title: "Key Insight: Clients frequently added external identifiers",
+          type: "text",
+          content: [
+            "Investigators often included information not present in the platform such as:",
+          ],
+        },
+        {
+          title: "",
+          type: "list",
+          content: [
+            "EIN / tax identification numbers",
+            "USCC identifiers for PRC entities",
+            "KPP identifiers for Russian entities",
+            "Internal company reference number",
+          ],
+        },
+        {
+          title: "",
+          type: "text",
+          content: [
+            "To support this, I expanded the RFI form to include structured identifier fields.",
+          ],
+        },
+        {
+          title: "Users wanted faster insights but still needed control",
+          type: "text",
+          content: [
+            "Clients were interested in AI assistance but wanted to:",
+          ],
+        },
+        {
+          title: "",
+          type: "list",
+          content: [
+            "Review AI-generated requests",
+            "Add additional intelligence before submission",
+          ],
+        },
+        {
+          title: "",
+          type: "text",
+          content: [
+            "This informed the human-in-the-loop design of Spark-generated RFIs.",
+          ],
+        },
+
+        // The Solution
+        {
+          title: "The Solution: A New RFI System",
+          type: "text",
+          content: [
+            "The redesigned system introduced three major components.",
+          ],
+        },
+        {
+          title: "",
+          type: "image",
+          content: "",
+          images: [
+            {
+              src: "/images/case-studies/rfi-automation/workflow-new.png",
+              alt: "Redesigned RFI workflow with Spark and analyst paths",
+              caption: "The redesigned workflow with both Spark-generated and analyst-assisted paths.",
+            },
+          ],
+        },
+        {
+          title: "1. RFI Submission Form",
+          type: "text",
+          content: [
+            "A new form allowed users to create requests directly within the platform. Users could choose between Spark-generated and analyst-assisted submissions.",
+          ],
+        },
+        {
+          title: "2. Spark-generated RFIs",
+          type: "text",
+          content: [
+            "Once submitted, Spark generates a report and profile update within ~24 hours, compared to the previous ~2 week analyst turnaround.",
+          ],
+        },
+        {
+          title: "3. RFI Manager Dashboard",
+          type: "text",
+          content: [
+            "I designed an RFI Manager page where users could track all requests in one place. The dashboard allows users to:",
+          ],
+        },
+        {
+          title: "",
+          type: "list",
+          content: [
+            "View all RFIs submitted by their organization",
+            "See request status and progress",
+            "Quickly access individual RFI pages",
+          ],
+        },
+        {
+          title: "",
+          type: "text",
+          content: [
+            "This gave clients visibility that previously did not exist.",
+          ],
+        },
+        {
+          title: "",
+          type: "image",
+          content: "",
+          images: [
+            {
+              src: "/images/case-studies/rfi-automation/nobg/rfi-manager.png",
+              alt: "RFI Manager dashboard",
+              caption: "The RFI Manager dashboard.",
+            },
+          ],
+        },
+        {
+          title: "4. RFI Request Pages",
+          type: "text",
+          content: [
+            "Each request has its own RFI profile page that displays:",
+          ],
+        },
+        {
+          title: "",
+          type: "list",
+          content: [
+            "The information submitted by the user",
+            "Generated intelligence reports",
+            "Status and updates on the investigation",
+            "A link back to the related subject profile",
+          ],
+        },
+        {
+          title: "",
+          type: "text",
+          content: [
+            "When new intelligence is discovered, the associated profile is updated so investigators can continue their analysis.",
+          ],
+        },
+        {
+          title: "",
+          type: "image",
+          content: "",
+          images: [
+            {
+              src: "/images/case-studies/rfi-automation/nobg/rfi-profile.png",
+              alt: "RFI profile page",
+              caption: "An individual RFI profile page.",
+            },
+          ],
+        },
+
+        // Designing for AI Trust
+        {
+          title: "Designing for AI Trust",
+          type: "text",
+          content: [
+            "When the project began, about 45% of our clients were hesitant to use AI in their investigative workflows. To build confidence, I designed the system to emphasize transparency. Key design choices included:",
+          ],
+        },
+        {
+          title: "",
+          type: "list",
+          content: [
+            "Clear labeling of Spark-generated RFIs",
+            "Editable AI-generated submissions",
+            "Visibility into estimated turnaround times",
+            "The ability to choose analyst-assisted RFIs",
+          ],
+        },
+        {
+          title: "",
+          type: "text",
+          content: [
+            "This allowed clients to gradually experiment with AI.",
+          ],
+        },
+
+        // Designing for Edge Cases
+        {
+          title: "Designing for Edge Cases & System Constraints",
+          type: "text",
+          content: [
+            "Spark-generated RFIs required Spark credits, which clients could purchase. To support this credit-based system, I designed several system states.",
+          ],
+        },
+        {
+          title: "Credit visibility",
+          type: "text",
+          content: [
+            "Users could see:",
+          ],
+        },
+        {
+          title: "",
+          type: "list",
+          content: [
+            "Remaining Spark credits",
+            "When credits would be deducted",
+            "Estimated credit usage",
+          ],
+        },
+        {
+          title: "Credit depletion states",
+          type: "text",
+          content: [
+            "If a user attempted to create a Spark RFI without credits, the interface:",
+          ],
+        },
+        {
+          title: "",
+          type: "list",
+          content: [
+            "Notified them that credits were exhausted",
+            "Suggested switching to analyst-assisted RFIs",
+            "Provided guidance on purchasing additional credits",
+          ],
+        },
+        {
+          title: "Workflow alternatives",
+          type: "text",
+          content: [
+            "The interface clearly communicated the tradeoff to ensure the system remained predictable and flexible. The form also allowed users to include additional identifiers and intelligence discovered during investigations.",
+          ],
+        },
+        {
+          title: "",
+          type: "image",
+          content: "",
+          images: [
+            {
+              src: "/images/case-studies/rfi-automation/credit-states.png",
+              alt: "Credit visibility, depletion, and fallback states",
+              caption: "Credit states across the workflow.",
+            },
+          ],
+        },
+
+        // Impact
+        {
+          title: "Impact",
+          type: "text",
+          content: [
+            "Early beta results showed meaningful improvements:",
+          ],
+        },
+        {
+          title: "",
+          type: "list",
+          content: [
+            "Faster intelligence delivery: Reduced turnaround time from ~14 days to <24 hours",
+            "Reduced manual effort: ~45% decrease in time spent creating RFIs",
+            "Improved AI adoption: Clients hesitant to use AI decreased from ~60% to ~45%",
+            "New revenue opportunity: Spark-generated RFIs drove adoption of Spark credit purchases",
+            "Improved investigation workflow: Clients could now submit, track, and review RFIs directly in the platform",
+          ],
+        },
+        {
+          title: "",
+          type: "video",
+          content: "",
+          videos: [
+            {
+              src: "/videos/case-studies/rfi-automation/rfi.mp4",
+              caption: "The end-to-end RFI workflow in the shipped product.",
+            },
+          ],
+        },
+
+        // Iterations & Next Steps
+        {
+          title: "Iterations & Next Steps",
+          type: "text",
+          content: [
+            "After the beta launch, I conducted additional user interviews to refine the workflow.",
+            "Future opportunities include:",
+          ],
+        },
+        {
+          title: "",
+          type: "list",
+          content: [
+            "Improving Spark-generated intelligence summaries",
+            "Adding more global organization identifiers",
+            "Providing clearer RFI progress tracking",
+            "Reducing response times further with incremental AI reporting",
+          ],
+        },
+      ]}
+    />
+  );
+}

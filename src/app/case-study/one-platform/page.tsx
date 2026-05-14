@@ -41,16 +41,23 @@ const SLIDES: Slide[] = [
     title: "Analysts think in topics, not products.",
     subtext:
       "Asked how they worked, analysts described it by entity (people, organizations, documents) not by product. That single behavior reframed the entire IA from product-first to entity-first.",
-    image: "/images/case-studies/one-platform/deck/insight.jpg",
-    caption: "The reframe to a unified, topic-based approach",
+    image: null,
+  },
+  {
+    kind: "solution",
+    title: "Three pillars of One Platform.",
+    subtext:
+      "Merging the products into one IA. Disambiguating people and organizations across them. Spark, an AI layer that reasons across everything. Every later decision rolled up to one of these three.",
+    image: "/images/case-studies/one-platform/deck/pillars.jpg",
+    caption: "The shape of the answer: three pillars, one platform",
   },
   {
     kind: "constraints",
     title: "Keep, rebrand, or sunset every product name.",
     subtext:
-      "Hard call on each existing brand. Internal teams attached to the names. Clients had purchase orders tied to them. We had to decide which to keep, which to rebrand, which to fold in.",
+      "Hard calls on each brand. The matrix made the trade-offs visible: Ranger became Insights, Checkpoint became Search Organizations, Sentry became Search People. The taxonomy did the work the brand had been doing.",
     image: "/images/case-studies/one-platform/deck/constraints.jpg",
-    caption: "The keep-or-rebrand decision matrix",
+    caption: "Ranger → Insights, Checkpoint → Search Orgs, Sentry → Search People",
   },
   {
     kind: "exploration",
@@ -62,11 +69,27 @@ const SLIDES: Slide[] = [
   },
   {
     kind: "design",
-    title: "Cross-product entity profile, with Spark embedded.",
+    title: "Pillar 1: cross-product entity profile.",
     subtext:
       "One profile pulls signals from every product. Risk graph, talent flows, cluster groups. Spark AI insights summarize the entity in plain language right inside the panel.",
     image: "/images/case-studies/one-platform/deck/design.jpg",
     caption: "The shipped People view, cross-product",
+  },
+  {
+    kind: "design",
+    title: "Pillar 2: people and organization disambiguation.",
+    subtext:
+      "Same person showed up four different ways across products. The disambiguation workstream resolved entities at the data layer so the new IA had something coherent to render. Door-to-door, product by product.",
+    image: "/images/case-studies/one-platform/deck/disambiguation.jpg",
+    caption: "Disambiguating entities across Ranger, Sentry, Checkpoint, Shield",
+  },
+  {
+    kind: "design",
+    title: "Pillar 3: Spark, an AI reasoning layer.",
+    subtext:
+      "Spark sits across the platform. AI-powered search, document upload to combine with Strider's data, cross-product summaries in plain language. Beta launched May 2025, GA target Q4.",
+    image: "/images/case-studies/one-platform/deck/spark.jpg",
+    caption: "Spark: AI capabilities running across the consolidated platform",
   },
   {
     kind: "testing",
@@ -92,10 +115,18 @@ const SLIDES: Slide[] = [
     caption: "Real client deployment, post-consolidation",
   },
   {
+    kind: "outcome",
+    title: "What ships next.",
+    subtext:
+      "Cross-product dashboard and unified nav in Q2. Cross-product intersections (Ranger×Sentry, Checkpoint×Sentry, Ranger×Checkpoint) in Q3. Spark Profile Summaries and Search Anything in H2.",
+    image: "/images/case-studies/one-platform/deck/roadmap.jpg",
+    caption: "One Platform roadmap, 2025",
+  },
+  {
     kind: "reflection",
     title: "What I'd do differently.",
     subtext:
-      "Push harder for the vision to ship right. Engineering quality slipped on critical surfaces and the scope was too big for the cadence. Smaller scope, higher quality, faster trust from the field.",
+      "First, we designed something. Then we redesigned it. Then we acted like that was the plan all along. Smaller scope, higher quality, and the risk vocabulary locked before any UI work would have bought back months.",
     image: null,
   },
 ];
@@ -194,9 +225,9 @@ export default async function OnePlatformPage({
           content: "",
           images: [
             {
-              src: "/images/case-studies/one-platform/deck/insight.jpg",
-              alt: "Unified topic-based approach diagram",
-              caption: "The reframe: stop organizing the product by what we built, start organizing it by what the analyst is investigating.",
+              src: "/images/case-studies/one-platform/deck/pillars.jpg",
+              alt: "Three pillars of One Platform",
+              caption: "The reframe shaped the answer: merge the products, disambiguate the entities across them, and put Spark on top of all of it.",
             },
           ],
         },
@@ -252,7 +283,7 @@ export default async function OnePlatformPage({
           ],
         },
         {
-          title: "High-Fidelity Designs",
+          title: "Pillar 1: Cross-Product Entity Profile",
           type: "text",
           content: [
             "The shipped People view pulls signals from every product into one profile. Risk graph at the top, talent flows and cluster groups below, with Spark AI insights summarizing the entity in plain language in a side panel. Analysts open this first now, not Ranger.",
@@ -271,10 +302,50 @@ export default async function OnePlatformPage({
           ],
         },
         {
+          title: "Pillar 2: People & Organization Disambiguation",
+          type: "text",
+          content: [
+            "The new IA only worked if the data underneath it agreed on who was who. The same person showed up four different ways across products: with different IDs, different spellings, different role labels, sometimes tied to different organizations. We stood up a disambiguation workstream that resolved entities at the data layer so the platform had something coherent to render.",
+            "This wasn't glamorous work, but it was the prerequisite for everything else. Door-to-door, product by product, until People and Organizations had a single canonical resolution shared across Ranger, Sentry, Checkpoint, and Shield.",
+          ],
+        },
+        {
+          title: "",
+          type: "image",
+          content: "",
+          images: [
+            {
+              src: "/images/case-studies/one-platform/deck/disambiguation.jpg",
+              alt: "People and Organization disambiguation",
+              caption: "Disambiguation as a first-class pillar. One canonical entity per person and per organization across every product.",
+            },
+          ],
+        },
+        {
+          title: "Pillar 3: Spark, an AI Reasoning Layer",
+          type: "text",
+          content: [
+            "Spark sits across the consolidated platform. AI-powered search that explores connections across Strider's products and data. Document upload so clients can combine their files with Strider's intelligence. Plain-language summaries of any entity directly inside the profile panel.",
+            "Spark beta launched May 2025 with a defined credit model so analysts could unlock answers from data they didn't normally have access to. The bet was that an AI layer wasn't a feature inside a product — it was a pillar that needed the consolidated IA underneath it to be useful at all.",
+          ],
+        },
+        {
+          title: "",
+          type: "image",
+          content: "",
+          images: [
+            {
+              src: "/images/case-studies/one-platform/deck/spark.jpg",
+              alt: "Spark AI capabilities across the platform",
+              caption: "Spark: AI-powered search, document upload, and cross-product summaries running on top of the unified platform.",
+            },
+          ],
+        },
+        {
           title: "",
           type: "text",
           content: [
-            "Once the entity-first IA proved out for People, the same shape extended to Organizations. Top risk signals in the org's network, recent searches, geographic distribution. Same language, different lens.",
+            "Once the three pillars proved out for People, the same shape extended to Organizations. Top risk signals in the org's network, recent searches, geographic distribution. Same language, different lens.",
           ],
         },
         {
@@ -301,10 +372,36 @@ export default async function OnePlatformPage({
             },
           ],
         },
+        {
+          title: "What Ships Next",
+          type: "text",
+          content: [
+            "The platform's first surfaces are live; the rest of 2025 fills in the cross-product surface area. Cross-product dashboard and unified navigation land in Q2. The three big intersections — Ranger×Sentry, Checkpoint×Sentry, Ranger×Checkpoint — ship in Q3. Spark Profile Summaries and Search Anything follow in the second half.",
+          ],
+        },
+        {
+          title: "",
+          type: "image",
+          content: "",
+          images: [
+            {
+              src: "/images/case-studies/one-platform/deck/roadmap.jpg",
+              alt: "One Platform roadmap for 2025",
+              caption: "One Platform roadmap. Q2 lays the foundation; Q3 ships the cross-product intersections; H2 brings the Spark-powered surfaces.",
+            },
+          ],
+        },
 
         // 5. Conclusion
         {
           title: "Conclusion",
+          type: "quote",
+          content: [
+            "First, we designed something. Then we redesigned it. Then we acted like that was the plan all along.",
+          ],
+        },
+        {
+          title: "",
           type: "text",
           content: [
             "If I started this project again, there are a few things I would do differently:",

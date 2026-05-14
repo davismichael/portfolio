@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "dev",
-      "runtimeExecutable": "node_modules/.bin/next",
-      "runtimeArgs": ["dev"],
+      "runtimeExecutable": "/Users/mad/.nvm/versions/node/v20.20.0/bin/npm",
+      "runtimeArgs": ["run", "dev"],
       "port": 3000,
       "autoPort": true
     }

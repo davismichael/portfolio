@@ -26,6 +26,14 @@ const ALL_WORK: CaseStudy[] = [
     locked: true,
   },
   {
+    title: "AI Automation",
+    description:
+      "Strider's first AI-assisted Request for Information system. Cut analyst turnaround from two weeks to under twenty-four hours and dropped client-side AI hesitancy by 15 points. Directed the work; Ashley Franco led IC design.",
+    image: "/images/case-studies/rfi-automation/hero.png",
+    href: "/case-study/rfi-automation",
+    locked: true,
+  },
+  {
     title: "Make Payments",
     description:
       "As Lead UX, I designed an end-to-end mobile payment experience for game-official compensation, reducing friction and increasing clarity across complex transaction flows.",

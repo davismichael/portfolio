@@ -12,11 +12,26 @@ interface ImageItem {
   caption?: string;
 }
 
+interface VideoItem {
+  src: string;
+  poster?: string;
+  caption?: string;
+  /** Defaults to true. Autoplay requires muted in modern browsers. */
+  autoPlay?: boolean;
+  /** Defaults to true. */
+  loop?: boolean;
+  /** Defaults to true. */
+  muted?: boolean;
+  /** Defaults to false. When true, native controls are shown. */
+  controls?: boolean;
+}
+
 interface Section {
   title: string;
   content: string | string[];
-  type?: "text" | "list" | "quote" | "highlight" | "image" | "grid";
+  type?: "text" | "list" | "quote" | "highlight" | "image" | "grid" | "video";
   images?: ImageItem[];
+  videos?: VideoItem[];
 }
 
 interface CaseStudyLayoutProps {
@@ -305,6 +320,40 @@ export default function CaseStudyLayout({
                     )}
                   </figure>
                 ))}
+              </div>
+            ) : section.type === "video" ? (
+              <div className="space-y-6">
+                {typeof section.content === "string" && section.content && (
+                  <p className="text-white/60 leading-relaxed mb-2">
+                    {section.content}
+                  </p>
+                )}
+                {section.videos?.map((vid, j) => {
+                  const autoPlay = vid.autoPlay ?? true;
+                  const loop = vid.loop ?? true;
+                  const muted = vid.muted ?? true;
+                  const controls = vid.controls ?? false;
+                  return (
+                    <figure key={j} className="rounded-xl overflow-hidden border border-white/10">
+                      <video
+                        src={vid.src}
+                        poster={vid.poster}
+                        autoPlay={autoPlay}
+                        loop={loop}
+                        muted={muted}
+                        controls={controls}
+                        playsInline
+                        preload="metadata"
+                        className="w-full h-auto block"
+                      />
+                      {vid.caption && (
+                        <figcaption className="px-4 py-3 text-xs text-white/40 text-center uppercase tracking-[0.1em]" style={{ background: "#1a1a1a" }}>
+                          {vid.caption}
+                        </figcaption>
+                      )}
+                    </figure>
+                  );
+                })}
               </div>
             ) : (
               (Array.isArray(section.content)
