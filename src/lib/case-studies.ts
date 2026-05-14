@@ -9,15 +9,6 @@ const SHOW_IN_PROGRESS = process.env.SHOW_IN_PROGRESS === "true";
 // most-recent → least-recent.
 const ALL_WORK: CaseStudy[] = [
   {
-    title: "AI Product",
-    inProgress: true,
-    description:
-      "A confidential AI-native rebuild of a mature intelligence product. Solo Designer + PM, twelve weeks. The new product turns search into synthesis, runs agents to keep client profiles current, and lets users author markdown skills that shape what the system prioritizes. Prototyped in Claude with real data through MCP, shipped React via Subframe.",
-    image: "/images/case-studies/iris.png",
-    href: "/case-study/new-product",
-    locked: true,
-  },
-  {
     title: "One Platform",
     description:
       "Consolidated an enterprise intelligence suite into one platform with a single risk language. Sr. Product Designer + PM, working staff-shape across strategy, design, and PM.",
@@ -29,7 +20,7 @@ const ALL_WORK: CaseStudy[] = [
     title: "AI Automation",
     description:
       "Strider's first AI-assisted Request for Information system. Cut analyst turnaround from two weeks to under twenty-four hours and dropped client-side AI hesitancy by 15 points. Directed the work; Ashley Franco led IC design.",
-    image: "/images/case-studies/rfi-automation/nobg/hero.png",
+    image: "/images/case-studies/rfi-automation/nobg/hero-opaque.png",
     href: "/case-study/rfi-automation",
     locked: true,
   },

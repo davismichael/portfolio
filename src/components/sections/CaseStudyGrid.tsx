@@ -124,9 +124,19 @@ export default async function CaseStudyGrid({
                 )}
               </>
             ) : study.image ? (
-              <div
-                className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                style={{ backgroundImage: `url('${study.image}')` }}
+              // Use a real <img> with object-cover instead of a CSS
+              // background-image. Some screenshots have transparent PNG
+              // edges or aspect-ratio quirks that render with visible side
+              // strips under bg-cover on certain viewports; <img object-cover>
+              // is more predictable and respects intrinsic image sizing.
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={study.image}
+                alt=""
+                aria-hidden
+                className="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
+                draggable={false}
               />
             ) : (
               <div
@@ -137,9 +147,17 @@ export default async function CaseStudyGrid({
                 }}
               />
             )}
-            {/* Scrim. Device mockups get a softer center vignette so they stay visible at the edges.
-                Split-layout cards drop the scrim above `md` since text and laptop no longer overlap. */}
-            {study.devices || study.singleLaptop ? (
+            {/* Scrim. Device/laptop mockups get a soft radial vignette since
+                their chrome lives at the edges, so darkening the middle keeps
+                the centered title readable without hiding the device. Plain
+                image cards (dashboard screenshots) get a uniform flat scrim
+                instead — a center-heavy vignette would dim exactly the part
+                of the screenshot you're trying to show. Split-layout cards
+                drop the scrim above `md` because the laptop and text no
+                longer overlap. */}
+            {study.comingSoon ? (
+              <div className="absolute inset-0 bg-black/85" />
+            ) : study.devices || study.singleLaptop ? (
               <div
                 className={`absolute inset-0${isSplit ? " md:hidden" : ""}`}
                 style={{
@@ -148,11 +166,7 @@ export default async function CaseStudyGrid({
                 }}
               />
             ) : (
-              <div
-                className={`absolute inset-0 ${
-                  study.comingSoon ? "bg-black/85" : "bg-black/75"
-                }`}
-              />
+              <div className="absolute inset-0 bg-black/55" />
             )}
 
             {/* Top-right status badges */}
