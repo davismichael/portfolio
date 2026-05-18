@@ -6,7 +6,7 @@ import type { Slide } from "@/components/case-study/types";
 export const metadata = {
   title: "AI Automation · Strider Technologies | Michael Davis",
   description:
-    "Strider's first AI-assisted Request for Information system. Cut analyst turnaround from two weeks to under twenty-four hours. Directed product strategy and design; Ashley Franco led IC design.",
+    "Strider's first AI-assisted Request for Information system. Cut analyst turnaround from two weeks to under 24 hours. As Director of Product Design, owned strategy and core IC design with Ashley Franco as partner.",
 };
 
 const COLOR = "from-[#0f172a] to-[#1e293b]";
@@ -17,7 +17,7 @@ const SLIDES: Slide[] = [
     kind: "cover",
     title: "AI Automation",
     subtext:
-      "Strider's first AI-assisted Request for Information system. Director of Product Design, partnered with Ashley Franco as IC lead.",
+      "Strider's first AI-assisted Request for Information system. Director of Product Design, owned strategy and core IC design with Ashley Franco partnering on IC.",
     image: null,
   },
   {
@@ -45,9 +45,9 @@ const SLIDES: Slide[] = [
   },
   {
     kind: "constraints",
-    title: "Forty-five percent of clients were AI-hesitant.",
+    title: "Companies couldn't send private data to AI.",
     subtext:
-      "Roughly 45% of clients were skeptical of AI in investigative workflows. The system had to ship with AI optional, fully transparent, and always editable.",
+      "About 60% of clients were AI-hesitant across Strider's product line because their companies wouldn't allow personal or private investigation data to be processed by AI. Strider's terms didn't change, so the system had to ship with AI fully optional, transparent, and always editable.",
     image: null,
   },
   {
@@ -79,9 +79,9 @@ const SLIDES: Slide[] = [
   },
   {
     kind: "outcome",
-    title: "Two weeks to under twenty-four hours.",
+    title: "Two weeks to under 24 hours.",
     subtext:
-      "Turnaround dropped from ~14 days to <24 hours. Time spent creating RFIs dropped 45%. Client AI hesitancy dropped from 60% to 45%. Credit purchases became a new revenue line.",
+      "Turnaround dropped from ~14 days to <24 hours. Time spent creating RFIs dropped 45%. The output was strong enough that a small share of client legal teams revised internal AI policies to allow Spark on this workflow. AI hesitancy across Strider's product line dropped from 60% to 45%. Credit purchases became a new revenue line.",
     image:
       "/images/case-studies/rfi-automation/rfi-profile.png",
     caption: "An RFI profile page: submission, generated report, status, linked profile updates.",
@@ -119,7 +119,7 @@ export default async function RfiAutomationPage({
       company="Strider Technologies"
       timeline="2025"
       color={COLOR}
-      summary="I led the end-to-end design of a new Request for Information (RFI) system that introduced AI-assisted intelligence requests using Strider's AI agent, Spark. Previously, clients submitted RFIs through our customer success team, which analysts then processed manually. I designed a new in-platform workflow including an RFI submission form supporting both Spark-generated and analyst-assisted requests, an RFI manager dashboard to track all requests, and individual RFI profile pages displaying submissions, reports, and related profile updates. I collaborated closely with a product manager, front- and backend engineers, and intelligence operations analysts to ensure the system aligned with real investigative workflows."
+      summary="As Director of Product Design, I owned strategy, design direction, and core IC design on this project. I defined the in-platform workflow, designed key surfaces myself, and shaped the AI-trust patterns across the system; Ashley Franco partnered with me as IC designer. The shipped system included an RFI submission form supporting both Spark-generated and analyst-assisted requests, an RFI manager dashboard to track all requests, and individual RFI profile pages displaying submissions, reports, and related profile updates. Spark is Strider's AI agent. I collaborated closely with a product manager, front- and backend engineers, and intelligence operations analysts to ensure the system aligned with real investigative workflows."
       skills={[
         "AI Product Design",
         "Workflow Automation",
@@ -367,7 +367,7 @@ export default async function RfiAutomationPage({
           title: "Designing for AI Trust",
           type: "text",
           content: [
-            "When the project began, about 45% of our clients were hesitant to use AI in their investigative workflows. To build confidence, I designed the system to emphasize transparency. Key design choices included:",
+            "When the project began, about 60% of clients were hesitant about AI across Strider's product line. The root cause wasn't fear of AI, it was company policy: their organizations wouldn't allow personal or private investigation data to be processed by AI, and Strider's terms didn't change during this project. The system had to work for those clients without asking them to bend their internal policies. Key design choices:",
           ],
         },
         {
@@ -384,7 +384,8 @@ export default async function RfiAutomationPage({
           title: "",
           type: "text",
           content: [
-            "This allowed clients to gradually experiment with AI.",
+            "Clients with strict data policies could still use the product end-to-end via the analyst-assisted path, while clients without those restrictions got the speed of Spark.",
+            "Once Spark RFIs started returning findings that surfaced real risk, a small but meaningful share of client legal teams revisited their AI policies and approved Spark for this workflow specifically. We hadn't lobbied them. The output spoke for itself, and for those clients the cost of missing the risk it was uncovering outweighed the policy concern.",
           ],
         },
 
@@ -447,6 +448,13 @@ export default async function RfiAutomationPage({
             },
           ],
         },
+        {
+          title: "",
+          type: "text",
+          content: [
+            "The credit pricing model shifted twice during design, which forced us to rebuild the depletion-state logic each time. By the second restructure it was clear the underlying constraint should have been locked before IC design began. That lesson lands in the reflection at the end.",
+          ],
+        },
 
         // Impact
         {
@@ -462,7 +470,8 @@ export default async function RfiAutomationPage({
           content: [
             "Faster intelligence delivery: Reduced turnaround time from ~14 days to <24 hours",
             "Reduced manual effort: ~45% decrease in time spent creating RFIs",
-            "Improved AI adoption: Clients hesitant to use AI decreased from ~60% to ~45%",
+            "Shifted client AI policy: A small share of client legal teams revised internal AI policies to allow Spark on this workflow, after seeing the system surface risk their teams would have missed",
+            "Moved the company-wide number: AI hesitancy across Strider's product line dropped from ~60% to ~45%, with this feature recognized internally as the catalyst",
             "New revenue opportunity: Spark-generated RFIs drove adoption of Spark credit purchases",
             "Improved investigation workflow: Clients could now submit, track, and review RFIs directly in the platform",
           ],

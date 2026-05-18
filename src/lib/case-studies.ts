@@ -19,7 +19,7 @@ const ALL_WORK: CaseStudy[] = [
   {
     title: "AI Automation",
     description:
-      "Strider's first AI-assisted Request for Information system. Cut analyst turnaround from two weeks to under twenty-four hours and dropped client-side AI hesitancy by 15 points. Directed the work; Ashley Franco led IC design.",
+      "Strider's first AI-assisted Request for Information system. Cut analyst turnaround from two weeks to under 24 hours and dropped client-side AI hesitancy by 15 points. I worked on it.",
     image: "/images/case-studies/rfi-automation/nobg/hero-opaque.png",
     href: "/case-study/rfi-automation",
     locked: true,

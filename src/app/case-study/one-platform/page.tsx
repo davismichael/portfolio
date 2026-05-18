@@ -17,14 +17,14 @@ const SLIDES: Slide[] = [
     kind: "cover",
     title: "One Platform",
     subtext:
-      "Consolidating Strider's intelligence suite into one risk language. Sr. Product Designer with PM scope, 2024 to 2025.",
+      "Consolidating Strider's intelligence suite into one risk language.",
     image: null,
   },
   {
     kind: "problem",
     title: "Four products, four different risk languages.",
     subtext:
-      "Ranger, Checkpoint, Shield, and Sentry each had their own UI, vocabulary, and risk model. The same entity could look critical in one product and clean in another.",
+      "Strider's four risk-intelligence products (Ranger, Checkpoint, Shield, and Sentry) each had their own UI, vocabulary, and risk model. The same entity could look critical in one product and clean in another.",
     image: "/images/case-studies/one-platform/deck/problem.jpg",
     caption: "The four products before consolidation",
   },
@@ -108,9 +108,9 @@ const SLIDES: Slide[] = [
   },
   {
     kind: "outcome",
-    title: "Faster ramp. Fewer support tickets. One language.",
+    title: "Ramp cut in half. Tickets down ~20%. One language.",
     subtext:
-      "The consolidated dashboard is what analysts open first now. The risk vocabulary became the foundation for every new surface, instead of each one reinventing its own.",
+      "Four product dashboards collapsed into one. New-analyst ramp dropped from roughly a month to about two weeks. Support tickets fell around 20%, and Client Success spent noticeably less time on product onboarding. The risk vocabulary became the foundation for every new surface, instead of each one reinventing its own.",
     image: "/images/case-studies/one-platform/deck/outcome.jpg",
     caption: "Real client deployment, post-consolidation",
   },
@@ -153,9 +153,9 @@ export default async function OnePlatformPage({
       title="One Platform"
       role="Sr. Product Designer + PM"
       company="Strider Technologies"
-      timeline="2024–2025"
+      timeline="2024-2025"
       color={ONE_PLATFORM_COLOR}
-      summary="Consolidated Strider's intelligence suite into one platform with a single risk language. Analysts ramped onto the product faster and support ticket volume dropped. Worked staff-shape: shaped the strategy through POCs, handed execution to another designer, and PM'd the engineering build."
+      summary="Consolidated Strider's intelligence suite into one platform with a single risk language and a refreshed visual design. New-analyst ramp dropped from roughly a month to about two weeks. Support ticket volume fell around 20%. Client Success spent noticeably less time onboarding analysts because they were no longer learning four products. I owned product strategy and design direction, partnered with one of my senior designers on visual and interaction execution, and PM'd the engineering build."
       skills={[
         "Platform Consolidation",
         "Information Architecture",
@@ -179,16 +179,16 @@ export default async function OnePlatformPage({
         // 2. The Challenge
         {
           title: "The Challenge",
-          type: "quote",
+          type: "text",
           content: [
-            "Our analysts are juggling four mental models. They have to know which product to trust for which question. That is not the product we want to be.",
+            "The real problem wasn't that there were four products. It was that each one indexed the world through a single entity type. Sentry only searched people. Checkpoint only searched organizations. An analyst investigating a person tied to an organization had to jump between products, carry context across by hand, and reconcile data shapes that didn't align. The data was split along the wrong axis for the work analysts were actually doing.",
           ],
         },
         {
           title: "",
           type: "text",
           content: [
-            "The mandate was to consolidate the suite without sunsetting the depth each product already gave clients. We had a year to redirect the IA, the navigation, the risk model, and the data pipelines without breaking any existing contracts. My role was staff-shape: I owned the strategy and direction through POCs, handed visual and interaction execution to another designer, and PM'd a lot of the engineering build to keep the scope tractable for one design seat.",
+            "The mandate was to consolidate the suite without sunsetting the depth each product already gave clients. We had a year to redirect the IA, the navigation, the risk model, and the data pipelines without breaking any existing contracts. I owned product strategy and design direction through POCs, partnered with one of my senior designers on visual and interaction execution, and PM'd a lot of the engineering build to keep scope tractable for a single design seat.",
           ],
         },
 
@@ -268,6 +268,7 @@ export default async function OnePlatformPage({
           content: [
             "Based on the research, I hypothesized that an entity-first IA would solve more problems than a product-shell would. The shell pattern (wrap the products in shared chrome, share search and notifications) is faster to ship and lower risk. It also doesn't solve the language problem; it hides it behind a coat of paint.",
             "I argued for entity-first. Leadership backed the longer path.",
+            "Alongside the IA reframe, the platform got a visual refresh. One design system replaced four inconsistent UIs, with aligned color, typography, and component patterns across every surface. The fresh look made the consolidation feel like a new product instead of a stitched-together rebrand.",
           ],
         },
         {
@@ -326,7 +327,7 @@ export default async function OnePlatformPage({
           type: "text",
           content: [
             "Spark sits across the consolidated platform. AI-powered search that explores connections across Strider's products and data. Document upload so clients can combine their files with Strider's intelligence. Plain-language summaries of any entity directly inside the profile panel.",
-            "Spark beta launched May 2025 with a defined credit model so analysts could unlock answers from data they didn't normally have access to. The bet was that an AI layer wasn't a feature inside a product — it was a pillar that needed the consolidated IA underneath it to be useful at all.",
+            "Spark beta launched May 2025 with a defined credit model so analysts could unlock answers from data they didn't normally have access to. The bet was that an AI layer wasn't a feature inside a product. It was a pillar that needed the consolidated IA underneath it to be useful at all.",
           ],
         },
         {
@@ -376,7 +377,7 @@ export default async function OnePlatformPage({
           title: "What Ships Next",
           type: "text",
           content: [
-            "The platform's first surfaces are live; the rest of 2025 fills in the cross-product surface area. Cross-product dashboard and unified navigation land in Q2. The three big intersections — Ranger×Sentry, Checkpoint×Sentry, Ranger×Checkpoint — ship in Q3. Spark Profile Summaries and Search Anything follow in the second half.",
+            "The platform's first surfaces are live; the rest of 2025 fills in the cross-product surface area. Cross-product dashboard and unified navigation land in Q2. The three big intersections (Ranger×Sentry, Checkpoint×Sentry, Ranger×Checkpoint) ship in Q3. Spark Profile Summaries and Search Anything follow in the second half.",
           ],
         },
         {
@@ -420,7 +421,7 @@ export default async function OnePlatformPage({
           title: "",
           type: "text",
           content: [
-            "The platform did ship, and analysts ramp on the consolidated dashboard noticeably faster than the old fragmented version. Support tickets dropped. The risk language we standardized became the foundation for every new surface the team builds, instead of each one reinventing its own. That is the part I am most proud of.",
+            "The platform did ship. Four product dashboards collapsed into one. New-analyst ramp dropped from roughly a month to about two weeks. Support ticket volume fell around 20%, and Client Success spent noticeably less time onboarding analysts because they were no longer learning four products. The risk language we standardized became the foundation for every new surface the team builds, instead of each one reinventing its own. That is the part I am most proud of.",
           ],
         },
       ]}
