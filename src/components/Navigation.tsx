@@ -40,13 +40,16 @@ export default function Navigation() {
 
   return (
     <nav className="absolute top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-4 md:py-5 bg-black">
-      {/* Logo */}
+      {/* Logo. Full name on desktop, MD on mobile. */}
       <Link
         href="/"
-        className="text-white text-xl md:text-2xl italic font-light tracking-wide"
+        className="text-white italic font-light tracking-wide"
         onClick={close}
       >
-        MD
+        <span className="md:hidden text-xl">MD</span>
+        <span className="hidden md:inline text-xl md:text-2xl">
+          Michael A. Davis
+        </span>
       </Link>
 
       {/* Desktop nav links */}
@@ -55,13 +58,13 @@ export default function Navigation() {
           href="/#my-work"
           className="text-white text-xs font-normal uppercase tracking-[0.2em] hover:opacity-70 transition-opacity"
         >
-          Made for Hire
+          Work
         </Link>
         <Link
           href="/projects"
           className="text-white text-xs font-normal uppercase tracking-[0.2em] hover:opacity-70 transition-opacity"
         >
-          Made for Self
+          Side Projects
         </Link>
         <a
           href="/Michael_Davis_Resume.pdf"
@@ -115,14 +118,14 @@ export default function Navigation() {
           onClick={close}
           className="text-white text-sm font-normal uppercase tracking-[0.25em]"
         >
-          Made for Hire
+          Work
         </Link>
         <Link
           href="/projects"
           onClick={close}
           className="text-white text-sm font-normal uppercase tracking-[0.25em]"
         >
-          Made for Self
+          Side Projects
         </Link>
         <a
           href="/Michael_Davis_Resume.pdf"

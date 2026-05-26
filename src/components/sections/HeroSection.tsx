@@ -18,6 +18,11 @@ export default function HeroSection() {
       {/* Hero content */}
       <div className="relative z-10 flex flex-col items-center justify-center flex-1 px-6 text-center pb-16">
 
+        {/* Name eyebrow. Mobile only — desktop shows the full name in the top-left logo. */}
+        <p className="md:hidden text-white/60 text-xs font-medium uppercase tracking-[0.3em] mb-6">
+          Michael A. Davis
+        </p>
+
         {/* Headline with inline photo */}
         <h1
           className="text-white font-bold leading-tight"

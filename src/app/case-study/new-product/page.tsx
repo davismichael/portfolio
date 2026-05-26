@@ -4,9 +4,9 @@ import { isUnlocked } from "@/lib/case-study-auth";
 import type { Slide } from "@/components/case-study/types";
 
 export const metadata = {
-  title: "AI Product (In Progress) · Designing the proof of concept for an AI operating system | Michael Davis",
-  description:
-    "(In Progress) Solo Designer + PM on a confidential AI-native rebuild of a mature intelligence product. Designed and prototyped a unified search, agentic profile insights, and user-authored skills. Prototyped in Claude with real data through MCP, shipped React via Subframe.",
+  title: "AI Product (In Progress) | Michael Davis",
+  description: "Case study in progress. Available on request.",
+  robots: { index: false, follow: false },
 };
 
 const COLOR = "from-[#0c0a1f] to-[#1e1b3b]";
@@ -129,7 +129,7 @@ export default async function NewProductPage({
       title="AI Product · Designing the proof of concept for an AI operating system"
       role="Sole Product Designer & PM"
       company="[Confidential]"
-      timeline="2025–2026"
+      timeline="2025-2026"
       color={COLOR}
       status="In Progress"
       summary="Designed the proof of concept for an AI-native rebuild of a mature intelligence product. Solo Designer + PM, twelve weeks. The new product turns search into synthesis, runs agents to keep client profiles current, and lets users author markdown skills that shape what the system prioritizes. Briefs export at the end. Prototyped in Claude with real data through MCP, shipped as React via Subframe."

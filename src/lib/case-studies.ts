@@ -9,39 +9,39 @@ const SHOW_IN_PROGRESS = process.env.SHOW_IN_PROGRESS === "true";
 // most-recent → least-recent.
 const ALL_WORK: CaseStudy[] = [
   {
-    title: "One Platform",
-    description:
-      "Consolidated an enterprise intelligence suite into one platform with a single risk language. Sr. Product Designer + PM, working staff-shape across strategy, design, and PM.",
-    image: "/images/case-studies/one-platform.png",
-    href: "/case-study/one-platform",
-    locked: true,
-  },
-  {
     title: "AI Automation",
     description:
-      "Strider's first AI-assisted Request for Information system. Cut analyst turnaround from two weeks to under 24 hours and dropped client-side AI hesitancy by 15 points. I worked on it.",
+      "Strider's first AI-assisted RFI system, cutting analyst turnaround from two weeks to under 24 hours.",
     image: "/images/case-studies/rfi-automation/nobg/hero-opaque.png",
     href: "/case-study/rfi-automation",
     locked: true,
   },
   {
+    title: "One Platform",
+    description:
+      "Consolidated Strider's four-product intelligence suite into one platform with a single risk language.",
+    image: "/images/case-studies/one-platform.png",
+    href: "/case-study/one-platform",
+    locked: true,
+  },
+  {
     title: "Make Payments",
     description:
-      "As Lead UX, I designed an end-to-end mobile payment experience for game-official compensation, reducing friction and increasing clarity across complex transaction flows.",
+      "End-to-end mobile payment experience for paying game officials on the field.",
     image: "/images/case-studies/make-payments.png",
     href: "/case-study/make-payments",
   },
   {
     title: "Interactive Video",
     description:
-      "As Sr. Product Designer, I led product design for an interactive video platform, creating engagement-driven interfaces that let viewers take action without leaving the experience.",
+      "Shoppable, actionable video built into Verb's CRM for white-label distributors.",
     image: "/images/case-studies/interactive-video.png",
     href: "/case-study/interactive-video",
   },
   {
     title: "Shop on Live Video",
     description:
-      "As Sr. Design Manager, I managed design for a live video commerce experience, defining UX patterns that made browsing, selecting, and purchasing seamless during live broadcasts.",
+      "Live video commerce. Led six designers under a pandemic-disrupted timeline.",
     image: "/images/case-studies/shop-on-live-video.png",
     href: "/case-study/shop-on-live-video",
   },
@@ -56,7 +56,7 @@ export const PROJECTS: CaseStudy[] = [
   {
     title: "BreakOff",
     description:
-      "A digital wellness app I built to help people take intentional breaks from their devices.",
+      "Built every surface in React Native and shipped to the App Store as a solo founder. Real screen-time controls powered by Apple's Family Controls API, with a UX that treats limits like a workout plan instead of a punishment. Live on the App Store and still shipping.",
     image: "/images/case-studies/breakoff.png",
     href: "https://breakoff.io",
     external: true,
@@ -64,7 +64,7 @@ export const PROJECTS: CaseStudy[] = [
   {
     title: "StudioSelf",
     description:
-      "An AI photo and video studio. Upload a face reference, pick a look or motion, and the studio generates polished, on-brand content for you.",
+      "An AI photo and video studio for personal brands. Upload a face reference, pick a look or a motion, and the studio returns polished, on-brand content. Solo build. Multi-model AI orchestration under the hood.",
     devices: {
       leftLaptop: "/images/case-studies/Studioself/desktop-photo.png",
       phone: "/images/case-studies/Studioself/mobile.png",

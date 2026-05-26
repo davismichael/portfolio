@@ -161,12 +161,20 @@ export default async function CaseStudyGrid({
               <div
                 className={`absolute inset-0${isSplit ? " md:hidden" : ""}`}
                 style={{
-                  background:
-                    "radial-gradient(ellipse at center, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.85) 35%, rgba(0,0,0,0.55) 70%, rgba(0,0,0,0.45) 100%)",
+                  background: study.external
+                    ? "radial-gradient(ellipse at center, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.88) 40%, rgba(0,0,0,0.7) 75%, rgba(0,0,0,0.6) 100%)"
+                    : "radial-gradient(ellipse at center, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.85) 35%, rgba(0,0,0,0.55) 70%, rgba(0,0,0,0.45) 100%)",
                 }}
               />
             ) : (
-              <div className="absolute inset-0 bg-black/55" />
+              <div
+                className="absolute inset-0"
+                style={{
+                  background: study.external
+                    ? "linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.78) 50%, rgba(0,0,0,0.88) 100%)"
+                    : "linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.65) 50%, rgba(0,0,0,0.8) 100%)",
+                }}
+              />
             )}
 
             {/* Top-right status badges */}
@@ -235,13 +243,14 @@ export default async function CaseStudyGrid({
               </p>
 
               <span
-                className={`inline-block border border-white text-white text-xs font-normal uppercase tracking-[0.2em] px-10 py-4 ${
+                className={`inline-flex items-center gap-2 bg-white text-black text-xs font-bold uppercase tracking-[0.2em] px-8 py-4 rounded-full ${
                   study.comingSoon
                     ? "opacity-60 cursor-default"
-                    : "hover:bg-white hover:text-black transition-all duration-300 cursor-pointer"
+                    : "hover:bg-white/90 transition-all duration-300 cursor-pointer"
                 }`}
               >
                 {cta}
+                {!study.comingSoon && <span aria-hidden>→</span>}
               </span>
             </div>
           </>

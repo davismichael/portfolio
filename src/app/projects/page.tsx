@@ -4,7 +4,7 @@ import ContactSection from "@/components/sections/ContactSection";
 import { PROJECTS } from "@/lib/case-studies";
 
 export const metadata = {
-  title: "Made for Self | Michael Davis",
+  title: "Side Projects | Michael Davis",
   description:
     "Products Michael Davis built and shipped on his own. BreakOff, StudioSelf, and more.",
 };
@@ -20,7 +20,7 @@ export default function ProjectsPage() {
             className="text-white font-bold uppercase tracking-[0.05em] mb-5"
             style={{ fontSize: "clamp(24px, 3.5vw, 44px)", lineHeight: 1.1 }}
           >
-            Made for Self
+            Side Projects
           </h1>
           <p className="text-white/70 text-sm md:text-base leading-relaxed font-light max-w-xl mx-auto">
             Products I designed, shipped, and still maintain on my own.

@@ -6,9 +6,19 @@ const Pill = ({ children }: { children: React.ReactNode }) => (
 
 export default function AboutSection() {
   return (
-    <section className="relative bg-white overflow-hidden flex items-center justify-center" style={{ minHeight: "480px", padding: "100px 0" }}>
+    <section className="relative bg-white overflow-hidden flex flex-col md:flex-row items-center justify-center px-6 py-16 md:py-0" style={{ minHeight: "480px" }}>
 
-      {/* Left floating pills. Hidden on mobile */}
+      {/* Mobile pill row. Wrap-flex, hidden on desktop. */}
+      <div className="flex md:hidden flex-wrap gap-2 justify-center mb-8 max-w-md mx-auto">
+        <Pill>Research</Pill>
+        <Pill>Design Systems</Pill>
+        <Pill>UI/UX</Pill>
+        <Pill>Prototyping</Pill>
+        <Pill>React Native</Pill>
+        <Pill>AI/LLM</Pill>
+      </div>
+
+      {/* Desktop left floating pills */}
       <div className="hidden md:block absolute" style={{ left: "16%", top: "18%" }}>
         <Pill>Research</Pill>
       </div>
@@ -19,7 +29,7 @@ export default function AboutSection() {
         <Pill>UI/UX</Pill>
       </div>
 
-      {/* Right floating pills. Hidden on mobile */}
+      {/* Desktop right floating pills */}
       <div className="hidden md:block absolute" style={{ right: "16%", top: "18%" }}>
         <Pill>Prototyping</Pill>
       </div>
@@ -31,7 +41,7 @@ export default function AboutSection() {
       </div>
 
       {/* Center text */}
-      <div className="relative z-10 max-w-sm mx-auto text-center px-6">
+      <div className="relative z-10 max-w-sm mx-auto text-center px-6 md:py-[100px]">
         <p className="leading-relaxed" style={{ fontSize: "clamp(17px, 1.8vw, 22px)" }}>
           <span className="text-gray-400">I&apos;m a </span>
           <span className="font-bold text-gray-900">Sr. Director of Product Design</span>

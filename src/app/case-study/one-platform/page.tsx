@@ -6,7 +6,7 @@ import type { Slide } from "@/components/case-study/types";
 export const metadata = {
   title: "One Platform | Michael Davis",
   description:
-    "Consolidated an enterprise intelligence suite into one platform with a single risk language. Sr. Product Designer + PM. Password required.",
+    "Consolidated Strider's intelligence suite into one platform with a single risk language. New-analyst ramp dropped from roughly a month to about two weeks. Support ticket volume fell around 20 percent. Sr. Product Designer plus PM.",
 };
 
 const ONE_PLATFORM_COLOR = "from-[#0f172a] to-[#1e293b]";
