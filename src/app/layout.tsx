@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import ReducedMotionProvider from "@/components/ReducedMotionProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -20,7 +21,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.variable}>
-      <body>{children}</body>
+      <body>
+        {/* Skip-to-content link. First focusable element on every page so
+            keyboard users can bypass the nav. Targets the <main id="main">
+            element rendered by each route. */}
+        <a href="#main" className="skip-link">
+          Skip to content
+        </a>
+        <ReducedMotionProvider>{children}</ReducedMotionProvider>
+      </body>
     </html>
   );
 }

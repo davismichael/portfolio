@@ -1,10 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Navigation() {
   const [open, setOpen] = useState(false);
+  const hamburgerRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (open) {
@@ -35,6 +37,60 @@ export default function Navigation() {
     window.addEventListener("hashchange", cleanHash);
     return () => window.removeEventListener("hashchange", cleanHash);
   }, []);
+
+  // Focus trap + Escape-to-close for the mobile menu. When the menu opens,
+  // focus moves to the first link inside it; Tab/Shift+Tab cycle within the
+  // menu; Escape closes and returns focus to the hamburger button. Without
+  // this, keyboard users could Tab past the open menu to elements visually
+  // hidden behind it, which is a real WCAG 2.4.3 (Focus Order) bug.
+  useEffect(() => {
+    if (!open) return;
+
+    const menu = menuRef.current;
+    if (!menu) return;
+
+    const focusables = menu.querySelectorAll<HTMLElement>(
+      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+    );
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+
+    // Move focus into the menu on open.
+    first?.focus();
+
+    function handleKey(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        setOpen(false);
+        return;
+      }
+      if (e.key !== "Tab" || focusables.length === 0) return;
+
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last?.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first?.focus();
+      }
+    }
+
+    document.addEventListener("keydown", handleKey);
+    return () => document.removeEventListener("keydown", handleKey);
+  }, [open]);
+
+  // Return focus to the hamburger when the menu closes, so keyboard users
+  // land where they were before opening it.
+  useEffect(() => {
+    if (!open && hamburgerRef.current) {
+      // Only restore focus if focus is currently on the body (i.e. nothing
+      // explicit grabbed it), to avoid stealing focus when the user clicked
+      // a link that navigates away.
+      if (document.activeElement === document.body) {
+        hamburgerRef.current.focus();
+      }
+    }
+  }, [open]);
 
   const close = () => setOpen(false);
 
@@ -84,9 +140,11 @@ export default function Navigation() {
 
       {/* Mobile hamburger */}
       <button
+        ref={hamburgerRef}
         type="button"
         aria-label={open ? "Close menu" : "Open menu"}
         aria-expanded={open}
+        aria-controls="mobile-menu"
         onClick={() => setOpen((v) => !v)}
         className="md:hidden relative w-8 h-8 flex flex-col items-center justify-center gap-1.5 -mr-1"
       >
@@ -109,6 +167,12 @@ export default function Navigation() {
 
       {/* Mobile menu panel */}
       <div
+        ref={menuRef}
+        id="mobile-menu"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Site navigation"
+        aria-hidden={!open}
         className={`md:hidden fixed inset-x-0 top-[56px] bottom-0 bg-black flex flex-col items-center justify-start pt-12 gap-8 transition-opacity duration-200 ${
           open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}

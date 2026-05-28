@@ -38,7 +38,7 @@ const SLIDES: Slide[] = [
     kind: "insight",
     title: "Clients wanted AI speed and human control.",
     subtext:
-      "They were interested in AI assistance but wanted to review every AI-generated request and add their own intelligence before submission. Human-in-the-loop, not human-out-of-the-loop.",
+      "They were interested in AI assistance but wanted to review every AI-generated request and add their own intelligence before submission. The human had to stay in the loop.",
     image:
       "/images/case-studies/rfi-automation/workflow-original.png",
     caption: "The pre-RFI workflow: emails, relays, manual research.",
@@ -54,7 +54,7 @@ const SLIDES: Slide[] = [
     kind: "exploration",
     title: "Two submission paths, one form.",
     subtext:
-      "Spark-generated RFI for the speed path. Analyst-assisted RFI for the trust path. Same form, same dashboard, same profile pages. The client picks the path per request.",
+      "Spark generates the RFI for the speed path. An analyst handles the RFI for the trust path. Same form, same dashboard, same profile pages. The client picks the path per request.",
     image:
       "/images/case-studies/rfi-automation/workflow-new.png",
     caption: "The new RFI workflow with both Spark and analyst paths.",
@@ -72,7 +72,7 @@ const SLIDES: Slide[] = [
     kind: "iteration",
     title: "Credit visibility and depletion states.",
     subtext:
-      "Spark-generated RFIs consume Spark credits. We designed the states for credit visibility, depletion, and graceful fallback to the analyst path so the workflow never dead-ended.",
+      "RFIs that Spark generates consume Spark credits. We designed the states for credit visibility, depletion, and graceful fallback to the analyst path so the workflow never stalled.",
     image:
       "/images/case-studies/rfi-automation/credit-states.png",
     caption: "Credit-based system states: visibility, depletion, fallback.",
@@ -90,7 +90,7 @@ const SLIDES: Slide[] = [
     kind: "reflection",
     title: "What I'd do differently as the director.",
     subtext:
-      "Lock the credit-based pricing model before the IC design started. We restructured the depletion states twice because the credit logic kept changing. Constraint first, then design.",
+      "Lock the credit pricing model before the IC design started. We restructured the depletion states twice because the credit logic kept changing. Constraint first, then design.",
     image: null,
   },
 ];
@@ -119,7 +119,7 @@ export default async function RfiAutomationPage({
       company="Strider Technologies"
       timeline="2025"
       color={COLOR}
-      summary="As Director of Product Design, I owned strategy, design direction, and core IC design on this project. I defined the in-platform workflow, designed key surfaces myself, and shaped the AI-trust patterns across the system; Ashley Franco partnered with me as IC designer. The shipped system included an RFI submission form supporting both Spark-generated and analyst-assisted requests, an RFI manager dashboard to track all requests, and individual RFI profile pages displaying submissions, reports, and related profile updates. Spark is Strider's AI agent. I collaborated closely with a product manager, front- and backend engineers, and intelligence operations analysts to ensure the system aligned with real investigative workflows."
+      summary="As Director of Product Design, I owned strategy, design direction, and core IC design on this project. I defined the workflow inside the platform, designed key surfaces myself, and shaped the AI-trust patterns across the system; Ashley Franco partnered with me as IC designer. The shipped system included an RFI submission form for both Spark and analyst requests, an RFI manager dashboard to track all requests, and individual RFI profile pages displaying submissions, reports, and related profile updates. Spark is Strider's AI agent. I collaborated closely with a product manager, front- and backend engineers, and intelligence operations analysts to ensure the system aligned with real investigative workflows."
       skills={[
         "AI Product Design",
         "Workflow Automation",
@@ -135,7 +135,7 @@ export default async function RfiAutomationPage({
           title: "The Goal",
           type: "text",
           content: [
-            "Create an in-platform RFI system that would:",
+            "Create an RFI system inside the platform that would:",
           ],
         },
         {
@@ -156,8 +156,8 @@ export default async function RfiAutomationPage({
           images: [
             {
               src: "/images/case-studies/rfi-automation/nobg/hero.png",
-              alt: "Create RFI form with Spark-generated and Analyst-assisted options",
-              caption: "The new in-platform RFI submission form.",
+              alt: "Create RFI form with options for Spark and analyst submissions",
+              caption: "The new RFI submission form inside the platform.",
             },
           ],
         },
@@ -185,7 +185,7 @@ export default async function RfiAutomationPage({
           title: "",
           type: "text",
           content: [
-            "Turnaround time could take up to two weeks, and clients had no in-platform way to submit or track RFIs.",
+            "Turnaround time could take up to two weeks, and clients had no way to submit or track RFIs inside the platform.",
           ],
         },
         {
@@ -252,7 +252,7 @@ export default async function RfiAutomationPage({
           title: "",
           type: "text",
           content: [
-            "This informed the human-in-the-loop design of Spark-generated RFIs.",
+            "This shaped how we designed the Spark workflow, keeping the human in the loop on every request.",
           ],
         },
 
@@ -272,7 +272,7 @@ export default async function RfiAutomationPage({
             {
               src: "/images/case-studies/rfi-automation/workflow-new.png",
               alt: "Redesigned RFI workflow with Spark and analyst paths",
-              caption: "The redesigned workflow with both Spark-generated and analyst-assisted paths.",
+              caption: "The redesigned workflow with both Spark and analyst paths.",
             },
           ],
         },
@@ -280,14 +280,14 @@ export default async function RfiAutomationPage({
           title: "1. RFI Submission Form",
           type: "text",
           content: [
-            "A new form allowed users to create requests directly within the platform. Users could choose between Spark-generated and analyst-assisted submissions.",
+            "A new form allowed users to create requests directly within the platform. Users could choose between submissions generated by Spark or handled by an analyst.",
           ],
         },
         {
-          title: "2. Spark-generated RFIs",
+          title: "2. RFIs Generated by Spark",
           type: "text",
           content: [
-            "Once submitted, Spark generates a report and profile update within ~24 hours, compared to the previous ~2 week analyst turnaround.",
+            "Once submitted, Spark generates a report and profile update within ~24 hours, compared to the previous turnaround of around two weeks with an analyst.",
           ],
         },
         {
@@ -374,17 +374,17 @@ export default async function RfiAutomationPage({
           title: "",
           type: "list",
           content: [
-            "Clear labeling of Spark-generated RFIs",
+            "Clear labeling of RFIs generated by Spark",
             "Editable AI-generated submissions",
             "Visibility into estimated turnaround times",
-            "The ability to choose analyst-assisted RFIs",
+            "The ability to choose an analyst path instead",
           ],
         },
         {
           title: "",
           type: "text",
           content: [
-            "Clients with strict data policies could still use the product end-to-end via the analyst-assisted path, while clients without those restrictions got the speed of Spark.",
+            "Clients with strict data policies could still use the product from start to finish via the analyst path, while clients without those restrictions got the speed of Spark.",
             "Once Spark RFIs started returning findings that surfaced real risk, a small but meaningful share of client legal teams revisited their AI policies and approved Spark for this workflow specifically. We hadn't lobbied them. The output spoke for itself, and for those clients the cost of missing the risk it was uncovering outweighed the policy concern.",
           ],
         },
@@ -394,7 +394,7 @@ export default async function RfiAutomationPage({
           title: "Designing for Edge Cases & System Constraints",
           type: "text",
           content: [
-            "Spark-generated RFIs required Spark credits, which clients could purchase. To support this credit-based system, I designed several system states.",
+            "RFIs generated by Spark required Spark credits, which clients could purchase. To support this credit system, I designed several system states.",
           ],
         },
         {
@@ -425,7 +425,7 @@ export default async function RfiAutomationPage({
           type: "list",
           content: [
             "Notified them that credits were exhausted",
-            "Suggested switching to analyst-assisted RFIs",
+            "Suggested switching to an analyst RFI instead",
             "Provided guidance on purchasing additional credits",
           ],
         },
@@ -452,7 +452,7 @@ export default async function RfiAutomationPage({
           title: "",
           type: "text",
           content: [
-            "The credit pricing model shifted twice during design, which forced us to rebuild the depletion-state logic each time. By the second restructure it was clear the underlying constraint should have been locked before IC design began. That lesson lands in the reflection at the end.",
+            "The credit pricing model shifted twice during design, which forced us to rebuild the depletion state logic each time. By the second restructure it was clear the underlying constraint should have been locked before IC design began. That lesson lands in the reflection at the end.",
           ],
         },
 
@@ -471,8 +471,8 @@ export default async function RfiAutomationPage({
             "Faster intelligence delivery: Reduced turnaround time from ~14 days to <24 hours",
             "Reduced manual effort: ~45% decrease in time spent creating RFIs",
             "Shifted client AI policy: A small share of client legal teams revised internal AI policies to allow Spark on this workflow, after seeing the system surface risk their teams would have missed",
-            "Moved the company-wide number: AI hesitancy across Strider's product line dropped from ~60% to ~45%, with this feature recognized internally as the catalyst",
-            "New revenue opportunity: Spark-generated RFIs drove adoption of Spark credit purchases",
+            "Moved the number across the company: AI hesitancy across Strider's product line dropped from ~60% to ~45%, with this feature recognized internally as the catalyst",
+            "New revenue opportunity: RFIs generated by Spark drove adoption of Spark credit purchases",
             "Improved investigation workflow: Clients could now submit, track, and review RFIs directly in the platform",
           ],
         },
@@ -483,7 +483,7 @@ export default async function RfiAutomationPage({
           videos: [
             {
               src: "/videos/case-studies/rfi-automation/rfi.mp4",
-              caption: "The end-to-end RFI workflow in the shipped product.",
+              caption: "The full RFI workflow in the shipped product.",
             },
           ],
         },
@@ -501,7 +501,7 @@ export default async function RfiAutomationPage({
           title: "",
           type: "list",
           content: [
-            "Improving Spark-generated intelligence summaries",
+            "Improving intelligence summaries generated by Spark",
             "Adding more global organization identifiers",
             "Providing clearer RFI progress tracking",
             "Reducing response times further with incremental AI reporting",

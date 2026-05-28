@@ -89,7 +89,7 @@ export default function CaseStudyLayout({
     router.back();
   };
   return (
-    <main className="min-h-screen" style={{ background: "#0f0f0f" }}>
+    <main id="main" className="min-h-screen" style={{ background: "#0f0f0f" }}>
       {/* Hero */}
       <section className="relative overflow-hidden" style={{ background: "#f4f3ee" }}>
         <Navigation />

@@ -20,7 +20,7 @@ export default function UnlockScreen({
   error,
 }: UnlockScreenProps) {
   return (
-    <main className="min-h-screen" style={{ background: "#f4f3ee" }}>
+    <main id="main" className="min-h-screen" style={{ background: "#f4f3ee" }}>
       <section className="relative overflow-hidden min-h-screen" style={{ background: "#f4f3ee" }}>
         <Navigation />
 

@@ -6,7 +6,7 @@ import { MY_WORK } from "@/lib/case-studies";
 
 export default function Home() {
   return (
-    <main>
+    <main id="main">
       <HeroSection />
       <AboutSection />
       <CaseStudyGrid id="my-work" studies={MY_WORK} collapsibleAfter={3} />

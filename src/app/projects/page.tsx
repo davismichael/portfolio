@@ -11,7 +11,7 @@ export const metadata = {
 
 export default function ProjectsPage() {
   return (
-    <main className="bg-black">
+    <main id="main" className="bg-black">
       {/* Hero */}
       <section className="relative bg-black overflow-hidden">
         <Navigation />

@@ -42,18 +42,21 @@ export default function AboutSection() {
 
       {/* Center text */}
       <div className="relative z-10 max-w-sm mx-auto text-center px-6 md:py-[100px]">
+        {/* Connector text uses gray-500 (≈4.83:1 on white) so it passes WCAG AA
+            while keeping the bold terms visually dominant. gray-400 was 2.83:1
+            and failed AA for both normal and large text. */}
         <p className="leading-relaxed" style={{ fontSize: "clamp(17px, 1.8vw, 22px)" }}>
-          <span className="text-gray-400">I&apos;m a </span>
+          <span className="text-gray-500">I&apos;m a </span>
           <span className="font-bold text-gray-900">Sr. Director of Product Design</span>
-          <span className="text-gray-400"> skilled in </span>
+          <span className="text-gray-500"> skilled in </span>
           <span className="font-bold text-gray-900">UI/UX</span>
-          <span className="text-gray-400">, </span>
+          <span className="text-gray-500">, </span>
           <span className="font-bold text-gray-900">Design Systems</span>
-          <span className="text-gray-400">, </span>
+          <span className="text-gray-500">, </span>
           <span className="font-bold text-gray-900">Prototyping</span>
-          <span className="text-gray-400">, and </span>
+          <span className="text-gray-500">, and </span>
           <span className="font-bold text-gray-900">AI-powered product building</span>
-          <span className="text-gray-400">.</span>
+          <span className="text-gray-500">.</span>
         </p>
       </div>
 

@@ -41,54 +41,71 @@ export default function ContactSection() {
         {/* Two-column layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
           {/* Left: Form */}
-          <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Name label */}
-            <div>
-              <label className="block text-sm font-light text-white mb-2">
+          <form onSubmit={handleSubmit} className="space-y-6" noValidate={false}>
+            {/* Name */}
+            <fieldset>
+              <legend className="block text-sm font-light text-white mb-2">
                 Name
-              </label>
+              </legend>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <span className="block text-xs text-white/50 mb-1">
+                  {/* Required indicator uses white/60 (≈7:1 on #1a1a1a) instead
+                      of white/30 (≈3.3:1) so it passes WCAG AA. */}
+                  <label
+                    htmlFor="contact-firstName"
+                    className="block text-xs text-white/70 mb-1"
+                  >
                     First Name{" "}
-                    <span className="text-white/30">(required)</span>
-                  </span>
+                    <span className="text-white/60">(required)</span>
+                  </label>
                   <input
+                    id="contact-firstName"
                     type="text"
                     name="firstName"
                     required
+                    autoComplete="given-name"
                     value={formData.firstName}
                     onChange={handleChange}
                     className="w-full bg-white text-black text-base font-light px-3 py-2 outline-none"
                   />
                 </div>
                 <div>
-                  <span className="block text-xs text-white/50 mb-1">
+                  <label
+                    htmlFor="contact-lastName"
+                    className="block text-xs text-white/70 mb-1"
+                  >
                     Last Name{" "}
-                    <span className="text-white/30">(required)</span>
-                  </span>
+                    <span className="text-white/60">(required)</span>
+                  </label>
                   <input
+                    id="contact-lastName"
                     type="text"
                     name="lastName"
                     required
+                    autoComplete="family-name"
                     value={formData.lastName}
                     onChange={handleChange}
                     className="w-full bg-white text-black text-base font-light px-3 py-2 outline-none"
                   />
                 </div>
               </div>
-            </div>
+            </fieldset>
 
             {/* Email */}
             <div>
-              <label className="block text-sm font-light text-white mb-1">
+              <label
+                htmlFor="contact-email"
+                className="block text-sm font-light text-white mb-1"
+              >
                 Email Address{" "}
-                <span className="text-xs text-white/30">(required)</span>
+                <span className="text-xs text-white/60">(required)</span>
               </label>
               <input
+                id="contact-email"
                 type="email"
                 name="email"
                 required
+                autoComplete="email"
                 value={formData.email}
                 onChange={handleChange}
                 className="w-full bg-white text-black text-base font-light px-3 py-2 outline-none"
@@ -97,11 +114,15 @@ export default function ContactSection() {
 
             {/* Subject */}
             <div>
-              <label className="block text-sm font-light text-white mb-1">
+              <label
+                htmlFor="contact-subject"
+                className="block text-sm font-light text-white mb-1"
+              >
                 Subject{" "}
-                <span className="text-xs text-white/30">(required)</span>
+                <span className="text-xs text-white/60">(required)</span>
               </label>
               <input
+                id="contact-subject"
                 type="text"
                 name="subject"
                 required
@@ -113,11 +134,15 @@ export default function ContactSection() {
 
             {/* Message */}
             <div>
-              <label className="block text-sm font-light text-white mb-1">
+              <label
+                htmlFor="contact-message"
+                className="block text-sm font-light text-white mb-1"
+              >
                 Message{" "}
-                <span className="text-xs text-white/30">(required)</span>
+                <span className="text-xs text-white/60">(required)</span>
               </label>
               <textarea
+                id="contact-message"
                 name="message"
                 required
                 rows={5}
@@ -127,12 +152,16 @@ export default function ContactSection() {
               />
             </div>
 
-            {/* Submit */}
+            {/* Submit. Solid white-on-dark to read as a real primary CTA. The
+                old ghosted gray-on-gray treatment was technically accessible
+                but visually felt disabled. Matches the hero "Let's work
+                together" button so the page has one consistent primary style. */}
             <button
               type="submit"
-              className="inline-block border-2 border-gray-400 text-gray-400 text-xs font-bold uppercase tracking-[0.2em] px-10 py-4 hover:bg-gray-400 hover:text-black transition-all duration-300 cursor-pointer"
+              className="inline-flex items-center gap-2 bg-white text-black text-xs font-bold uppercase tracking-[0.2em] px-10 py-4 rounded-full hover:bg-white/90 transition-all duration-200 cursor-pointer"
             >
               Email Me
+              <span aria-hidden>→</span>
             </button>
           </form>
 
@@ -160,9 +189,9 @@ export default function ContactSection() {
       {/* Footer */}
       <div className="border-t border-white/10 text-white/70 text-sm text-center py-6 font-medium">
         <span>Michael A. Davis</span>
-        <span className="mx-2 text-white/40">&middot;</span>
+        <span className="mx-2 text-white/60" aria-hidden>&middot;</span>
         <span>{new Date().getFullYear()}</span>
-        <span className="mx-2 text-white/40">&middot;</span>
+        <span className="mx-2 text-white/60" aria-hidden>&middot;</span>
         <a
           href="https://www.linkedin.com/in/michaelausdavis/"
           target="_blank"

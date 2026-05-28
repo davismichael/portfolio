@@ -39,3 +39,58 @@ body {
     #b8b0a8 100%
   );
 }
+
+/* Visible focus ring for keyboard users. Uses the mint accent so it's
+   recognizable on both dark and light backgrounds, with a white inner ring
+   so it stays visible against either. :focus-visible only fires for keyboard
+   focus, so mouse clicks don't get an outline. */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-mint);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Skip-to-content link. Hidden offscreen until focused, then pops into the
+   top-left so keyboard users can jump past the nav. */
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #ffffff;
+  color: #000000;
+  padding: 12px 20px;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  border-radius: 0 0 8px 0;
+  z-index: 100;
+  transform: translateY(-110%);
+  transition: transform 150ms ease-out;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
+/* Honor prefers-reduced-motion. Disables CSS transitions/animations and
+   forces smooth scroll to instant. Framer Motion is handled separately
+   via MotionConfig in layout.tsx. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
