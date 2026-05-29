@@ -56,7 +56,7 @@ export const PROJECTS: CaseStudy[] = [
   {
     title: "BreakOff",
     description:
-      "Built every surface in React Native and shipped to the App Store as a solo founder. Real screen-time controls powered by Apple's Family Controls API, with a UX that treats limits like a workout plan instead of a punishment. Live on the App Store and still shipping.",
+      "Built every surface in React Native and shipped to the App Store as a solo founder. Real screen time controls powered by Apple's Family Controls API, with a UX that treats limits like a workout plan instead of a punishment. Live on the App Store and still shipping.",
     image: "/images/case-studies/breakoff.png",
     href: "https://breakoff.io",
     external: true,
@@ -64,7 +64,7 @@ export const PROJECTS: CaseStudy[] = [
   {
     title: "StudioSelf",
     description:
-      "An AI photo and video studio for personal brands. Upload a face reference, pick a look or a motion, and the studio returns polished, on-brand content. Solo build. Multi-model AI orchestration under the hood.",
+      "An AI photo and video studio for personal brands. Upload a face reference, pick a look or a motion, and the studio returns polished content that stays on brand. Solo build. Multiple AI models orchestrated under the hood.",
     devices: {
       leftLaptop: "/images/case-studies/Studioself/desktop-photo.png",
       phone: "/images/case-studies/Studioself/mobile.png",

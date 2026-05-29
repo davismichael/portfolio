@@ -22,11 +22,11 @@ export default function MoreCardsToggle({
   return (
     <>
       {!expanded && (
-        <div className="bg-black text-center py-20">
+        <div className="bg-white text-center py-20">
           <button
             type="button"
             onClick={() => setExpanded(true)}
-            className="group inline-flex items-center gap-3 border border-white text-white text-xs font-normal uppercase tracking-[0.2em] px-10 py-4 hover:bg-white hover:text-black transition-all duration-300 cursor-pointer focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
+            className="group inline-flex items-center gap-3 border border-neutral-900 text-neutral-900 text-xs font-normal uppercase tracking-[0.2em] px-10 py-4 hover:bg-neutral-900 hover:text-white transition-all duration-300 cursor-pointer focus-visible:outline-2 focus-visible:outline-neutral-900 focus-visible:outline-offset-2"
           >
             <span>Show {count} more</span>
             <svg

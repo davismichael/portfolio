@@ -95,11 +95,11 @@ export default function Navigation() {
   const close = () => setOpen(false);
 
   return (
-    <nav className="absolute top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-4 md:py-5 bg-black">
+    <nav className="absolute top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-4 md:py-5 bg-white">
       {/* Logo. Full name on desktop, MD on mobile. */}
       <Link
         href="/"
-        className="text-white italic font-light tracking-wide"
+        className="text-neutral-900 italic font-light tracking-wide"
         onClick={close}
       >
         <span className="md:hidden text-xl">MD</span>
@@ -112,13 +112,13 @@ export default function Navigation() {
       <div className="hidden md:flex items-center gap-10">
         <Link
           href="/#my-work"
-          className="text-white text-xs font-normal uppercase tracking-[0.2em] hover:opacity-70 transition-opacity"
+          className="text-neutral-900 text-xs font-normal uppercase tracking-[0.2em] hover:opacity-60 transition-opacity"
         >
           Work
         </Link>
         <Link
           href="/projects"
-          className="text-white text-xs font-normal uppercase tracking-[0.2em] hover:opacity-70 transition-opacity"
+          className="text-neutral-900 text-xs font-normal uppercase tracking-[0.2em] hover:opacity-60 transition-opacity"
         >
           Side Projects
         </Link>
@@ -126,13 +126,13 @@ export default function Navigation() {
           href="/Michael_Davis_Resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-white text-xs font-normal uppercase tracking-[0.2em] hover:opacity-70 transition-opacity"
+          className="text-neutral-900 text-xs font-normal uppercase tracking-[0.2em] hover:opacity-60 transition-opacity"
         >
           Resume
         </a>
         <Link
           href="/#contactme"
-          className="text-white text-xs font-normal uppercase tracking-[0.2em] hover:opacity-70 transition-opacity"
+          className="text-neutral-900 text-xs font-normal uppercase tracking-[0.2em] hover:opacity-60 transition-opacity"
         >
           Contact
         </Link>
@@ -149,17 +149,17 @@ export default function Navigation() {
         className="md:hidden relative w-8 h-8 flex flex-col items-center justify-center gap-1.5 -mr-1"
       >
         <span
-          className={`block h-[1.5px] w-6 bg-white transition-transform duration-200 ${
+          className={`block h-[1.5px] w-6 bg-neutral-900 transition-transform duration-200 ${
             open ? "translate-y-[7px] rotate-45" : ""
           }`}
         />
         <span
-          className={`block h-[1.5px] w-6 bg-white transition-opacity duration-200 ${
+          className={`block h-[1.5px] w-6 bg-neutral-900 transition-opacity duration-200 ${
             open ? "opacity-0" : "opacity-100"
           }`}
         />
         <span
-          className={`block h-[1.5px] w-6 bg-white transition-transform duration-200 ${
+          className={`block h-[1.5px] w-6 bg-neutral-900 transition-transform duration-200 ${
             open ? "-translate-y-[7px] -rotate-45" : ""
           }`}
         />
@@ -173,21 +173,21 @@ export default function Navigation() {
         aria-modal="true"
         aria-label="Site navigation"
         aria-hidden={!open}
-        className={`md:hidden fixed inset-x-0 top-[56px] bottom-0 bg-black flex flex-col items-center justify-start pt-12 gap-8 transition-opacity duration-200 ${
+        className={`md:hidden fixed inset-x-0 top-[56px] bottom-0 bg-white flex flex-col items-center justify-start pt-12 gap-8 transition-opacity duration-200 ${
           open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
         <Link
           href="/#my-work"
           onClick={close}
-          className="text-white text-sm font-normal uppercase tracking-[0.25em]"
+          className="text-neutral-900 text-sm font-normal uppercase tracking-[0.25em]"
         >
           Work
         </Link>
         <Link
           href="/projects"
           onClick={close}
-          className="text-white text-sm font-normal uppercase tracking-[0.25em]"
+          className="text-neutral-900 text-sm font-normal uppercase tracking-[0.25em]"
         >
           Side Projects
         </Link>
@@ -196,14 +196,14 @@ export default function Navigation() {
           target="_blank"
           rel="noopener noreferrer"
           onClick={close}
-          className="text-white text-sm font-normal uppercase tracking-[0.25em]"
+          className="text-neutral-900 text-sm font-normal uppercase tracking-[0.25em]"
         >
           Resume
         </a>
         <Link
           href="/#contactme"
           onClick={close}
-          className="text-white text-sm font-normal uppercase tracking-[0.25em]"
+          className="text-neutral-900 text-sm font-normal uppercase tracking-[0.25em]"
         >
           Contact
         </Link>

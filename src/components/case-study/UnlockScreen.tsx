@@ -94,7 +94,7 @@ export default function UnlockScreen({
                 autoComplete="off"
                 aria-invalid={error ? true : undefined}
                 aria-describedby={error ? "unlock-error" : undefined}
-                className="w-full bg-white border border-neutral-300 rounded-xl px-4 py-3.5 text-neutral-900 placeholder-neutral-400 focus:outline-none focus:border-neutral-900 focus:ring-1 focus:ring-neutral-900 transition-colors"
+                className="w-full bg-white border border-neutral-500 rounded-xl px-4 py-3.5 text-neutral-900 placeholder-neutral-400 focus:outline-none focus:border-neutral-900 focus:ring-1 focus:ring-neutral-900 transition-colors"
                 placeholder="Enter password"
               />
             </label>

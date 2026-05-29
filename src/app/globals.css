@@ -13,7 +13,7 @@
 
 html {
   scroll-behavior: smooth;
-  background: #000000;
+  background: #ffffff;
 }
 
 body {
@@ -40,28 +40,30 @@ body {
   );
 }
 
-/* Visible focus ring for keyboard users. Uses the mint accent so it's
-   recognizable on both dark and light backgrounds, with a white inner ring
-   so it stays visible against either. :focus-visible only fires for keyboard
-   focus, so mouse clicks don't get an outline. */
+/* Visible focus ring for keyboard users. Uses currentColor so the outline
+   inherits the element's text color. On light surfaces that's dark
+   (neutral-900); on dark CTAs it's white. Always visible, no special-casing
+   per component needed. :focus-visible only fires for keyboard focus, so
+   mouse clicks don't get an outline. */
 :focus {
   outline: none;
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-mint);
+  outline: 2px solid currentColor;
   outline-offset: 3px;
   border-radius: 4px;
 }
 
 /* Skip-to-content link. Hidden offscreen until focused, then pops into the
-   top-left so keyboard users can jump past the nav. */
+   top-left so keyboard users can jump past the nav. Dark background so the
+   link is unmistakable against the light page. */
 .skip-link {
   position: absolute;
   top: 0;
   left: 0;
-  background: #ffffff;
-  color: #000000;
+  background: #171717;
+  color: #ffffff;
   padding: 12px 20px;
   font-weight: 700;
   font-size: 14px;

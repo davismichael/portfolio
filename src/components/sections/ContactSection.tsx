@@ -23,18 +23,18 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contactme" className="bg-[#1a1a1a] text-white">
+    <section id="contactme" className="bg-white text-neutral-900 border-t border-neutral-200">
       <div className="max-w-[1200px] mx-auto px-6 md:px-12 py-20 md:py-28">
         {/* Heading */}
         <h2
-          className="font-bold uppercase tracking-[0.05em] mb-4"
+          className="font-bold uppercase tracking-[0.05em] mb-4 text-neutral-900"
           style={{ fontSize: "clamp(32px, 5vw, 56px)", lineHeight: 1.2 }}
         >
           Wanna Collaborate?
         </h2>
 
         {/* Subheading */}
-        <p className="text-xs font-normal uppercase tracking-[0.2em] text-white mb-12">
+        <p className="text-xs font-normal uppercase tracking-[0.2em] text-neutral-500 mb-12">
           Let&apos;s Chat.
         </p>
 
@@ -44,7 +44,7 @@ export default function ContactSection() {
           <form onSubmit={handleSubmit} className="space-y-6" noValidate={false}>
             {/* Name */}
             <fieldset>
-              <legend className="block text-sm font-light text-white mb-2">
+              <legend className="block text-sm font-medium text-neutral-900 mb-2">
                 Name
               </legend>
               <div className="grid grid-cols-2 gap-4">
@@ -53,10 +53,10 @@ export default function ContactSection() {
                       of white/30 (≈3.3:1) so it passes WCAG AA. */}
                   <label
                     htmlFor="contact-firstName"
-                    className="block text-xs text-white/70 mb-1"
+                    className="block text-xs text-neutral-600 mb-1"
                   >
                     First Name{" "}
-                    <span className="text-white/60">(required)</span>
+                    <span className="text-neutral-500">(required)</span>
                   </label>
                   <input
                     id="contact-firstName"
@@ -66,16 +66,16 @@ export default function ContactSection() {
                     autoComplete="given-name"
                     value={formData.firstName}
                     onChange={handleChange}
-                    className="w-full bg-white text-black text-base font-light px-3 py-2 outline-none"
+                    className="w-full bg-white text-neutral-900 text-base font-light px-3 py-2 border border-neutral-500 rounded-sm outline-none focus:border-neutral-900"
                   />
                 </div>
                 <div>
                   <label
                     htmlFor="contact-lastName"
-                    className="block text-xs text-white/70 mb-1"
+                    className="block text-xs text-neutral-600 mb-1"
                   >
                     Last Name{" "}
-                    <span className="text-white/60">(required)</span>
+                    <span className="text-neutral-500">(required)</span>
                   </label>
                   <input
                     id="contact-lastName"
@@ -85,7 +85,7 @@ export default function ContactSection() {
                     autoComplete="family-name"
                     value={formData.lastName}
                     onChange={handleChange}
-                    className="w-full bg-white text-black text-base font-light px-3 py-2 outline-none"
+                    className="w-full bg-white text-neutral-900 text-base font-light px-3 py-2 border border-neutral-500 rounded-sm outline-none focus:border-neutral-900"
                   />
                 </div>
               </div>
@@ -95,10 +95,10 @@ export default function ContactSection() {
             <div>
               <label
                 htmlFor="contact-email"
-                className="block text-sm font-light text-white mb-1"
+                className="block text-sm font-medium text-neutral-900 mb-1"
               >
                 Email Address{" "}
-                <span className="text-xs text-white/60">(required)</span>
+                <span className="text-xs text-neutral-500">(required)</span>
               </label>
               <input
                 id="contact-email"
@@ -108,7 +108,7 @@ export default function ContactSection() {
                 autoComplete="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full bg-white text-black text-base font-light px-3 py-2 outline-none"
+                className="w-full bg-white text-neutral-900 text-base font-light px-3 py-2 border border-neutral-500 rounded-sm outline-none focus:border-neutral-900"
               />
             </div>
 
@@ -116,10 +116,10 @@ export default function ContactSection() {
             <div>
               <label
                 htmlFor="contact-subject"
-                className="block text-sm font-light text-white mb-1"
+                className="block text-sm font-medium text-neutral-900 mb-1"
               >
                 Subject{" "}
-                <span className="text-xs text-white/60">(required)</span>
+                <span className="text-xs text-neutral-500">(required)</span>
               </label>
               <input
                 id="contact-subject"
@@ -128,7 +128,7 @@ export default function ContactSection() {
                 required
                 value={formData.subject}
                 onChange={handleChange}
-                className="w-full bg-white text-black text-base font-light px-3 py-2 outline-none"
+                className="w-full bg-white text-neutral-900 text-base font-light px-3 py-2 border border-neutral-500 rounded-sm outline-none focus:border-neutral-900"
               />
             </div>
 
@@ -136,10 +136,10 @@ export default function ContactSection() {
             <div>
               <label
                 htmlFor="contact-message"
-                className="block text-sm font-light text-white mb-1"
+                className="block text-sm font-medium text-neutral-900 mb-1"
               >
                 Message{" "}
-                <span className="text-xs text-white/60">(required)</span>
+                <span className="text-xs text-neutral-500">(required)</span>
               </label>
               <textarea
                 id="contact-message"
@@ -148,7 +148,7 @@ export default function ContactSection() {
                 rows={5}
                 value={formData.message}
                 onChange={handleChange}
-                className="w-full bg-white text-black text-base font-light px-3 py-2 outline-none resize-vertical"
+                className="w-full bg-white text-neutral-900 text-base font-light px-3 py-2 border border-neutral-500 rounded-sm outline-none focus:border-neutral-900 resize-vertical"
               />
             </div>
 
@@ -158,7 +158,7 @@ export default function ContactSection() {
                 together" button so the page has one consistent primary style. */}
             <button
               type="submit"
-              className="inline-flex items-center gap-2 bg-white text-black text-xs font-bold uppercase tracking-[0.2em] px-10 py-4 rounded-full hover:bg-white/90 transition-all duration-200 cursor-pointer"
+              className="inline-flex items-center gap-2 bg-neutral-900 text-white text-xs font-bold uppercase tracking-[0.2em] px-10 py-4 rounded-full hover:bg-neutral-800 transition-all duration-200 cursor-pointer"
             >
               Email Me
               <span aria-hidden>→</span>
@@ -167,18 +167,18 @@ export default function ContactSection() {
 
           {/* Right: Personal message */}
           <div className="flex flex-col justify-start pt-2">
-            <p className="text-base font-light leading-relaxed text-white/90 mb-6">
+            <p className="text-base font-light leading-relaxed text-neutral-700 mb-6">
               Hey, thanks for checking out my work.
             </p>
-            <p className="text-base font-light leading-relaxed text-white/90 mb-6">
+            <p className="text-base font-light leading-relaxed text-neutral-700 mb-6">
               I&apos;ve been building digital products for over a decade. More
               recently I&apos;ve been focused on AI-powered software, especially
               the kind that quietly makes someone&apos;s day easier.
             </p>
-            <p className="text-base font-light leading-relaxed text-white/90 mb-6">
+            <p className="text-base font-light leading-relaxed text-neutral-700 mb-6">
               What are you working on?
             </p>
-            <p className="text-base font-light leading-relaxed text-white/90">
+            <p className="text-base font-light leading-relaxed text-neutral-700">
               If you want to know more about my design process, or if you want
               to talk about a cool idea, don&apos;t hesitate to hit me up.
             </p>
@@ -187,16 +187,16 @@ export default function ContactSection() {
       </div>
 
       {/* Footer */}
-      <div className="border-t border-white/10 text-white/70 text-sm text-center py-6 font-medium">
+      <div className="border-t border-neutral-200 text-neutral-600 text-sm text-center py-6 font-medium">
         <span>Michael A. Davis</span>
-        <span className="mx-2 text-white/60" aria-hidden>&middot;</span>
+        <span className="mx-2 text-neutral-400" aria-hidden>&middot;</span>
         <span>{new Date().getFullYear()}</span>
-        <span className="mx-2 text-white/60" aria-hidden>&middot;</span>
+        <span className="mx-2 text-neutral-400" aria-hidden>&middot;</span>
         <a
           href="https://www.linkedin.com/in/michaelausdavis/"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 hover:text-white transition-colors"
+          className="inline-flex items-center gap-1.5 hover:text-neutral-900 transition-colors"
         >
           <svg
             width="12"

@@ -111,7 +111,7 @@ export function Laptop({ src, alt, className = "" }: DeviceProps) {
 function Phone({ src, alt, className = "" }: DeviceProps) {
   return (
     <div className={`relative ${className}`}>
-      <div className="relative rounded-[14px] sm:rounded-[20px] md:rounded-[22px] bg-neutral-900 border border-neutral-700 p-1 sm:p-1.5 aspect-[9/19] overflow-hidden shadow-2xl shadow-black/50">
+      <div className="relative rounded-[14px] sm:rounded-[20px] md:rounded-[22px] bg-neutral-900 border border-neutral-700 p-1 sm:p-1.5 aspect-[9/19] overflow-hidden">
         {/* Dynamic-island-ish pill */}
         <span
           aria-hidden

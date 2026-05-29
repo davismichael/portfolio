@@ -57,10 +57,10 @@ export default async function CaseStudyGrid({
   const unlocked = await isUnlocked();
 
   return (
-    <section id={id} className="bg-black">
+    <section id={id} className="bg-white">
       {label && (
         <div className="text-center pt-20 pb-2">
-          <p className="text-white/50 text-xs uppercase tracking-[0.3em] font-medium">
+          <p className="text-neutral-500 text-xs uppercase tracking-[0.3em] font-medium">
             {label}
           </p>
         </div>
@@ -85,12 +85,16 @@ export default async function CaseStudyGrid({
             {/* Background. Devices, single laptop, image, or gradient fallback */}
             {study.devices ? (
               <>
-                {/* Subtle dark base behind the devices so they have something to sit on */}
+                {/* Base behind the devices. External "Visit" cards (Side
+                    Projects like StudioSelf) get a dark base so the gradient
+                    overlay above reads as a fully dark gallery row. Internal
+                    cards keep the lighter base. */}
                 <div
                   className="absolute inset-0"
                   style={{
-                    background:
-                      "linear-gradient(135deg, #0a0a0a 0%, #141414 50%, #0a0a0a 100%)",
+                    background: study.external
+                      ? "linear-gradient(135deg, #0a0a0a 0%, #141414 50%, #0a0a0a 100%)"
+                      : "linear-gradient(135deg, #ececec 0%, #d8d8d8 50%, #ececec 100%)",
                   }}
                 />
                 <DeviceComposite {...study.devices} altBase={study.title} />
@@ -100,8 +104,9 @@ export default async function CaseStudyGrid({
                 <div
                   className="absolute inset-0"
                   style={{
-                    background:
-                      "linear-gradient(135deg, #0a0a0a 0%, #141414 50%, #0a0a0a 100%)",
+                    background: study.external
+                      ? "linear-gradient(135deg, #0a0a0a 0%, #141414 50%, #0a0a0a 100%)"
+                      : "linear-gradient(135deg, #ececec 0%, #d8d8d8 50%, #ececec 100%)",
                   }}
                 />
                 {/* Mobile: laptop is the absolute-positioned card background. */}
@@ -143,7 +148,7 @@ export default async function CaseStudyGrid({
                 className="absolute inset-0"
                 style={{
                   background:
-                    "linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%)",
+                    "linear-gradient(135deg, #ececec 0%, #d8d8d8 50%, #ececec 100%)",
                 }}
               />
             )}
@@ -151,13 +156,16 @@ export default async function CaseStudyGrid({
                 their chrome lives at the edges, so darkening the middle keeps
                 the centered title readable without hiding the device. Plain
                 image cards (dashboard screenshots) get a uniform flat scrim
-                instead — a center-heavy vignette would dim exactly the part
+                instead. A center heavy vignette would dim exactly the part
                 of the screenshot you're trying to show. Split-layout cards
                 drop the scrim above `md` because the laptop and text no
                 longer overlap. */}
             {study.comingSoon ? (
               <div className="absolute inset-0 bg-black/85" />
             ) : study.devices || study.singleLaptop ? (
+              // External cards (Side Projects: BreakOff, StudioSelf) get a
+              // heavier radial scrim so the "Visit" cards read as a darker
+              // gallery row distinct from the lighter internal Work cards.
               <div
                 className={`absolute inset-0${isSplit ? " md:hidden" : ""}`}
                 style={{
@@ -167,6 +175,9 @@ export default async function CaseStudyGrid({
                 }}
               />
             ) : (
+              // Same split for image-based cards: external (Visit) cards get
+              // a darker top-to-bottom scrim; internal (Read) cards stay
+              // lighter so screenshots show through.
               <div
                 className="absolute inset-0"
                 style={{
@@ -250,7 +261,29 @@ export default async function CaseStudyGrid({
                 }`}
               >
                 {cta}
-                {!study.comingSoon && <span aria-hidden>→</span>}
+                {!study.comingSoon &&
+                  (study.external ? (
+                    // External-link glyph for "Visit" CTAs. Signals to the
+                    // user that the link leaves the portfolio and opens the
+                    // product in a new tab.
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden
+                    >
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                      <polyline points="15 3 21 3 21 9" />
+                      <line x1="10" y1="14" x2="21" y2="3" />
+                    </svg>
+                  ) : (
+                    <span aria-hidden>→</span>
+                  ))}
               </span>
             </div>
           </>
@@ -262,10 +295,12 @@ export default async function CaseStudyGrid({
             : " md:flex-row md:justify-between md:gap-10 lg:gap-16 md:text-left md:px-10 lg:px-16"
           : "";
         const cardClassName = `relative flex flex-col items-center justify-center text-center px-6 md:px-12 overflow-hidden${splitClasses}`;
+        // Cards now sit flush against each other, no margin between them so
+        // the case studies and side projects read as one continuous strip.
         const cardStyle = {
           minHeight: "60vh",
           padding: "80px 24px",
-          marginTop: index === 0 ? "16px" : "40px",
+          marginTop: 0,
         } as const;
 
         if (study.comingSoon) {

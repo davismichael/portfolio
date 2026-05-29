@@ -41,6 +41,11 @@ interface Section {
   fullBleed?: boolean;
 }
 
+// Temporarily hide the "Play presentation" button while we rethink the
+// presentation deck UX. Flip back to `true` when ready. All the underlying
+// slide data, PresentationMode component, and modal wiring stay intact.
+const SHOW_PRESENTATION_BUTTON = false;
+
 interface CaseStudyLayoutProps {
   title: string;
   role: string;
@@ -89,7 +94,7 @@ export default function CaseStudyLayout({
     router.back();
   };
   return (
-    <main id="main" className="min-h-screen" style={{ background: "#0f0f0f" }}>
+    <main id="main" className="min-h-screen bg-white">
       {/* Hero */}
       <section className="relative overflow-hidden" style={{ background: "#f4f3ee" }}>
         <Navigation />
@@ -130,7 +135,7 @@ export default function CaseStudyLayout({
               <span className="sm:hidden">Back</span>
             </Link>
 
-            {hasSlides && (
+            {SHOW_PRESENTATION_BUTTON && hasSlides && (
               <button
                 type="button"
                 onClick={() => setPresentationOpen(true)}
@@ -244,27 +249,29 @@ export default function CaseStudyLayout({
         {sections.map((section, i) => (
           <motion.div
             key={section.title}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.5, delay: i * 0.05 }}
+            // Faster fade-in. Cut duration almost in half and dropped the
+            // per-section delay so content settles quickly as you scroll.
+            transition={{ duration: 0.25, delay: i * 0.015, ease: "easeOut" }}
             className="mb-14"
           >
             {section.title && (
-              <h2 className="text-sm font-bold text-white/40 mb-4 uppercase tracking-[0.15em]">
+              <h2 className="text-sm font-bold text-neutral-500 mb-4 uppercase tracking-[0.15em]">
                 {section.title}
               </h2>
             )}
 
             {section.type === "quote" ? (
-              <blockquote className="border-l-2 border-white/20 pl-5 py-2">
+              <blockquote className="border-l-2 border-neutral-300 pl-5 py-2">
                 {(Array.isArray(section.content)
                   ? section.content
                   : [section.content]
                 ).map((text, j) => (
                   <p
                     key={j}
-                    className="text-white/60 italic leading-relaxed mb-3 last:mb-0 text-lg"
+                    className="text-neutral-700 italic leading-relaxed mb-3 last:mb-0 text-lg"
                   >
                     &ldquo;{text}&rdquo;
                   </p>
@@ -276,8 +283,8 @@ export default function CaseStudyLayout({
                   ? section.content
                   : [section.content]
                 ).map((item, j) => (
-                  <li key={j} className="flex gap-3 text-white/70 leading-relaxed">
-                    <span className="text-white/30 font-bold mt-0.5 flex-shrink-0">
+                  <li key={j} className="flex gap-3 text-neutral-700 leading-relaxed">
+                    <span className="text-neutral-500 font-bold mt-0.5 flex-shrink-0">
                       &bull;
                     </span>
                     {item}
@@ -285,14 +292,14 @@ export default function CaseStudyLayout({
                 ))}
               </ul>
             ) : section.type === "highlight" ? (
-              <div className="rounded-xl p-6 border border-white/10" style={{ background: "#1a1a1a" }}>
+              <div className="rounded-xl p-6 border border-neutral-200 bg-neutral-50">
                 {(Array.isArray(section.content)
                   ? section.content
                   : [section.content]
                 ).map((text, j) => (
                   <p
                     key={j}
-                    className="text-white/70 leading-relaxed mb-3 last:mb-0"
+                    className="text-neutral-700 leading-relaxed mb-3 last:mb-0"
                   >
                     {text}
                   </p>
@@ -303,7 +310,7 @@ export default function CaseStudyLayout({
                 {section.images?.map((img, j) => (
                   <figure
                     key={j}
-                    className="rounded-xl overflow-hidden border border-white/10 flex flex-col"
+                    className="rounded-xl overflow-hidden border border-neutral-200 flex flex-col"
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
@@ -314,8 +321,7 @@ export default function CaseStudyLayout({
                     />
                     {img.caption && (
                       <figcaption
-                        className="px-3 py-3 text-[10px] text-white/50 text-center uppercase tracking-[0.1em] leading-relaxed flex-1"
-                        style={{ background: "#1a1a1a" }}
+                        className="px-3 py-3 text-[10px] text-neutral-500 text-center uppercase tracking-[0.1em] leading-relaxed flex-1 bg-neutral-50"
                       >
                         {img.caption}
                       </figcaption>
@@ -326,7 +332,7 @@ export default function CaseStudyLayout({
             ) : section.type === "image" ? (
               <div className="space-y-6">
                 {typeof section.content === "string" && section.content && (
-                  <p className="text-white/60 leading-relaxed mb-2">
+                  <p className="text-neutral-600 leading-relaxed mb-2">
                     {section.content}
                   </p>
                 )}
@@ -343,7 +349,7 @@ export default function CaseStudyLayout({
                         : undefined
                     }
                   >
-                    <figure className="rounded-xl overflow-hidden border border-white/10">
+                    <figure className="rounded-xl overflow-hidden border border-neutral-200">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={img.src}
@@ -352,7 +358,7 @@ export default function CaseStudyLayout({
                         loading="lazy"
                       />
                       {img.caption && (
-                        <figcaption className="px-4 py-3 text-xs text-white/40 text-center uppercase tracking-[0.1em]" style={{ background: "#1a1a1a" }}>
+                        <figcaption className="px-4 py-3 text-xs text-neutral-500 text-center uppercase tracking-[0.1em] bg-neutral-50">
                           {img.caption}
                         </figcaption>
                       )}
@@ -363,7 +369,7 @@ export default function CaseStudyLayout({
             ) : section.type === "video" ? (
               <div className="space-y-6">
                 {typeof section.content === "string" && section.content && (
-                  <p className="text-white/60 leading-relaxed mb-2">
+                  <p className="text-neutral-600 leading-relaxed mb-2">
                     {section.content}
                   </p>
                 )}
@@ -373,7 +379,7 @@ export default function CaseStudyLayout({
                   const muted = vid.muted ?? true;
                   const controls = vid.controls ?? false;
                   return (
-                    <figure key={j} className="rounded-xl overflow-hidden border border-white/10">
+                    <figure key={j} className="rounded-xl overflow-hidden border border-neutral-200">
                       <video
                         src={vid.src}
                         poster={vid.poster}
@@ -386,7 +392,7 @@ export default function CaseStudyLayout({
                         className="w-full h-auto block"
                       />
                       {vid.caption && (
-                        <figcaption className="px-4 py-3 text-xs text-white/40 text-center uppercase tracking-[0.1em]" style={{ background: "#1a1a1a" }}>
+                        <figcaption className="px-4 py-3 text-xs text-neutral-500 text-center uppercase tracking-[0.1em] bg-neutral-50">
                           {vid.caption}
                         </figcaption>
                       )}
@@ -401,7 +407,7 @@ export default function CaseStudyLayout({
               ).map((text, j) => (
                 <p
                   key={j}
-                  className="text-white/70 leading-relaxed mb-4 last:mb-0"
+                  className="text-neutral-700 leading-relaxed mb-4 last:mb-0"
                 >
                   {text}
                 </p>
@@ -412,16 +418,16 @@ export default function CaseStudyLayout({
 
         {/* Back to work CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="border-t border-white/10 pt-12 mt-16"
+          transition={{ duration: 0.25, ease: "easeOut" }}
+          className="border-t border-neutral-200 pt-12 mt-16"
         >
           <Link
             href="/#my-work"
             onClick={handleBack}
-            className="inline-flex items-center gap-2 bg-white text-black rounded-full px-8 py-3.5 font-semibold text-sm uppercase tracking-[0.15em] transition-all duration-200 hover:bg-white/90"
+            className="inline-flex items-center gap-2 bg-neutral-900 text-white rounded-full px-8 py-3.5 font-semibold text-sm uppercase tracking-[0.15em] transition-all duration-200 hover:bg-neutral-800"
           >
             <svg
               width="16"
@@ -442,7 +448,7 @@ export default function CaseStudyLayout({
         </motion.div>
       </section>
 
-      {hasSlides && presentationOpen && (
+      {SHOW_PRESENTATION_BUTTON && hasSlides && presentationOpen && (
         <PresentationMode
           onClose={() => setPresentationOpen(false)}
           title={title}

@@ -1,0 +1,45 @@
+Light theme rework, hero rewrite, case study cleanup
+
+Theme
+- Flip entire portfolio to fully light: hero, case study grid, contact
+  section, projects page, and case study inner pages all use white bg
+  with neutral-900 text
+- Remove AboutSection from home page
+- MoreCardsToggle (Show N more) flipped to light
+- html bg: black -> white (no flash on load)
+
+Hero
+- New copy: "I'm Michael." + "I design & build AI-powered products."
+  with eyebrow ("Sr. Director of Product Design") and bio subhead
+- Side projects hero rescaled to match home hero (36-76px), subtitle
+  rewritten to lead with "I'm a product builder."
+
+Case study grid
+- Cards now sit flush (no padding between)
+- External "Visit" cards use the external-link icon glyph
+- StudioSelf gets a dark base + heavier scrim so external cards read
+  as a distinct dark gallery row from internal Work cards
+- Removed heavy Phone dropshadow
+
+Case study layout
+- Content section flipped from #0f0f0f to white, all text colors moved
+  from white/X to neutral-X
+- Faster content fade-in (0.25s, easeOut)
+- Presentation button hidden behind SHOW_PRESENTATION_BUTTON flag
+
+Copy
+- Strip every em dash and most compound-modifier hyphens from RFI and
+  One Platform case studies (Spark-generated, AI-powered, third-party,
+  etc, all rewritten)
+- BreakOff: screen-time to screen time
+- StudioSelf: on-brand / multi-model rewritten
+
+Accessibility (WCAG AA across the site)
+- Focus ring uses currentColor (visible on any bg)
+- Form input borders bumped to neutral-500 (passes 3:1 for UI)
+- Skip-to-content link styled dark on white (now visible when focused)
+
+Assets
+- Replace resume PDF with latest version
+- Crop one-platform/deck/outcome.jpg to remove right-edge bleed text
+  and tighten composition on the dashboard content

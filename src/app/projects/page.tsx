@@ -11,19 +11,19 @@ export const metadata = {
 
 export default function ProjectsPage() {
   return (
-    <main id="main" className="bg-black">
+    <main id="main" className="bg-white">
       {/* Hero */}
-      <section className="relative bg-black overflow-hidden">
+      <section className="relative bg-white overflow-hidden">
         <Navigation />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-8 pt-32 pb-16 md:pt-40 md:pb-20 text-center">
           <h1
-            className="text-white font-bold uppercase tracking-[0.05em] mb-5"
-            style={{ fontSize: "clamp(24px, 3.5vw, 44px)", lineHeight: 1.1 }}
+            className="text-neutral-900 font-bold uppercase tracking-[0.05em] mb-5 leading-tight"
+            style={{ fontSize: "clamp(36px, 5.5vw, 76px)" }}
           >
             Side Projects
           </h1>
-          <p className="text-white/70 text-sm md:text-base leading-relaxed font-light max-w-xl mx-auto">
-            Products I designed, shipped, and still maintain on my own.
+          <p className="text-neutral-600 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
+            I&apos;m a product builder. Every product here, I designed, shipped, and still maintain on my own.
           </p>
         </div>
       </section>

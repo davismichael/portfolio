@@ -87,7 +87,7 @@ const SLIDES: Slide[] = [
     kind: "design",
     title: "Pillar 3: Spark, an AI reasoning layer.",
     subtext:
-      "Spark sits across the platform. AI-powered search, document upload to combine with Strider's data, summaries across products in plain language. Beta launched May 2025, GA target Q4.",
+      "Spark sits across the platform. AI search, document upload to combine with Strider's data, summaries across products in plain language. Beta launched May 2025, GA target Q4.",
     image: "/images/case-studies/one-platform/deck/spark.jpg",
     caption: "Spark: AI capabilities running across the consolidated platform",
   },
@@ -171,7 +171,7 @@ export default async function OnePlatformPage({
           title: "The Client",
           type: "text",
           content: [
-            "Strider Technologies is a risk intelligence platform serving security teams, compliance officers, and personnel with government clearance. The suite had grown product by product over five years. Ranger covered nation-state and personnel risk. Checkpoint handled third-party due diligence. Sentry was for personnel screening. Shield surfaced compliance signals. Spark was the AI search and reasoning layer that ran across all of them.",
+            "Strider Technologies is a risk intelligence platform serving security teams, compliance officers, and personnel with government clearance. The suite had grown product by product over five years. Ranger covered geopolitical and personnel risk. Checkpoint handled vendor and partner due diligence. Sentry was for personnel screening. Shield surfaced compliance signals. Spark was the AI search and reasoning layer that ran across all of them.",
             "By 2024 the suite had grown large enough that the roughly one hundred senior analysts using it were spending half their day moving between products instead of doing the analysis. Leadership wanted to know what one product, instead of five, would look like.",
           ],
         },
@@ -216,7 +216,7 @@ export default async function OnePlatformPage({
           title: "",
           type: "text",
           content: [
-            "The strongest insight didn't come from the surveys. It came from watching analysts work. Asked to investigate a high-risk entity, they didn't describe their process by product. They described it by what they were looking at: a person, an organization, a document, a relationship. The product names mattered to product teams. The analysts thought in topics.",
+            "The strongest insight didn't come from the surveys. It came from watching analysts work. Asked to investigate an entity flagged as high risk, they didn't describe their process by product. They described it by what they were looking at: a person, an organization, a document, a relationship. The product names mattered to product teams. The analysts thought in topics.",
           ],
         },
         {
@@ -237,14 +237,14 @@ export default async function OnePlatformPage({
           content: [
             "The Security Lead: lives in Ranger, escalates to Checkpoint for organizational context. Under time pressure, driven by signals, accepts more noise to catch the right thing.",
             "The Compliance Officer: lives in Checkpoint, runs background screens on personnel changes. Methodical, careful about audits, needs every signal sourced.",
-            "The Government Researcher: cross-references everything. Needs all four products open in tabs. Closest to the platform's full surface area.",
+            "The Government Researcher: checks every entity against every other one. Needs all four products open in tabs. Closest to the platform's full surface area.",
           ],
         },
         {
           title: "",
           type: "text",
           content: [
-            "Designing for the Security Lead's mental model meant designing for all three. If the user most driven by signals could move through the platform fluidly, the methodical Compliance Officer and the Researcher who cross-checked everything could too.",
+            "Designing for the Security Lead's mental model meant designing for all three. If the user most driven by signals could move through the platform fluidly, the methodical Compliance Officer and the Researcher who checked every entity against every other one could too.",
             "Beyond the architectural questions, every product brand carried baggage. Internal teams were attached to names they had built. Clients had purchase orders tied to them. We sorted each brand into keep, rebrand into the unified taxonomy, or fold in entirely. The matrix made the tradeoffs visible to leadership.",
           ],
         },
@@ -326,7 +326,7 @@ export default async function OnePlatformPage({
           title: "Pillar 3: Spark, an AI Reasoning Layer",
           type: "text",
           content: [
-            "Spark sits across the consolidated platform. AI-powered search that explores connections across Strider's products and data. Document upload so clients can combine their files with Strider's intelligence. Summaries in plain language of any entity directly inside the profile panel.",
+            "Spark sits across the consolidated platform. AI search that explores connections across Strider's products and data. Document upload so clients can combine their files with Strider's intelligence. Summaries in plain language of any entity directly inside the profile panel.",
             "Spark beta launched May 2025 with a defined credit model so analysts could unlock answers from data they didn't normally have access to. The bet was that an AI layer wasn't a feature inside a product. It was a pillar that needed the consolidated IA underneath it to be useful at all.",
           ],
         },
@@ -338,7 +338,7 @@ export default async function OnePlatformPage({
             {
               src: "/images/case-studies/one-platform/deck/spark.jpg",
               alt: "Spark AI capabilities across the platform",
-              caption: "Spark: AI-powered search, document upload, and summaries across products running on top of the unified platform.",
+              caption: "Spark: AI search, document upload, and summaries across products running on top of the unified platform.",
             },
           ],
         },
