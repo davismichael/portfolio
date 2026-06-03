@@ -23,6 +23,7 @@ const ALL_WORK: CaseStudy[] = [
     image: "/images/case-studies/one-platform.png",
     href: "/case-study/one-platform",
     locked: true,
+    inProgress: true,
   },
   {
     title: "Make Payments",
