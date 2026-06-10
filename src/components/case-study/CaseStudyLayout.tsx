@@ -94,7 +94,7 @@ export default function CaseStudyLayout({
     router.back();
   };
   return (
-    <main id="main" className="min-h-screen bg-white">
+    <main id="main" className="min-h-screen bg-white overflow-x-clip">
       {/* Hero */}
       <section className="relative overflow-hidden" style={{ background: "#f4f3ee" }}>
         <Navigation />
@@ -245,7 +245,9 @@ export default function CaseStudyLayout({
       </section>
 
       {/* Content */}
-      <section className="max-w-3xl mx-auto px-4 sm:px-8 py-16 md:py-24 overflow-x-clip">
+      {/* overflow-x-clip lives on <main> so fullBleed images can break out
+          of this 3xl column without causing a horizontal scrollbar. */}
+      <section className="max-w-3xl mx-auto px-4 sm:px-8 py-16 md:py-24">
         {sections.map((section, i) => (
           <motion.div
             key={section.title}
@@ -345,7 +347,7 @@ export default function CaseStudyLayout({
                       // on the surrounding section prevents a horizontal
                       // scrollbar when the viewport is narrower than 1280px.
                       section.fullBleed
-                        ? "relative left-1/2 -translate-x-1/2 w-[min(100vw,1280px)] px-4 sm:px-8"
+                        ? "relative left-1/2 -translate-x-1/2 w-[min(100vw,896px)] px-4 sm:px-8"
                         : undefined
                     }
                   >
