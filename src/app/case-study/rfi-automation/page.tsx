@@ -6,7 +6,7 @@ import type { Slide } from "@/components/case-study/types";
 export const metadata = {
   title: "AI Automation · Strider Technologies | Michael Davis",
   description:
-    "Strider's first AI-assisted Request for Information system. Cut analyst turnaround from two weeks to under 24 hours. As Director of Product Design, owned strategy and core IC design with Ashley Franco as partner.",
+    "Strider's first AI-assisted Request for Information system. Cut analyst turnaround from two weeks to under 24 hours. As Director of Product Design, led the end-to-end design.",
 };
 
 const COLOR = "from-[#0f172a] to-[#1e293b]";
@@ -17,7 +17,7 @@ const SLIDES: Slide[] = [
     kind: "cover",
     title: "AI Automation",
     subtext:
-      "Strider's first AI-assisted Request for Information system. Director of Product Design, owned strategy and core IC design with Ashley Franco partnering on IC.",
+      "Strider's first AI-assisted Request for Information system. Director of Product Design, led the end-to-end design.",
     image: null,
   },
   {
@@ -31,7 +31,7 @@ const SLIDES: Slide[] = [
     kind: "research",
     title: "Eight clients, four analysts, real workflows.",
     subtext:
-      "Ashley interviewed eight enterprise clients and four internal intelligence analysts. We watched how RFIs actually got created, what information clients usually added, and where the workflow broke.",
+      "I interviewed eight enterprise clients and four internal intelligence analysts. We watched how RFIs actually got created, what information clients usually added, and where the workflow broke.",
     image: null,
   },
   {
@@ -119,7 +119,7 @@ export default async function RfiAutomationPage({
       company="Strider Technologies"
       timeline="2025"
       color={COLOR}
-      summary="As Director of Product Design, I owned strategy, design direction, and core IC design on this project. I defined the workflow inside the platform, designed key surfaces myself, and shaped the AI-trust patterns across the system; Ashley Franco partnered with me as IC designer. The shipped system included an RFI submission form for both Spark and analyst requests, an RFI manager dashboard to track all requests, and individual RFI profile pages displaying submissions, reports, and related profile updates. Spark is Strider's AI agent. I collaborated closely with a product manager, front- and backend engineers, and intelligence operations analysts to ensure the system aligned with real investigative workflows."
+      summary="I led the end-to-end design of a new Request for Information (RFI) system that introduced AI-assisted intelligence requests using Strider's AI agent, Spark. Previously, clients submitted RFIs through our customer success team, which analysts then processed manually. I designed a new in-platform workflow including an RFI submission form supporting both Spark-generated and analyst-assisted requests, an RFI manager dashboard to track all requests, and individual RFI profile pages displaying submissions, reports, and related profile updates. I collaborated closely with a product manager, front- and backend engineers, and intelligence operations analysts to ensure the system aligned with real investigative workflows."
       skills={[
         "AI Product Design",
         "Workflow Automation",
@@ -135,7 +135,7 @@ export default async function RfiAutomationPage({
           title: "The Goal",
           type: "text",
           content: [
-            "Create an RFI system inside the platform that would:",
+            "Create an in-platform RFI system that would:",
           ],
         },
         {
@@ -185,13 +185,14 @@ export default async function RfiAutomationPage({
           title: "",
           type: "text",
           content: [
-            "Turnaround time could take up to two weeks, and clients had no way to submit or track RFIs inside the platform.",
+            "Turnaround time could take up to two weeks, and clients had no in-platform way to submit or track RFIs.",
           ],
         },
         {
           title: "",
           type: "image",
           content: "",
+          fullBleed: true,
           images: [
             {
               src: "/images/case-studies/rfi-automation/workflow-original.png",
@@ -261,13 +262,14 @@ export default async function RfiAutomationPage({
           title: "The Solution: A New RFI System",
           type: "text",
           content: [
-            "The redesigned system introduced three major components.",
+            "The redesigned system introduced four major components.",
           ],
         },
         {
           title: "",
           type: "image",
           content: "",
+          fullBleed: true,
           images: [
             {
               src: "/images/case-studies/rfi-automation/workflow-new.png",
@@ -284,10 +286,10 @@ export default async function RfiAutomationPage({
           ],
         },
         {
-          title: "2. RFIs Generated by Spark",
+          title: "2. Spark-generated RFIs",
           type: "text",
           content: [
-            "Once submitted, Spark generates a report and profile update within ~24 hours, compared to the previous turnaround of around two weeks with an analyst.",
+            "Once submitted, Spark generates a report and profile update within ~24 hours, compared to the previous ~2 week analyst turnaround.",
           ],
         },
         {
@@ -317,6 +319,7 @@ export default async function RfiAutomationPage({
           title: "",
           type: "image",
           content: "",
+          fullBleed: true,
           images: [
             {
               src: "/images/case-studies/rfi-automation/nobg/rfi-manager.png",
@@ -353,6 +356,7 @@ export default async function RfiAutomationPage({
           title: "",
           type: "image",
           content: "",
+          fullBleed: true,
           images: [
             {
               src: "/images/case-studies/rfi-automation/nobg/rfi-profile.png",
@@ -367,25 +371,24 @@ export default async function RfiAutomationPage({
           title: "Designing for AI Trust",
           type: "text",
           content: [
-            "When the project began, about 60% of clients were hesitant about AI across Strider's product line. The root cause wasn't fear of AI, it was company policy: their organizations wouldn't allow personal or private investigation data to be processed by AI, and Strider's terms didn't change during this project. The system had to work for those clients without asking them to bend their internal policies. Key design choices:",
+            "When the project began, about 60% of our clients were hesitant to use AI in their investigative workflows, largely because their companies wouldn't allow personal or private investigation data to be processed by AI. To build confidence, I designed the system to emphasize transparency. Key design choices included:",
           ],
         },
         {
           title: "",
           type: "list",
           content: [
-            "Clear labeling of RFIs generated by Spark",
+            "Clear labeling of Spark-generated RFIs",
             "Editable AI-generated submissions",
             "Visibility into estimated turnaround times",
-            "The ability to choose an analyst path instead",
+            "The ability to choose analyst-assisted RFIs",
           ],
         },
         {
           title: "",
           type: "text",
           content: [
-            "Clients with strict data policies could still use the product from start to finish via the analyst path, while clients without those restrictions got the speed of Spark.",
-            "Once Spark RFIs started returning findings that surfaced real risk, a small but meaningful share of client legal teams revisited their AI policies and approved Spark for this workflow specifically. We hadn't lobbied them. The output spoke for itself, and for those clients the cost of missing the risk it was uncovering outweighed the policy concern.",
+            "This allowed clients to gradually experiment with AI. Once Spark RFIs started returning findings that surfaced real risk, a small but meaningful share of client legal teams revisited their AI policies and approved Spark for this workflow specifically.",
           ],
         },
 
@@ -394,7 +397,7 @@ export default async function RfiAutomationPage({
           title: "Designing for Edge Cases & System Constraints",
           type: "text",
           content: [
-            "RFIs generated by Spark required Spark credits, which clients could purchase. To support this credit system, I designed several system states.",
+            "Spark-generated RFIs required Spark credits, which clients could purchase. To support this credit-based system, I designed several system states.",
           ],
         },
         {
@@ -425,7 +428,7 @@ export default async function RfiAutomationPage({
           type: "list",
           content: [
             "Notified them that credits were exhausted",
-            "Suggested switching to an analyst RFI instead",
+            "Suggested switching to analyst-assisted RFIs",
             "Provided guidance on purchasing additional credits",
           ],
         },
@@ -440,6 +443,7 @@ export default async function RfiAutomationPage({
           title: "",
           type: "image",
           content: "",
+          fullBleed: true,
           images: [
             {
               src: "/images/case-studies/rfi-automation/credit-states.png",
@@ -470,9 +474,8 @@ export default async function RfiAutomationPage({
           content: [
             "Faster intelligence delivery: Reduced turnaround time from ~14 days to <24 hours",
             "Reduced manual effort: ~45% decrease in time spent creating RFIs",
-            "Shifted client AI policy: A small share of client legal teams revised internal AI policies to allow Spark on this workflow, after seeing the system surface risk their teams would have missed",
-            "Moved the number across the company: AI hesitancy across Strider's product line dropped from ~60% to ~45%, with this feature recognized internally as the catalyst",
-            "New revenue opportunity: RFIs generated by Spark drove adoption of Spark credit purchases",
+            "Improved AI adoption: Clients hesitant to use AI decreased from ~60% to ~45%, with some client legal teams revising internal AI policies after seeing Spark surface risk their teams would have missed",
+            "New revenue opportunity: Spark-generated RFIs drove adoption of Spark credit purchases",
             "Improved investigation workflow: Clients could now submit, track, and review RFIs directly in the platform",
           ],
         },
@@ -501,7 +504,7 @@ export default async function RfiAutomationPage({
           title: "",
           type: "list",
           content: [
-            "Improving intelligence summaries generated by Spark",
+            "Improving Spark-generated intelligence summaries",
             "Adding more global organization identifiers",
             "Providing clearer RFI progress tracking",
             "Reducing response times further with incremental AI reporting",
