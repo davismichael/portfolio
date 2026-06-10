@@ -46,6 +46,21 @@ interface Section {
 // slide data, PresentationMode component, and modal wiring stay intact.
 const SHOW_PRESENTATION_BUTTON = false;
 
+// Render inline **bold** markers in section content (e.g. "took **two weeks**").
+function richText(text: string) {
+  const parts = text.split(/\*\*(.+?)\*\*/g);
+  if (parts.length === 1) return text;
+  return parts.map((part, i) =>
+    i % 2 === 1 ? (
+      <strong key={i} className="font-semibold text-neutral-900">
+        {part}
+      </strong>
+    ) : (
+      part
+    ),
+  );
+}
+
 interface CaseStudyLayoutProps {
   title: string;
   role: string;
@@ -284,14 +299,28 @@ export default function CaseStudyLayout({
                 {(Array.isArray(section.content)
                   ? section.content
                   : [section.content]
-                ).map((item, j) => (
-                  <li key={j} className="flex gap-3 text-neutral-700 leading-relaxed">
-                    <span className="text-neutral-500 font-bold mt-0.5 flex-shrink-0">
-                      &bull;
-                    </span>
-                    {item}
-                  </li>
-                ))}
+                ).map((item, j) => {
+                  // Bold a short "Label:" prefix (e.g. "The Problem: ...")
+                  const colonIdx = item.indexOf(": ");
+                  const hasLabel = colonIdx > 0 && colonIdx < 48;
+                  return (
+                    <li key={j} className="flex gap-3 text-neutral-700 leading-relaxed">
+                      <span className="text-neutral-500 font-bold mt-0.5 flex-shrink-0">
+                        &bull;
+                      </span>
+                      {hasLabel ? (
+                        <span>
+                          <strong className="font-semibold text-neutral-900">
+                            {item.slice(0, colonIdx + 1)}
+                          </strong>
+                          {richText(item.slice(colonIdx + 1))}
+                        </span>
+                      ) : (
+                        richText(item)
+                      )}
+                    </li>
+                  );
+                })}
               </ul>
             ) : section.type === "highlight" ? (
               <div className="rounded-xl p-6 border border-neutral-200 bg-neutral-50">
@@ -411,7 +440,7 @@ export default function CaseStudyLayout({
                   key={j}
                   className="text-neutral-700 leading-relaxed mb-4 last:mb-0"
                 >
-                  {text}
+                  {richText(text)}
                 </p>
               ))
             )}
