@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import ReducedMotionProvider from "@/components/ReducedMotionProvider";
 import ScrollToTop from "@/components/ScrollToTop";
+import StructuredData from "@/components/StructuredData";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -15,7 +16,27 @@ export const metadata: Metadata = {
   description:
     "Fixed-price apps and websites for founders and small businesses. One senior designer who writes the code. Live in 2 to 6 weeks. You own every line.",
   metadataBase: new URL("https://davismakes.com"),
+  alternates: { canonical: "/" },
+  keywords: [
+    "app developer Salt Lake City",
+    "MVP development",
+    "fixed price app development",
+    "website designer Utah",
+    "product designer who codes",
+    "iOS app developer for startups",
+    "Next.js developer",
+    "React Native developer",
+    "Flutter developer",
+    "AI-assisted development",
+  ],
+  authors: [{ name: "Michael Davis", url: "https://davismakes.com" }],
+  creator: "Michael Davis",
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
+  twitter: { card: "summary_large_image", title: "Davis Makes", description: "Apps and websites, designed and shipped. Fixed price. 2 to 6 weeks.", images: ["/brand/davismakes-logo.png"] },
   openGraph: {
+    type: "website",
+    url: "https://davismakes.com",
+    locale: "en_US",
     title: "Davis Makes",
     description: "Apps and websites, designed and shipped. Fixed price. 2 to 6 weeks.",
     siteName: "Davis Makes",
@@ -37,6 +58,7 @@ export default function RootLayout({
         <a href="#main" className="skip-link">
           Skip to content
         </a>
+        <StructuredData />
         <ScrollToTop />
         <ReducedMotionProvider>{children}</ReducedMotionProvider>
       </body>

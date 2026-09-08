@@ -1,0 +1,35 @@
+# Davis Makes
+
+> Fixed-price apps and websites for founders and small businesses, designed and built by one senior product designer who writes the code. Based in Salt Lake City, Utah. Works remotely. Site: https://davismakes.com
+
+## Who
+
+Michael Davis. 15+ years shipping software. Senior product design leader who builds mobile and web apps end to end. Shipped BreakOff (screen time app) to the App Store solo, including Apple's Family Controls review. Previously led design at Strider Technologies, ArbiterSports, Verb, WISEcode, and Mountain Crane.
+
+## Services and pricing (USD, published)
+
+- Prototype + Quote: $1,500. 48 hours. Clickable prototype of the idea plus a written fixed quote for the build. Credited toward the build. Any idea, any size.
+- Website: from $5,000. Landing page or small site, 1 to 5 pages. Copy, design, build, contact and booking forms, analytics. Live in 2 to 3 weeks. Full sites from $8,500. Not for online stores, large blogs, or members areas.
+- App: from $12,000. Mobile (iOS) or web app that people log into. Up to 3 core features, accounts and data, Stripe checkout if selling something, App Store or web launch. Live in 4 to 6 weeks. Paid in three parts. Not for marketplaces, fintech or payments platforms, HIPAA data, or large integrations.
+- Ongoing design partner: from $6,000 per month (about a day a week).
+- AI product audit: $4,500.
+
+All builds: fixed price agreed in writing, weekly working demos, full source code and IP transferred to the client, 30 days of fixes after launch.
+
+## How it works
+
+1. Day 0: 20-minute fit call. Written scope and fixed price within two days.
+2. Week 1: real screens on a staging URL.
+3. Every Friday: short video and a live build.
+4. Launch day: deployment and App Store review handled. Everything in the client's name.
+
+## Stack
+
+Next.js, React Native, Expo, Flutter, Supabase, Vercel, Stripe, Figma. AI-assisted with Claude Code and Cursor; every line reviewed by a human before launch.
+
+## Contact
+
+Book a call: https://cal.com/michael-davis-myyboh/30min
+Site: https://davismakes.com
+Portfolio: https://davismakes.com/portfolio
+LinkedIn: https://www.linkedin.com/in/michaelausdavis/

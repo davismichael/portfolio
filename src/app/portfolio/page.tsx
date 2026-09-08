@@ -5,6 +5,7 @@ import { MY_WORK, PROJECTS } from "@/lib/case-studies";
 
 export const metadata = {
   title: "Portfolio | Davis Makes",
+  alternates: { canonical: "/portfolio" },
   description:
     "A decade of shipped work: enterprise AI platforms, mobile payments, video commerce, and products Michael Davis designed, built, and launched on his own.",
 };
