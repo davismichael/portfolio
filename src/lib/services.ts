@@ -358,3 +358,26 @@ export const BENEFITS = [
   { title: "Weekly demos", body: "A live link every Friday." },
   { title: "30 days of fixes", body: "Included after launch." },
 ];
+
+// Logo files for the marquee. Company wordmarks stand alone; tool icons are
+// small and get their name next to them. All rendered in one flat weight.
+export const COMPANY_LOGOS = [
+  { name: "Strider Technologies", src: "/brand/logos/strider.svg", h: 26 },
+  { name: "Arbiter", src: "/brand/logos/arbitersports.svg", h: 18 },
+  { name: "Verb", src: "/brand/logos/verb.png", h: 26 },
+  { name: "WISEcode", src: "/brand/logos/wisecode.svg", h: 22 },
+  { name: "Mountain Crane", src: "/brand/logos/mountaincrane.png", h: 34 },
+];
+
+export const TOOL_LOGOS = [
+  { name: "Next.js", src: "/brand/logos/nextjs.svg" },
+  { name: "React Native", src: "/brand/logos/react.svg" },
+  { name: "Expo", src: "/brand/logos/expo.svg" },
+  { name: "Flutter", src: "/brand/logos/flutter.svg" },
+  { name: "Supabase", src: "/brand/logos/supabase.svg" },
+  { name: "Vercel", src: "/brand/logos/vercel.svg" },
+  { name: "Stripe", src: "/brand/logos/stripe.svg" },
+  { name: "Figma", src: "/brand/logos/figma.svg" },
+  { name: "Claude Code", src: "/brand/logos/claude.svg" },
+  { name: "Cursor", src: "/brand/logos/cursor.svg" },
+];

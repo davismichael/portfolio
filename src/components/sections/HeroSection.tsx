@@ -10,7 +10,7 @@ import TextReveal from "../animations/TextReveal";
 import MagneticButton from "../animations/MagneticButton";
 import Marquee from "../animations/Marquee";
 import FlowStrip from "./FlowStrip";
-import { STACK } from "@/lib/services";
+import { COMPANY_LOGOS, TOOL_LOGOS } from "@/lib/services";
 import { AVAILABILITY, BOOKING_URL, LED_DESIGN_AT, STATS } from "@/lib/services";
 
 
@@ -105,13 +105,24 @@ export default function HeroSection() {
       {/* Marquee: where I've led design + what I build with */}
       <div className="relative z-10 border-t border-neutral-200 py-5">
         <Marquee>
-          <span className="px-6 text-neutral-400 text-xs uppercase tracking-[0.3em]">Led design at</span>
-          {LED_DESIGN_AT.map((n) => (
-            <span key={n} className="px-6 text-neutral-800 font-semibold text-lg whitespace-nowrap">{n}</span>
+          <span className="px-6 text-neutral-400 text-xs uppercase tracking-[0.3em] whitespace-nowrap">Led design at</span>
+          {COMPANY_LOGOS.map((l) => (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              key={l.name}
+              src={l.src}
+              alt={l.name}
+              style={{ height: l.h }}
+              className="mx-7 w-auto [filter:brightness(0)] opacity-70 transition-all duration-200 hover:[filter:none] hover:opacity-100"
+            />
           ))}
-          <span className="px-6 text-neutral-400 text-xs uppercase tracking-[0.3em]">Built with</span>
-          {STACK.map((n) => (
-            <span key={n} className="px-6 text-neutral-800 font-semibold text-lg whitespace-nowrap">{n}</span>
+          <span className="px-6 text-neutral-400 text-xs uppercase tracking-[0.3em] whitespace-nowrap">Built with</span>
+          {TOOL_LOGOS.map((l) => (
+            <span key={l.name} className="group mx-6 flex items-center gap-2 whitespace-nowrap">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={l.src} alt="" className="h-5 w-5 [filter:brightness(0)] opacity-70 transition-all duration-200 group-hover:[filter:none] group-hover:opacity-100" />
+              <span className="text-neutral-800 font-semibold text-base">{l.name}</span>
+            </span>
           ))}
         </Marquee>
       </div>
