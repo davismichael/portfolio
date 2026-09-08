@@ -43,7 +43,6 @@ export default function HeroSection() {
               style={{ fontSize: "clamp(40px, 6vw, 84px)" }}
             >
               <RotatingWord words={["Apps", "Websites", "MVPs", "Ideas"]} interval={3800} className="text-[var(--color-accent)]" />
-              ,
               <br />
               <TextReveal text="designed and shipped." delay={0.15} />
             </h1>
