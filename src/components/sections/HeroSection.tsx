@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Navigation from "../Navigation";
 import PhoneFrame from "../ui/PhoneFrame";
-import LivePrototype from "../ui/LivePrototype";
 import RotatingWord from "../animations/RotatingWord";
 import CountUp from "../animations/CountUp";
 import TextReveal from "../animations/TextReveal";
@@ -90,12 +89,10 @@ export default function HeroSection() {
               transition={{ duration: 0.6, ease: "easeOut" }}
               className="relative w-[250px] sm:w-[280px]"
             >
-              <PhoneFrame>
-                <LivePrototype />
-              </PhoneFrame>
-              <p className="mt-5 text-center text-neutral-400 text-xs uppercase tracking-[0.25em]">
-                Tap around. It&apos;s a real build.
-              </p>
+              <PhoneFrame
+                src="/images/case-studies/breakoff/home.png"
+                alt="BreakOff app home screen"
+              />
 
 
 
