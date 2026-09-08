@@ -47,7 +47,7 @@ export default function ProcessSection() {
           ))}
         </ol>
         <FadeInOnScroll delay={0.3} className="mt-14 text-center">
-          <p className="inline-block border border-neutral-200 bg-white rounded-full px-5 py-2 text-sm text-neutral-700">
+          <p className="inline-block border border-neutral-200 bg-white rounded-full px-5 py-2 text-sm text-neutral-600">
             {CLIENT_TIME}
           </p>
         </FadeInOnScroll>

@@ -19,7 +19,7 @@ export default function FAQSection() {
             Questions
           </p>
           <h2
-            className="text-neutral-900 font-bold leading-tight"
+            className="text-neutral-900 font-bold leading-tight tracking-tight"
             style={{ fontSize: "clamp(30px, 4vw, 52px)" }}
           >
             Before you ask.

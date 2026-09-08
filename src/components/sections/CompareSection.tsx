@@ -13,7 +13,7 @@ export default function CompareSection() {
             Your options
           </p>
           <h2
-            className="text-neutral-900 font-bold leading-tight"
+            className="text-neutral-900 font-bold leading-tight tracking-tight"
             style={{ fontSize: "clamp(30px, 4vw, 52px)" }}
           >
             <TextReveal text="Me, or everything else." inView />

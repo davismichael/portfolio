@@ -50,7 +50,7 @@ export default function ContactSection() {
           </p>
           <h2
             className="text-neutral-900 font-bold leading-tight tracking-tight"
-            style={{ fontSize: "clamp(36px, 5vw, 64px)" }}
+            style={{ fontSize: "clamp(30px, 4vw, 52px)" }}
           >
             Tell me what
             <br />
@@ -98,7 +98,7 @@ export default function ContactSection() {
                     autoComplete="given-name"
                     value={formData.firstName}
                     onChange={handleChange}
-                    className="w-full bg-white text-neutral-900 text-base font-light px-3 py-2 border border-neutral-200 rounded-lg outline-none focus:border-neutral-900 transition-colors"
+                    className="w-full bg-white text-neutral-900 text-base px-3 py-2 border border-neutral-200 rounded-lg outline-none focus:border-neutral-900 transition-colors"
                   />
                 </div>
                 <div>
@@ -117,7 +117,7 @@ export default function ContactSection() {
                     autoComplete="family-name"
                     value={formData.lastName}
                     onChange={handleChange}
-                    className="w-full bg-white text-neutral-900 text-base font-light px-3 py-2 border border-neutral-200 rounded-lg outline-none focus:border-neutral-900 transition-colors"
+                    className="w-full bg-white text-neutral-900 text-base px-3 py-2 border border-neutral-200 rounded-lg outline-none focus:border-neutral-900 transition-colors"
                   />
                 </div>
               </div>
@@ -140,7 +140,7 @@ export default function ContactSection() {
                 autoComplete="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full bg-white text-neutral-900 text-base font-light px-3 py-2 border border-neutral-200 rounded-lg outline-none focus:border-neutral-900 transition-colors"
+                className="w-full bg-white text-neutral-900 text-base px-3 py-2 border border-neutral-200 rounded-lg outline-none focus:border-neutral-900 transition-colors"
               />
             </div>
 
@@ -159,7 +159,7 @@ export default function ContactSection() {
                 required
                 value={formData.projectType}
                 onChange={handleChange}
-                className="w-full bg-white text-neutral-900 text-base font-light px-3 py-2 border border-neutral-200 rounded-lg outline-none focus:border-neutral-900 transition-colors"
+                className="w-full bg-white text-neutral-900 text-base px-3 py-2 border border-neutral-200 rounded-lg outline-none focus:border-neutral-900 transition-colors"
               >
                 <option value="" disabled>
                   Select a project type
@@ -189,7 +189,7 @@ export default function ContactSection() {
                 placeholder="What are you building, who is it for, and when do you want it live?"
                 value={formData.message}
                 onChange={handleChange}
-                className="w-full bg-white text-neutral-900 text-base font-light px-3 py-2 border border-neutral-200 rounded-lg outline-none focus:border-neutral-900 transition-colors resize-vertical placeholder:text-neutral-400"
+                className="w-full bg-white text-neutral-900 text-base px-3 py-2 border border-neutral-200 rounded-lg outline-none focus:border-neutral-900 transition-colors resize-vertical placeholder:text-neutral-400"
               />
             </div>
 
@@ -204,18 +204,18 @@ export default function ContactSection() {
 
           {/* Right: Personal message */}
           <div className="flex flex-col justify-start pt-2">
-            <p className="text-base font-light leading-relaxed text-neutral-700 mb-6">
+            <p className="text-base leading-relaxed text-neutral-600 mb-6">
               Here is what happens next: you send a few lines about your
               project, I reply within one business day, and we get on a
               30-minute scope call. If we are a fit, you have a fixed-price
               proposal and a start date within two business days of that call.
             </p>
-            <p className="text-base font-light leading-relaxed text-neutral-700 mb-6">
+            <p className="text-base leading-relaxed text-neutral-600 mb-6">
               Not sure which service fits? Send the idea anyway. Part of my job
               is telling you the smallest version worth building, and I will
               tell you honestly if I am not the right person for it.
             </p>
-            <p className="text-base font-light leading-relaxed text-neutral-700">
+            <p className="text-base leading-relaxed text-neutral-600">
               Prefer email?{" "}
               <a
                 href="mailto:michaelaustindavis@icloud.com"

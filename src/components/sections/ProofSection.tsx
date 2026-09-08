@@ -1,18 +1,10 @@
-import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import FadeInOnScroll from "../animations/FadeInOnScroll";
+import PhoneFrame from "../ui/PhoneFrame";
 
 const SCREENS = [
   { src: "/images/case-studies/breakoff/home.png", alt: "BreakOff home screen" },
-  {
-    src: "/images/case-studies/breakoff/start-break.png",
-    alt: "BreakOff start break screen",
-  },
-  {
-    src: "/images/case-studies/breakoff/streaks.png",
-    alt: "BreakOff streaks and progress screen",
-  },
 ];
 
 // Flagship proof: BreakOff, shipped end to end. Research: a real product on
@@ -30,7 +22,7 @@ export default function ProofSection() {
               Proof, not promises
             </p>
             <h2
-              className="text-neutral-900 font-bold leading-tight mb-6"
+              className="text-neutral-900 font-bold leading-tight tracking-tight mb-6"
               style={{ fontSize: "clamp(30px, 4vw, 52px)" }}
             >
               I ship my own products the same way.
@@ -60,25 +52,11 @@ export default function ProofSection() {
             </div>
           </FadeInOnScroll>
 
-          {/* Right: app screenshots */}
+          {/* Right: current app screens. Add more to SCREENS as they come. */}
           <FadeInOnScroll delay={0.15}>
-            <div className="grid grid-cols-3 gap-3 md:gap-4">
-              {SCREENS.map((screen, i) => (
-                <div
-                  key={screen.src}
-                  className={`rounded-2xl overflow-hidden border border-neutral-200 shadow-sm bg-neutral-50 ${
-                    i === 1 ? "md:translate-y-6" : ""
-                  }`}
-                >
-                  <Image
-                    src={screen.src}
-                    alt={screen.alt}
-                    width={400}
-                    height={860}
-                    className="w-full h-auto"
-                    sizes="(max-width: 768px) 30vw, 190px"
-                  />
-                </div>
+            <div className={`grid gap-4 ${SCREENS.length === 1 ? "grid-cols-1 max-w-[260px] mx-auto" : "grid-cols-3"}`}>
+              {SCREENS.map((screen) => (
+                <PhoneFrame key={screen.src} src={screen.src} alt={screen.alt} />
               ))}
             </div>
           </FadeInOnScroll>

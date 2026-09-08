@@ -187,28 +187,28 @@ export default function Navigation() {
         <Link
           href="/#services"
           onClick={close}
-          className="text-neutral-900 text-sm font-normal uppercase tracking-[0.25em]"
+          className="text-neutral-900 text-sm font-normal uppercase tracking-[0.2em]"
         >
           Services
         </Link>
         <Link
           href="/#process"
           onClick={close}
-          className="text-neutral-900 text-sm font-normal uppercase tracking-[0.25em]"
+          className="text-neutral-900 text-sm font-normal uppercase tracking-[0.2em]"
         >
           How it works
         </Link>
         <Link
           href="/#pricing"
           onClick={close}
-          className="text-neutral-900 text-sm font-normal uppercase tracking-[0.25em]"
+          className="text-neutral-900 text-sm font-normal uppercase tracking-[0.2em]"
         >
           Pricing
         </Link>
         <Link
           href="/#contactme"
           onClick={close}
-          className="text-neutral-900 text-sm font-normal uppercase tracking-[0.25em]"
+          className="text-neutral-900 text-sm font-normal uppercase tracking-[0.2em]"
         >
           Contact
         </Link>

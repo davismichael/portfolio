@@ -8,6 +8,9 @@ export default function TrustSection() {
     <section id="services" className="bg-white border-t border-neutral-200">
       <div className="max-w-[1200px] mx-auto px-6 md:px-12 py-20 md:py-28">
         <FadeInOnScroll className="mb-12 md:mb-16 text-center">
+          <p className="text-neutral-500 text-xs uppercase tracking-[0.3em] font-medium mb-4">
+            What you get
+          </p>
           <h2
             className="text-neutral-900 font-bold leading-tight tracking-tight"
             style={{ fontSize: "clamp(30px, 4vw, 52px)" }}

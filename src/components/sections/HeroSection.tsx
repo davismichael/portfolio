@@ -121,7 +121,7 @@ export default function HeroSection() {
             <span key={l.name} className="group mx-6 flex items-center gap-2 whitespace-nowrap">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={l.src} alt="" className="h-5 w-5 [filter:brightness(0)] opacity-70 transition-all duration-200 group-hover:[filter:none] group-hover:opacity-100" />
-              <span className="text-neutral-800 font-semibold text-base">{l.name}</span>
+              <span className="text-neutral-900 font-semibold text-base">{l.name}</span>
             </span>
           ))}
         </Marquee>

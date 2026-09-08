@@ -56,7 +56,7 @@ export default function ServicesSection() {
 
                 <ul className="space-y-2.5 mb-7">
                   {plan.includes.map((item) => (
-                    <li key={item} className="flex items-center justify-center gap-2.5 text-neutral-800 text-[15px]">
+                    <li key={item} className="flex items-center justify-center gap-2.5 text-neutral-900 text-[15px]">
                       <Check size={15} strokeWidth={2.5} className="shrink-0 text-neutral-900" aria-hidden />
                       {item}
                     </li>
@@ -65,7 +65,7 @@ export default function ServicesSection() {
 
                 {(plan.goodFor || plan.notFor) && (
                   <div className="w-full border-t border-neutral-200 pt-5 mb-8 text-[13px] leading-relaxed">
-                    {plan.goodFor && <p className="text-neutral-700">{plan.goodFor}</p>}
+                    {plan.goodFor && <p className="text-neutral-600">{plan.goodFor}</p>}
                     {plan.notFor && <p className="text-neutral-400 mt-1.5">{plan.notFor}</p>}
                   </div>
                 )}
