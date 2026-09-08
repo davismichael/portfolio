@@ -72,14 +72,7 @@ export default function HeroSection() {
                 <ArrowRight size={14} strokeWidth={2.5} aria-hidden />
               </a>
               </MagneticButton>
-              <MagneticButton strength={0.15}>
-              <a
-                href="#pricing"
-                className="border border-neutral-300 text-neutral-900 text-xs font-bold uppercase tracking-[0.2em] px-8 py-3.5 rounded-full hover:border-neutral-900 hover:bg-neutral-50 transition-all duration-200"
-              >
-                See pricing
-              </a>
-              </MagneticButton>
+
             </motion.div>
 
             <div className="mt-8">

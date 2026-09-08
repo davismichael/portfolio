@@ -113,3 +113,12 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .marquee-track { animation: none; }
 }
+
+/* Touch devices: Safari shows a focus ring after a tap on buttons. Keep the
+   ring for keyboards only. */
+@media (hover: none) and (pointer: coarse) {
+  button:focus-visible,
+  a:focus-visible {
+    outline: none;
+  }
+}
