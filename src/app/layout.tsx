@@ -17,7 +17,10 @@ export const metadata: Metadata = {
     "Fixed-price apps and websites for founders and small businesses. One senior designer who writes the code. Live in 2 to 6 weeks. You own every line.",
   metadataBase: new URL("https://davismakes.com"),
   alternates: { canonical: "/" },
-  verification: { google: "M96M0VHUpcr0KfuvK29ma98AbXOCH2Uy-R8kwjM9oEI" },
+  verification: {
+    google: "M96M0VHUpcr0KfuvK29ma98AbXOCH2Uy-R8kwjM9oEI",
+    other: { "msvalidate.01": "870D4E890DA0ADD56700466ABA145B94" },
+  },
   keywords: [
     "app developer Salt Lake City",
     "MVP development",
