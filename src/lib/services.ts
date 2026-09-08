@@ -364,7 +364,7 @@ export const BENEFITS = [
 export const COMPANY_LOGOS = [
   { name: "Strider Technologies", src: "/brand/logos/strider.svg", h: 26 },
   { name: "Arbiter", src: "/brand/logos/arbitersports.svg", h: 18 },
-  { name: "Verb", src: "/brand/logos/verb.png", h: 26 },
+  { name: "Verb", src: "/brand/logos/verb.svg", h: 20 },
   { name: "WISEcode", src: "/brand/logos/wisecode.svg", h: 22 },
   { name: "Mountain Crane", src: "/brand/logos/mountaincrane.png", h: 34 },
 ];
