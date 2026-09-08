@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import ReducedMotionProvider from "@/components/ReducedMotionProvider";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -10,8 +11,16 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Michael A. Davis | Sr. Director of Product Design",
-  description: "Sr. Director of Product Design and AI product builder. I create digital experiences at the intersection of design strategy, AI, and engineering.",
+  title: "Davis Makes | Apps and websites, designed and shipped",
+  description:
+    "Fixed-price apps and websites for founders and small businesses. One senior designer who writes the code. Live in 2 to 6 weeks. You own every line.",
+  metadataBase: new URL("https://davismakes.com"),
+  openGraph: {
+    title: "Davis Makes",
+    description: "Apps and websites, designed and shipped. Fixed price. 2 to 6 weeks.",
+    siteName: "Davis Makes",
+    images: [{ url: "/brand/davismakes-logo.png", width: 2208, height: 688, alt: "Davis Makes" }],
+  },
 };
 
 export default function RootLayout({
@@ -28,6 +37,7 @@ export default function RootLayout({
         <a href="#main" className="skip-link">
           Skip to content
         </a>
+        <ScrollToTop />
         <ReducedMotionProvider>{children}</ReducedMotionProvider>
       </body>
     </html>

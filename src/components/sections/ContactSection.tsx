@@ -1,42 +1,75 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
+import BookingEmbed from "../ui/BookingEmbed";
+import { BOOKING_URL } from "@/lib/services";
+
+const PROJECT_TYPES = [
+  "Prototype + Quote",
+  "MVP Build",
+  "Marketing Website",
+  "AI Product Audit",
+  "Fractional Design Partner",
+  "Something else",
+];
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
-    subject: "",
+    projectType: "",
     message: "",
   });
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    window.location.href = `mailto:michaelaustindavis@icloud.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`From: ${formData.firstName} ${formData.lastName}\nEmail: ${formData.email}\n\n${formData.message}`)}`;
+    const subject = formData.projectType
+      ? `Project inquiry: ${formData.projectType}`
+      : "Project inquiry";
+    window.location.href = `mailto:michaelaustindavis@icloud.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`From: ${formData.firstName} ${formData.lastName}\nEmail: ${formData.email}\nProject type: ${formData.projectType}\n\n${formData.message}`)}`;
   };
 
   return (
     <section id="contactme" className="bg-white text-neutral-900 border-t border-neutral-200">
       <div className="max-w-[1200px] mx-auto px-6 md:px-12 py-20 md:py-28">
         {/* Heading */}
-        <h2
-          className="font-bold uppercase tracking-[0.05em] mb-4 text-neutral-900"
-          style={{ fontSize: "clamp(32px, 5vw, 56px)", lineHeight: 1.2 }}
-        >
-          Wanna Collaborate?
-        </h2>
+        <div className="text-center mb-12">
+          <p className="text-neutral-500 text-xs uppercase tracking-[0.3em] font-medium mb-4">
+            {BOOKING_URL ? "Book a 20-minute call" : "Get in touch"}
+          </p>
+          <h2
+            className="text-neutral-900 font-bold leading-tight tracking-tight"
+            style={{ fontSize: "clamp(36px, 5vw, 64px)" }}
+          >
+            Tell me what
+            <br />
+            you&apos;re building.
+          </h2>
+          <p className="text-neutral-600 text-lg mt-5">
+            {BOOKING_URL
+              ? "Pick a time. You leave with a price and a start date."
+              : "I reply within one business day."}
+          </p>
+        </div>
 
-        {/* Subheading */}
-        <p className="text-xs font-normal uppercase tracking-[0.2em] text-neutral-500 mb-12">
-          Let&apos;s Chat.
-        </p>
+        {BOOKING_URL && (
+          <div className="max-w-4xl mx-auto mb-16">
+            <BookingEmbed url={BOOKING_URL} />
+            <p className="text-center text-neutral-500 text-sm mt-6">
+              Prefer to write? Use the form below.
+            </p>
+          </div>
+        )}
 
         {/* Two-column layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
@@ -49,8 +82,6 @@ export default function ContactSection() {
               </legend>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  {/* Required indicator uses white/60 (≈7:1 on #1a1a1a) instead
-                      of white/30 (≈3.3:1) so it passes WCAG AA. */}
                   <label
                     htmlFor="contact-firstName"
                     className="block text-xs text-neutral-600 mb-1"
@@ -66,7 +97,7 @@ export default function ContactSection() {
                     autoComplete="given-name"
                     value={formData.firstName}
                     onChange={handleChange}
-                    className="w-full bg-white text-neutral-900 text-base font-light px-3 py-2 border border-neutral-500 rounded-sm outline-none focus:border-neutral-900"
+                    className="w-full bg-white text-neutral-900 text-base font-light px-3 py-2 border border-neutral-200 rounded-lg outline-none focus:border-neutral-900 transition-colors"
                   />
                 </div>
                 <div>
@@ -85,7 +116,7 @@ export default function ContactSection() {
                     autoComplete="family-name"
                     value={formData.lastName}
                     onChange={handleChange}
-                    className="w-full bg-white text-neutral-900 text-base font-light px-3 py-2 border border-neutral-500 rounded-sm outline-none focus:border-neutral-900"
+                    className="w-full bg-white text-neutral-900 text-base font-light px-3 py-2 border border-neutral-200 rounded-lg outline-none focus:border-neutral-900 transition-colors"
                   />
                 </div>
               </div>
@@ -108,28 +139,36 @@ export default function ContactSection() {
                 autoComplete="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full bg-white text-neutral-900 text-base font-light px-3 py-2 border border-neutral-500 rounded-sm outline-none focus:border-neutral-900"
+                className="w-full bg-white text-neutral-900 text-base font-light px-3 py-2 border border-neutral-200 rounded-lg outline-none focus:border-neutral-900 transition-colors"
               />
             </div>
 
-            {/* Subject */}
+            {/* Project type: light qualification without adding friction */}
             <div>
               <label
-                htmlFor="contact-subject"
+                htmlFor="contact-projectType"
                 className="block text-sm font-medium text-neutral-900 mb-1"
               >
-                Subject{" "}
+                What do you need?{" "}
                 <span className="text-xs text-neutral-500">(required)</span>
               </label>
-              <input
-                id="contact-subject"
-                type="text"
-                name="subject"
+              <select
+                id="contact-projectType"
+                name="projectType"
                 required
-                value={formData.subject}
+                value={formData.projectType}
                 onChange={handleChange}
-                className="w-full bg-white text-neutral-900 text-base font-light px-3 py-2 border border-neutral-500 rounded-sm outline-none focus:border-neutral-900"
-              />
+                className="w-full bg-white text-neutral-900 text-base font-light px-3 py-2 border border-neutral-200 rounded-lg outline-none focus:border-neutral-900 transition-colors"
+              >
+                <option value="" disabled>
+                  Select a project type
+                </option>
+                {PROJECT_TYPES.map((type) => (
+                  <option key={type} value={type}>
+                    {type}
+                  </option>
+                ))}
+              </select>
             </div>
 
             {/* Message */}
@@ -138,7 +177,7 @@ export default function ContactSection() {
                 htmlFor="contact-message"
                 className="block text-sm font-medium text-neutral-900 mb-1"
               >
-                Message{" "}
+                Tell me about it{" "}
                 <span className="text-xs text-neutral-500">(required)</span>
               </label>
               <textarea
@@ -146,21 +185,18 @@ export default function ContactSection() {
                 name="message"
                 required
                 rows={5}
+                placeholder="What are you building, who is it for, and when do you want it live?"
                 value={formData.message}
                 onChange={handleChange}
-                className="w-full bg-white text-neutral-900 text-base font-light px-3 py-2 border border-neutral-500 rounded-sm outline-none focus:border-neutral-900 resize-vertical"
+                className="w-full bg-white text-neutral-900 text-base font-light px-3 py-2 border border-neutral-200 rounded-lg outline-none focus:border-neutral-900 transition-colors resize-vertical placeholder:text-neutral-400"
               />
             </div>
 
-            {/* Submit. Solid white-on-dark to read as a real primary CTA. The
-                old ghosted gray-on-gray treatment was technically accessible
-                but visually felt disabled. Matches the hero "Let's work
-                together" button so the page has one consistent primary style. */}
             <button
               type="submit"
               className="inline-flex items-center gap-2 bg-neutral-900 text-white text-xs font-bold uppercase tracking-[0.2em] px-10 py-4 rounded-full hover:bg-neutral-800 transition-all duration-200 cursor-pointer"
             >
-              Email Me
+              Send it
               <span aria-hidden>→</span>
             </button>
           </form>
@@ -168,27 +204,39 @@ export default function ContactSection() {
           {/* Right: Personal message */}
           <div className="flex flex-col justify-start pt-2">
             <p className="text-base font-light leading-relaxed text-neutral-700 mb-6">
-              Hey, thanks for checking out my work.
+              Here is what happens next: you send a few lines about your
+              project, I reply within one business day, and we get on a
+              30-minute scope call. If we are a fit, you have a fixed-price
+              proposal and a start date within two business days of that call.
             </p>
             <p className="text-base font-light leading-relaxed text-neutral-700 mb-6">
-              I&apos;ve been building digital products for over a decade. More
-              recently I&apos;ve been focused on AI-powered software, especially
-              the kind that quietly makes someone&apos;s day easier.
-            </p>
-            <p className="text-base font-light leading-relaxed text-neutral-700 mb-6">
-              What are you working on?
+              Not sure which service fits? Send the idea anyway. Part of my job
+              is telling you the smallest version worth building, and I will
+              tell you honestly if I am not the right person for it.
             </p>
             <p className="text-base font-light leading-relaxed text-neutral-700">
-              If you want to know more about my design process, or if you want
-              to talk about a cool idea, don&apos;t hesitate to hit me up.
+              Prefer email?{" "}
+              <a
+                href="mailto:michaelaustindavis@icloud.com"
+                className="font-medium text-neutral-900 underline underline-offset-4 decoration-neutral-300 hover:decoration-neutral-900 transition-colors"
+              >
+                michaelaustindavis@icloud.com
+              </a>
             </p>
           </div>
         </div>
       </div>
 
       {/* Footer */}
-      <div className="border-t border-neutral-200 text-neutral-600 text-sm text-center py-6 font-medium">
-        <span>Michael A. Davis</span>
+      <div className="border-t border-neutral-200 text-neutral-600 text-sm text-center py-6 font-medium flex flex-wrap items-center justify-center">
+        <Image
+          src="/brand/davismakes-monogram.png"
+          alt="Davis Makes"
+          width={860}
+          height={584}
+          className="h-6 w-auto mr-3"
+        />
+        <span>Davis Makes</span>
         <span className="mx-2 text-neutral-400" aria-hidden>&middot;</span>
         <span>{new Date().getFullYear()}</span>
         <span className="mx-2 text-neutral-400" aria-hidden>&middot;</span>

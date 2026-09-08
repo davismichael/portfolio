@@ -8,6 +8,8 @@
   --color-mint-hover: #2bc898;
   --color-body-text: #363636;
   --color-light-grey: #f0f0f0;
+  --color-accent: #c14c21;
+  --color-accent-hover: #a33d18;
   --font-sans: var(--font-inter), "Inter", system-ui, sans-serif;
 }
 
@@ -95,4 +97,19 @@ body {
   html {
     scroll-behavior: auto;
   }
+}
+
+/* Marquee: a track duplicated twice, translated by half its width. */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee 90s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
 }

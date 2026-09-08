@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 export default function Navigation() {
@@ -96,40 +97,46 @@ export default function Navigation() {
 
   return (
     <nav className="absolute top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-4 md:py-5 bg-white">
-      {/* Logo. Full name on desktop, MD on mobile. */}
-      <Link
-        href="/"
-        className="text-neutral-900 italic font-light tracking-wide"
-        onClick={close}
-      >
-        <span className="md:hidden text-xl">MD</span>
-        <span className="hidden md:inline text-xl md:text-2xl">
-          Michael A. Davis
-        </span>
+      {/* Logo. Wordmark on desktop, monogram on mobile. */}
+      <Link href="/" aria-label="Davis Makes home" onClick={close} className="flex items-center">
+        <Image
+          src="/brand/davismakes-monogram.png"
+          alt=""
+          width={860}
+          height={584}
+          priority
+          className="md:hidden h-8 w-auto"
+        />
+        <Image
+          src="/brand/davismakes-logo.png"
+          alt="Davis Makes"
+          width={2208}
+          height={688}
+          priority
+          className="hidden md:block h-9 w-auto"
+        />
       </Link>
 
       {/* Desktop nav links */}
       <div className="hidden md:flex items-center gap-10">
         <Link
-          href="/#my-work"
+          href="/#services"
           className="text-neutral-900 text-xs font-normal uppercase tracking-[0.2em] hover:opacity-60 transition-opacity"
         >
-          Work
+          Services
         </Link>
         <Link
-          href="/projects"
+          href="/#process"
           className="text-neutral-900 text-xs font-normal uppercase tracking-[0.2em] hover:opacity-60 transition-opacity"
         >
-          Side Projects
+          How it works
         </Link>
-        <a
-          href="/Michael_Davis_Resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
+        <Link
+          href="/#pricing"
           className="text-neutral-900 text-xs font-normal uppercase tracking-[0.2em] hover:opacity-60 transition-opacity"
         >
-          Resume
-        </a>
+          Pricing
+        </Link>
         <Link
           href="/#contactme"
           className="text-neutral-900 text-xs font-normal uppercase tracking-[0.2em] hover:opacity-60 transition-opacity"
@@ -178,28 +185,26 @@ export default function Navigation() {
         }`}
       >
         <Link
-          href="/#my-work"
+          href="/#services"
           onClick={close}
           className="text-neutral-900 text-sm font-normal uppercase tracking-[0.25em]"
         >
-          Work
+          Services
         </Link>
         <Link
-          href="/projects"
+          href="/#process"
           onClick={close}
           className="text-neutral-900 text-sm font-normal uppercase tracking-[0.25em]"
         >
-          Side Projects
+          How it works
         </Link>
-        <a
-          href="/Michael_Davis_Resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
+        <Link
+          href="/#pricing"
           onClick={close}
           className="text-neutral-900 text-sm font-normal uppercase tracking-[0.25em]"
         >
-          Resume
-        </a>
+          Pricing
+        </Link>
         <Link
           href="/#contactme"
           onClick={close}
