@@ -40,3 +40,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .claude/
+
+# IndexNow key (the public/<key>.txt file is committed; this is just a local note)
+.indexnow-key
