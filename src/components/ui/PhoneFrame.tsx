@@ -7,10 +7,13 @@ export default function PhoneFrame({
   src,
   alt,
   className = "",
+  children,
 }: {
-  src: string;
-  alt: string;
+  src?: string;
+  alt?: string;
   className?: string;
+  /** Render live UI inside the glass instead of a screenshot. */
+  children?: React.ReactNode;
 }) {
   return (
     <div className={`relative ${className}`}>
@@ -24,14 +27,16 @@ export default function PhoneFrame({
       <div className="rounded-[46px] bg-neutral-950 p-[10px] shadow-[0_30px_60px_-20px_rgba(0,0,0,0.35),inset_0_0_0_1px_rgba(255,255,255,0.08)]">
         {/* Glass */}
         <div className="relative rounded-[36px] overflow-hidden bg-black aspect-[1179/2556]">
-          <Image
-            src={src}
-            alt={alt}
-            fill
-            sizes="(max-width: 768px) 260px, 300px"
-            className="object-cover"
-            priority
-          />
+          {children ?? (
+            <Image
+              src={src ?? ""}
+              alt={alt ?? ""}
+              fill
+              sizes="(max-width: 768px) 260px, 300px"
+              className="object-cover"
+              priority
+            />
+          )}
         </div>
       </div>
     </div>

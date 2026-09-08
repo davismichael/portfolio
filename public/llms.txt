@@ -29,7 +29,7 @@ Next.js, React Native, Expo, Flutter, Supabase, Vercel, Stripe, Figma. AI-assist
 
 ## Contact
 
-Book a call: https://cal.com/michael-davis-myyboh/30min
+Book a call: https://cal.com/davismakes/fit-call
 Site: https://davismakes.com
 Portfolio: https://davismakes.com/portfolio
 LinkedIn: https://www.linkedin.com/in/michaelausdavis/

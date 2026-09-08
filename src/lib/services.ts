@@ -193,7 +193,7 @@ export const AVAILABILITY = {
 
 // Optional booking link (Cal.com / Calendly). Leave empty to hide the
 // "book a call" links and fall back to the contact form.
-export const BOOKING_URL = "https://cal.com/michael-davis-myyboh/30min";
+export const BOOKING_URL = "https://cal.com/davismakes/fit-call";
 
 // Stat strip under the hero. Numbers over adjectives.
 export const STATS = [
