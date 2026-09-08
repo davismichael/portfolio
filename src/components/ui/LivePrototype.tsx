@@ -1,6 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
+import { BatteryFull, CalendarDays, Flame, Home, Play, Plus, Signal, Square, User, Wifi } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 
 // A tappable mini version of BreakOff running inside the hero phone.
@@ -77,7 +78,7 @@ export default function LivePrototype() {
       {/* Status bar */}
       <div className="flex items-center justify-between px-5 pt-3 text-[10px] font-semibold">
         <span>9:41</span>
-        <span className="tracking-tight">●●● ᯤ ▮</span>
+        <span className="flex items-center gap-1"><Signal size={10} /><Wifi size={10} /><BatteryFull size={12} /></span>
       </div>
 
       {/* Header */}
@@ -85,8 +86,8 @@ export default function LivePrototype() {
         <span className="font-bold text-[15px] tracking-tight">
           Break<span style={{ color: ORANGE }}>O</span>ff
         </span>
-        <span className="rounded-full px-2 py-0.5 text-[10px] font-bold" style={{ background: "#3a2312", color: ORANGE }}>
-          🔥 6
+        <span className="rounded-full px-2 py-0.5 text-[10px] font-bold flex items-center gap-1" style={{ background: "#3a2312", color: ORANGE }}>
+          <Flame size={11} fill={ORANGE} /> 6
         </span>
       </div>
 
@@ -129,7 +130,7 @@ export default function LivePrototype() {
                 className="flex items-center justify-between rounded-lg bg-[#171717] px-3 py-2"
               >
                 <div className="flex items-center gap-2">
-                  <span className="w-5 h-5 rounded-md bg-neutral-800 flex items-center justify-center text-[10px]">▦</span>
+                  <span className="w-5 h-5 rounded-md bg-neutral-800 flex items-center justify-center"><CalendarDays size={11} /></span>
                   <div className="leading-tight">
                     <p className="text-[9px] text-neutral-400">Next break</p>
                     <p className="text-[11px] font-semibold">{s.name}</p>
@@ -147,24 +148,25 @@ export default function LivePrototype() {
         <motion.button
           whileTap={{ scale: 0.96 }}
           onClick={toggleBreak}
-          className="flex-1 rounded-full py-2 text-[11px] font-bold"
+          className="flex-1 rounded-full py-2 text-[11px] font-bold flex items-center justify-center gap-1.5"
           style={onBreak ? { background: ORANGE, color: "#111" } : { background: "#fff", color: "#111" }}
         >
-          {onBreak ? "■ End Break" : "▶ Start Break"}
+          {onBreak ? <Square size={10} fill="#111" /> : <Play size={10} fill="#111" />}
+          {onBreak ? "End Break" : "Start Break"}
         </motion.button>
         <motion.button
           whileTap={{ scale: 0.96 }}
           onClick={addSchedule}
-          className="flex-1 rounded-full py-2 text-[11px] font-semibold bg-[#1f1f1f]"
+          className="flex-1 rounded-full py-2 text-[11px] font-semibold bg-[#1f1f1f] flex items-center justify-center gap-1"
         >
-          + Add Schedule
+          <Plus size={11} /> Add Schedule
         </motion.button>
       </div>
 
       {/* Tab bar */}
       <div className="flex justify-around border-t border-neutral-800 px-4 py-2 pb-4 text-[9px] text-neutral-400 shrink-0">
-        <span className="text-white">⌂ Home</span>
-        <span>◯ Account</span>
+        <span className="text-white flex flex-col items-center gap-0.5"><Home size={14} />Home</span>
+        <span className="flex flex-col items-center gap-0.5"><User size={14} />Account</span>
       </div>
 
       {/* Toast */}

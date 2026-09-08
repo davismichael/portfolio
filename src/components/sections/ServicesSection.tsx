@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowRight, Check } from "lucide-react";
 import FadeInOnScroll from "../animations/FadeInOnScroll";
 import TextReveal from "../animations/TextReveal";
 import { PLANS, PLAN_EXTRAS } from "@/lib/services";
@@ -56,9 +57,7 @@ export default function ServicesSection() {
                 <ul className="space-y-2.5 mb-7">
                   {plan.includes.map((item) => (
                     <li key={item} className="flex items-center justify-center gap-2.5 text-neutral-800 text-[15px]">
-                      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden className="shrink-0">
-                        <path d="M3 8.5L6.5 12L13 4.5" stroke="#171717" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
+                      <Check size={15} strokeWidth={2.5} className="shrink-0 text-neutral-900" aria-hidden />
                       {item}
                     </li>
                   ))}
@@ -81,7 +80,7 @@ export default function ServicesSection() {
                     }`}
                   >
                     {plan.cta}
-                    <span aria-hidden>→</span>
+                    <ArrowRight size={14} strokeWidth={2.5} aria-hidden />
                   </Link>
                   <p className="text-neutral-500 text-xs mt-3 min-h-[1rem]">{plan.note ?? ""}</p>
                 </div>

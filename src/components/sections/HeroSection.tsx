@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import Navigation from "../Navigation";
 import PhoneFrame from "../ui/PhoneFrame";
 import LivePrototype from "../ui/LivePrototype";
@@ -68,7 +69,7 @@ export default function HeroSection() {
                 className="inline-flex items-center gap-2 bg-neutral-900 text-white text-xs font-bold uppercase tracking-[0.2em] px-8 py-3.5 rounded-full hover:bg-[var(--color-accent)] transition-all duration-200"
               >
                 {BOOKING_URL ? "Book a fit call" : "Start a project"}
-                <span aria-hidden>→</span>
+                <ArrowRight size={14} strokeWidth={2.5} aria-hidden />
               </a>
               </MagneticButton>
               <MagneticButton strength={0.15}>

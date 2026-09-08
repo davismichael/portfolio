@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Plus } from "lucide-react";
 import FadeInOnScroll from "../animations/FadeInOnScroll";
 import { FAQS } from "@/lib/services";
 
@@ -40,14 +41,13 @@ export default function FAQSection() {
                   <span className="text-neutral-900 font-semibold text-base md:text-lg group-hover:opacity-70 transition-opacity">
                     {faq.question}
                   </span>
-                  <span
+                  <Plus
+                    size={18}
                     aria-hidden
-                    className={`text-neutral-500 text-xl leading-none shrink-0 transition-transform duration-200 ${
+                    className={`text-neutral-500 shrink-0 transition-transform duration-200 ${
                       open ? "rotate-45" : ""
                     }`}
-                  >
-                    +
-                  </span>
+                  />
                 </button>
                 <div
                   id={`faq-panel-${i}`}

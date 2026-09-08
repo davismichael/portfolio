@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import FadeInOnScroll from "../animations/FadeInOnScroll";
 
@@ -48,7 +49,7 @@ export default function ProofSection() {
                 className="inline-flex items-center gap-2 bg-neutral-900 text-white text-xs font-bold uppercase tracking-[0.2em] px-6 py-3 rounded-full hover:bg-neutral-800 transition-all duration-200"
               >
                 Visit BreakOff
-                <span aria-hidden>→</span>
+                <ArrowRight size={14} strokeWidth={2.5} aria-hidden />
               </a>
               <Link
                 href="/portfolio"

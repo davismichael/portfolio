@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 import BookingEmbed from "../ui/BookingEmbed";
 import { BOOKING_URL } from "@/lib/services";
 
@@ -197,7 +198,7 @@ export default function ContactSection() {
               className="inline-flex items-center gap-2 bg-neutral-900 text-white text-xs font-bold uppercase tracking-[0.2em] px-10 py-4 rounded-full hover:bg-neutral-800 transition-all duration-200 cursor-pointer"
             >
               Send it
-              <span aria-hidden>→</span>
+              <ArrowRight size={14} strokeWidth={2.5} aria-hidden />
             </button>
           </form>
 
@@ -248,13 +249,7 @@ export default function ContactSection() {
           rel="noopener noreferrer"
           className="inline-flex items-center gap-1.5 hover:text-neutral-900 transition-colors"
         >
-          <svg
-            width="12"
-            height="12"
-            viewBox="0 0 16 16"
-            fill="currentColor"
-            aria-hidden
-          >
+          <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor" aria-hidden>
             <path d="M13.632 13.635h-2.37V9.922c0-.886-.018-2.025-1.234-2.025-1.235 0-1.424.964-1.424 1.96v3.778h-2.37V6h2.275v1.04h.032c.317-.6 1.091-1.232 2.246-1.232 2.4 0 2.845 1.58 2.845 3.637v4.19zM3.558 4.957a1.376 1.376 0 110-2.751 1.376 1.376 0 010 2.751zm1.187 8.678H2.371V6h2.374v7.635zM14.816 0H1.18C.528 0 0 .516 0 1.153v13.694C0 15.484.528 16 1.18 16h13.635C15.467 16 16 15.484 16 14.847V1.153C16 .516 15.467 0 14.816 0z" />
           </svg>
           LinkedIn
