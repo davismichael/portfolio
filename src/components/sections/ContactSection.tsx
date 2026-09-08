@@ -238,6 +238,8 @@ export default function ContactSection() {
         />
         <span>Davis Makes</span>
         <span className="mx-2 text-neutral-400" aria-hidden>&middot;</span>
+        <span className="text-neutral-500">A Boxes &amp; Colors Inc. company</span>
+        <span className="mx-2 text-neutral-400" aria-hidden>&middot;</span>
         <span>{new Date().getFullYear()}</span>
         <span className="mx-2 text-neutral-400" aria-hidden>&middot;</span>
         <a
