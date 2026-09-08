@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Michael Davis", url: "https://davismakes.com" }],
   creator: "Michael Davis",
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
-  twitter: { card: "summary_large_image", title: "Davis Makes", description: "Apps and websites, designed and shipped. Fixed price. 2 to 6 weeks.", images: ["/brand/davismakes-logo.png"] },
+  twitter: { card: "summary_large_image", title: "Davis Makes", description: "Apps and websites, designed and shipped. Fixed price. 2 to 6 weeks." },
   openGraph: {
     type: "website",
     url: "https://davismakes.com",
@@ -44,7 +44,6 @@ export const metadata: Metadata = {
     title: "Davis Makes",
     description: "Apps and websites, designed and shipped. Fixed price. 2 to 6 weeks.",
     siteName: "Davis Makes",
-    images: [{ url: "/brand/davismakes-logo.png", width: 2208, height: 688, alt: "Davis Makes" }],
   },
 };
 
