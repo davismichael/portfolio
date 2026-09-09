@@ -181,25 +181,49 @@ export const FAQS: FaqItem[] = [
   },
 ];
 
-// Availability pill. Majority pattern on converting builder sites is a
-// dated capacity line ("accepting 3 projects for September") rather than an
-// evergreen "1 spot left". Update this by hand each month.
+// Availability pill. "2 spots left" reads as hungry to a senior buyer;
+// a selective cadence reads as in demand. Same information, better signal.
+// Flip `open` to false when the quarter is committed.
 export const AVAILABILITY = {
   open: true,
   month: "October 2026",
   slotsOpen: 2,
   slotsTotal: 3,
+  label: "Taking one new engagement per quarter",
+  closedLabel: "Committed through this quarter \u00b7 waitlist open",
 };
 
 // Optional booking link (Cal.com / Calendly). Leave empty to hide the
 // "book a call" links and fall back to the contact form.
 export const BOOKING_URL = "https://cal.com/davismakes/fit-call";
 
-// Stat strip under the hero. Numbers over adjectives.
-export const STATS = [
+// Stat strip under the hero. Numbers over adjectives, and the middle one is
+// a shipped result rather than a term of business. `href` makes a stat a link
+// through to the case study that backs it up.
+export const STATS: { value: string; label: string; href?: string }[] = [
   { value: "15+", label: "years shipping product" },
-  { value: "Fixed", label: "price, agreed in writing" },
+  {
+    value: "<24 hrs",
+    label: "analyst turnaround at Strider, down from two weeks",
+    href: "/case-study/rfi-automation",
+  },
   { value: "100%", label: "code and IP ownership" },
+];
+
+// Qualifying section. Naming who the work is not for reads as confidence and
+// filters the calls that waste a Friday.
+export const FIT_FOR = [
+  "You have users, or a bet you have already committed to making",
+  "One decision maker who can say yes in the room",
+  "An AI feature going into a workflow where the output has to be trusted",
+  "Budget starts around $5,000 for a site, $12,000 for an app",
+];
+
+export const FIT_NOT_FOR = [
+  "Large staffed engineering programs that need a team, not a person",
+  "Projects with no decision maker, or a committee that has not agreed on scope",
+  "An idea with no users and no scope yet. Start with the $1,500 prototype instead",
+  "Anyone shopping on lowest price. If a template shop is the right call, I will say so",
 ];
 
 // "You own everything" + how AI fits. Answers the 2026 buyer fears:
@@ -381,3 +405,14 @@ export const TOOL_LOGOS = [
   { name: "Claude Code", src: "/brand/logos/claude.svg" },
   { name: "Cursor", src: "/brand/logos/cursor.svg" },
 ];
+
+// Testimonials. The section renders only when this has entries, so the
+// site never shows an empty "what clients say" block. Keep quotes short.
+export interface Testimonial {
+  quote: string;
+  name: string;
+  role: string;
+  company: string;
+}
+
+export const TESTIMONIALS: Testimonial[] = [];

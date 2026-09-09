@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Navigation from "../Navigation";
@@ -16,8 +17,8 @@ import { AVAILABILITY, BOOKING_URL, LED_DESIGN_AT, STATS } from "@/lib/services"
 
 export default function HeroSection() {
   const availabilityText = AVAILABILITY.open
-    ? `Available ${AVAILABILITY.month} · ${AVAILABILITY.slotsOpen} spots`
-    : `Fully booked · waitlist for ${AVAILABILITY.month}`;
+    ? AVAILABILITY.label
+    : AVAILABILITY.closedLabel;
 
   return (
     // Product-first hero: short copy on the left, a real shipped app on the
@@ -130,17 +131,36 @@ export default function HeroSection() {
       {/* Stat strip */}
       <div className="relative z-10 border-t border-neutral-200">
         <dl className="max-w-[1200px] mx-auto px-6 md:px-12 py-8 grid grid-cols-3 gap-6">
-          {STATS.map((stat) => (
-            <div key={stat.label}>
-              <dt className="sr-only">{stat.label}</dt>
-              <dd>
+          {STATS.map((stat) => {
+            const body = (
+              <>
                 <span className="block text-neutral-900 font-bold text-2xl md:text-3xl leading-none">
                   <CountUp value={stat.value} />
                 </span>
                 <span className="block text-neutral-500 text-xs mt-2">{stat.label}</span>
-              </dd>
-            </div>
-          ))}
+              </>
+            );
+            return (
+              <div key={stat.label}>
+                <dt className="sr-only">{stat.label}</dt>
+                <dd>
+                  {stat.href ? (
+                    <Link
+                      href={stat.href}
+                      className="group block focus-visible:outline-2 focus-visible:outline-neutral-900"
+                    >
+                      {body}
+                      <span className="mt-2 inline-block text-neutral-400 text-xs underline underline-offset-4 transition-colors group-hover:text-neutral-900">
+                        Read the case study
+                      </span>
+                    </Link>
+                  ) : (
+                    body
+                  )}
+                </dd>
+              </div>
+            );
+          })}
         </dl>
       </div>
     </section>

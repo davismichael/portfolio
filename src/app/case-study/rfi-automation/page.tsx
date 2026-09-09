@@ -1,6 +1,4 @@
 import CaseStudyLayout from "@/components/case-study/CaseStudyLayout";
-import UnlockScreen from "@/components/case-study/UnlockScreen";
-import { isUnlocked } from "@/lib/case-study-auth";
 import type { Slide } from "@/components/case-study/types";
 
 export const metadata = {
@@ -10,8 +8,6 @@ export const metadata = {
 };
 
 const COLOR = "from-[#0f172a] to-[#1e293b]";
-const RETURN_TO = "/case-study/rfi-automation";
-
 const SLIDES: Slide[] = [
   {
     kind: "cover",
@@ -95,26 +91,10 @@ const SLIDES: Slide[] = [
   },
 ];
 
-export default async function RfiAutomationPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ unlock_error?: string }>;
-}) {
-  const unlocked = await isUnlocked();
-  if (!unlocked) {
-    const params = await searchParams;
-    return (
-      <UnlockScreen
-        caseStudyName="AI Automation"
-        returnTo={RETURN_TO}
-        error={params.unlock_error === "1"}
-      />
-    );
-  }
-
+export default function RfiAutomationPage() {
   return (
     <CaseStudyLayout
-      title="Accelerating Intelligence Requests Through AI Automation"
+      title="Cut analyst turnaround from two weeks to under 24 hours"
       role="Director of Product Design"
       company="Strider Technologies"
       timeline="2025"
@@ -140,6 +120,31 @@ export default async function RfiAutomationPage({
             "The Solution: one in-platform workflow with both Spark and analyst paths",
             "The Design Choices: transparency, editability, and credit system states",
             "The Outcome: turnaround under **24 hours** and measurably higher AI adoption",
+          ],
+        },
+
+        // Snapshot. Numbers up top so a skimmer gets the result in four seconds.
+        {
+          title: "Snapshot",
+          type: "stats",
+          content: "",
+          stats: [
+            {
+              value: "14 days to under 24 hours",
+              label: "Analyst turnaround on a client request for information",
+            },
+            {
+              value: "45%",
+              label: "Less time spent creating a request, against the manual process",
+            },
+            {
+              value: "60% to 45%",
+              label: "Clients unwilling to let AI process their investigation data",
+            },
+            {
+              value: "12 interviews",
+              label: "Eight enterprise clients and four intelligence analysts, before any UI",
+            },
           ],
         },
 
@@ -512,6 +517,32 @@ export default async function RfiAutomationPage({
             {
               src: "/videos/case-studies/rfi-automation/rfi.mp4",
               caption: "The full RFI workflow in the shipped product.",
+            },
+          ],
+        },
+
+        // The result, in the DesignMe shape: big numbers, no prose.
+        {
+          title: "The result",
+          type: "stats",
+          content: "",
+          stats: [
+            {
+              value: "Under 24 hours",
+              label: "Down from roughly 14 days, on every client request for information",
+            },
+            {
+              value: "45% faster to submit",
+              label: "Measured against the manual, out-of-product process it replaced",
+            },
+            {
+              value: "15 points of AI hesitancy removed",
+              label:
+                "Client resistance to AI on investigation data fell from about 60% to about 45%",
+            },
+            {
+              value: "New revenue line",
+              label: "Spark-generated requests drove adoption of Spark credit purchases",
             },
           ],
         },

@@ -14,7 +14,6 @@ const ALL_WORK: CaseStudy[] = [
       "Strider's first AI-assisted RFI system, cutting analyst turnaround from two weeks to under 24 hours.",
     image: "/images/case-studies/rfi-automation/nobg/hero-opaque.png",
     href: "/case-study/rfi-automation",
-    locked: true,
   },
   {
     title: "One Platform",

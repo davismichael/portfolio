@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import Navigation from "@/components/Navigation";
 import PresentationMode from "@/components/case-study/PresentationMode";
 import type { Slide } from "@/components/case-study/types";
+import { BOOKING_URL } from "@/lib/services";
 
 interface ImageItem {
   src: string;
@@ -30,7 +31,17 @@ interface VideoItem {
 interface Section {
   title: string;
   content: string | string[];
-  type?: "text" | "list" | "quote" | "highlight" | "image" | "grid" | "video";
+  type?:
+    | "text"
+    | "list"
+    | "quote"
+    | "highlight"
+    | "image"
+    | "grid"
+    | "video"
+    | "stats";
+  /** Boxed metrics, used with type: "stats". Three or four reads best. */
+  stats?: { value: string; label: string }[];
   images?: ImageItem[];
   videos?: VideoItem[];
   /**
@@ -280,7 +291,23 @@ export default function CaseStudyLayout({
               </h2>
             )}
 
-            {section.type === "quote" ? (
+            {section.type === "stats" ? (
+              <div className="flex flex-col gap-3">
+                {(section.stats ?? []).map((stat) => (
+                  <div
+                    key={stat.label}
+                    className="border border-neutral-200 bg-[#faf9f6] px-7 py-7 sm:px-9 sm:py-8"
+                  >
+                    <p className="text-neutral-900 font-bold leading-none tracking-tight text-3xl sm:text-4xl">
+                      {stat.value}
+                    </p>
+                    <p className="text-neutral-500 text-[15px] mt-3 leading-relaxed">
+                      {stat.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            ) : section.type === "quote" ? (
               <blockquote className="border-l-2 border-neutral-300 pl-5 py-2">
                 {(Array.isArray(section.content)
                   ? section.content
@@ -447,35 +474,57 @@ export default function CaseStudyLayout({
           </motion.div>
         ))}
 
-        {/* Back to work CTA */}
+        {/* Closing CTA. A case study that ends in "back to all work" is a
+            dead end. This one ends where the money is. */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.25, ease: "easeOut" }}
-          className="border-t border-neutral-200 pt-12 mt-16"
+          className="border-t border-neutral-200 pt-14 mt-16"
         >
-          <Link
-            href="/#my-work"
-            onClick={handleBack}
-            className="inline-flex items-center gap-2 bg-neutral-900 text-white rounded-full px-8 py-3.5 font-semibold text-sm uppercase tracking-[0.15em] transition-all duration-200 hover:bg-neutral-800"
+          <p className="text-neutral-500 text-xs uppercase tracking-[0.3em] font-medium mb-4">
+            You&rsquo;ve reached the end
+          </p>
+          <h2
+            className="text-neutral-900 font-bold leading-tight tracking-tight mb-4"
+            style={{ fontSize: "clamp(26px, 3.4vw, 40px)" }}
           >
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
+            Tell me what you&rsquo;re building.
+          </h2>
+          <p className="text-neutral-600 text-lg mb-8 max-w-lg">
+            Pick a time. You leave with a price and a start date.
+          </p>
+
+          <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
+            {BOOKING_URL && (
+              <a
+                href={BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-neutral-900 text-white rounded-full px-8 py-3.5 font-semibold text-sm uppercase tracking-[0.15em] transition-all duration-200 hover:bg-neutral-800"
+              >
+                Book a fit call
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
+                  <path
+                    d="M3 8H13M13 8L9 4M13 8L9 12"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </a>
+            )}
+
+            <Link
+              href="/#my-work"
+              onClick={handleBack}
+              className="text-neutral-500 hover:text-neutral-900 text-sm font-medium uppercase tracking-[0.15em] transition-colors"
             >
-              <path
-                d="M13 8H3M3 8L7 4M3 8L7 12"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            Back to all work
-          </Link>
+              Back to all work
+            </Link>
+          </div>
         </motion.div>
       </section>
 

@@ -4,6 +4,8 @@ import ProcessSection from "@/components/sections/ProcessSection";
 import ProofSection from "@/components/sections/ProofSection";
 import TrustSection from "@/components/sections/TrustSection";
 import CompareSection from "@/components/sections/CompareSection";
+import FitSection from "@/components/sections/FitSection";
+import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import FAQSection from "@/components/sections/FAQSection";
 import ContactSection from "@/components/sections/ContactSection";
 
@@ -16,9 +18,11 @@ export default function Home() {
       <HeroSection />
       <ServicesSection />
       <CompareSection />
+      <FitSection />
       <ProcessSection />
       <TrustSection />
       <ProofSection />
+      <TestimonialsSection />
       <FAQSection />
       <ContactSection />
     </main>
